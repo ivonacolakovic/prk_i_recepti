@@ -1,4 +1,4 @@
-package praktikumIRecepti;
+package si.um.feri.praktikum.razredi;
 
 public class TipJedi {
 	
