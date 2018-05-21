@@ -48,7 +48,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Doma</a></li>
-      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Recepti</a></li>
       <li><a href="#">Page 2</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
