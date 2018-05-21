@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="si.um.feri.praktikum.razredi.*"%>
+<%@ page import="si.um.feri.praktikum.dao.*"%>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
