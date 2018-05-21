@@ -7,29 +7,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
- <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>dodajRecept</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <h1>Dodaj nov recept</h1>
-<form action="/action_page.php" method="post"
-
-onsubmit="return validateForm()" method="post" action="">
-
-        <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv" required></p>
-        <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" required name="steviloOseb" ></p>
-        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave" required name="casPriprave" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
-        <p><b>Opis:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis" required name="kratekOpis" required></textarea></p>
-        <p><b>Video:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video"  name="video" ></p>
-        <p><b>Slika:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  required name="slika" ></p>
-        <p><b>Kalorije:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"  required name="kalorije" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
-        <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  required name="mascobe"pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
-        <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati"  required name="hidrati" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p> 
-        <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  required name="priprava" required></textarea></p>
-        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  required name="datum" required></p> 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Recepti</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="index.jsp#">Doma</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+       <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Poisci">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+    
+     <li class="active"><a href="#"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<form action="" method="post">
+        <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
+        <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" required name="steviloOseb"></p>
+        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave" required name="casPriprave"></p>
+        <p><b>Opis:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis" required name="kratekOpis"></textarea></p>
+        <p><b>Video:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" required name="video"></p>
+        <p><b>Slika:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  required name="slika"></p>
+        <p><b>Kalorije:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"  required name="kalorije"></p>
+        <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  required name="mascobe"></p>
+        <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati"  required name="hidrati"></p> 
+        <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  required name="priprava"></textarea></p>
+        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  required name="datum"></p> 
         
-        <p><button class="w3-button" type="submit"name="add">KONEC</button></p>
+        <p><button type="button" class="btn btn-success" type="submit"name="add">DONE</button></p>
       </form>
       
       <%
@@ -39,7 +67,6 @@ onsubmit="return validateForm()" method="post" action="">
     	  ReceptZaglavlje rz=new ReceptZaglavlje();
     	 
     	  rz.setNaziv(request.getParameter("naziv"));
-
     	  rz.setSteviloOseb(Integer.parseInt(request.getParameter("steviloOseb")));
     	  rz.setCasPriprave(Double.parseDouble(request.getParameter("casPriprave")));
     	  rz.setKratekOpis(request.getParameter("kratekOpis"));
