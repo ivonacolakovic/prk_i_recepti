@@ -26,7 +26,7 @@
       <a class="navbar-brand" href="#">Recepti</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Doma</a></li>
+      <li ><a href="index.jsp#">Doma</a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
     </ul>
@@ -38,7 +38,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     
-     <li><a href="#"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
+     <li class="active"><a href="#"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>

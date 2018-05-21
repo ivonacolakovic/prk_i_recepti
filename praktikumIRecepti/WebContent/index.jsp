@@ -47,7 +47,7 @@
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Doma</a></li>
+      <li class="active"><a href="index.jsp#">Doma</a></li>
       <li><a href="#">Recepti</a></li>
       <li><a href="#">Page 2</a></li>
     </ul>
