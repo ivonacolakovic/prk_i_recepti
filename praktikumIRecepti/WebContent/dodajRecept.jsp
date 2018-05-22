@@ -45,10 +45,10 @@
     </ul>
   </div>
 </nav>
-<form  name="myForm" action="" onsubmit="return validateForm()" method="post">
-        <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
+<form name="myForm" action="" onsubmit="return validateForm()" method="post">
+     <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
         <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb"></p>
-        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="fname" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
+        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="casPriprave" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
         <p><b>Opis:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis"  name="kratekOpis" required></textarea></p>
         <p><b>Video:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" name="video"></p>
         <p><b>Slika:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  name="slika"></p>
@@ -56,9 +56,8 @@
         <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
         <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p> 
         <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava"></textarea></p>
-        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  name="datum"></p> 
-        
-        <p><button type="button" class="btn btn-success" type="submit"name="add">DONE</button></p>
+        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  name="datum"></p>
+        <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
       </form>
       
       <%
