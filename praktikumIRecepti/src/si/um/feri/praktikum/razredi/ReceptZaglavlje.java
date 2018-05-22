@@ -3,6 +3,7 @@ package si.um.feri.praktikum.razredi;
 import java.util.Date;
 
 public class ReceptZaglavlje {
+	private int id_recept;
 	private String naziv;
 	private int steviloOseb;
 	private double casPriprave;
@@ -16,6 +17,12 @@ public class ReceptZaglavlje {
 	private Date casObjave;
 	
 	public ReceptZaglavlje() {
+		
+	}
+	public ReceptZaglavlje(String naziv, String slika, String kratekOpis) {
+		this.naziv=naziv;
+		this.slika=slika;
+		this.kratekOpis=kratekOpis;
 		
 	}
 	
@@ -33,6 +40,14 @@ public class ReceptZaglavlje {
 		this.casObjave=casObjave;
 	}
 	
+	public int getId_recept() {
+		return id_recept;
+	}
+
+	public void setId_recept(int id_recept) {
+		this.id_recept = id_recept;
+	}
+
 	public String getNaziv() {
 		return naziv;
 	}
@@ -99,6 +114,7 @@ public class ReceptZaglavlje {
 	public void setCasObjave(Date casObjave) {
 		this.casObjave = casObjave;
 	}
+	
 	
 	
 	

@@ -2,8 +2,11 @@ package si.um.feri.praktikum.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -74,6 +77,29 @@ public class ReceptZaglavljeDAO {
 		} finally {
 			conn.close();
 		}
+	}
+	
+public List<ReceptZaglavlje> vrniVse() throws Exception {
+		
+	List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+		
+		Connection conn=null;
+		try {
+			conn=baza.getConnection();
+
+			ResultSet rs=conn.createStatement().executeQuery("select * from receptzaglavlje order by naziv");
+			while (rs.next()) {
+				ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+
+				ret.add(rz);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+		return ret;
 	}
 }
 		
