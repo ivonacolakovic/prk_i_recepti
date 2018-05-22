@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="si.um.feri.praktikum.razredi.*"%>
 <%@ page import="si.um.feri.praktikum.dao.*"%>
-<%@ page import="java.util.Date" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,9 +48,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.jsp#">Doma</a></li>
-      <li><a href="#">Top 10</a></li>
-      <li><a href="#">Most recent</a></li>
-      <li><a href="#">Kaj imas v hladilniku?</a></li>
+      <li><a href="#">Recepti</a></li>
+      <li><a href="#">Page 2</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
@@ -60,9 +59,9 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     
-    
+     <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -106,15 +105,18 @@
 </div>
   
 <div class="container text-center">    
-  <h3>What We Do</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
+  <h3>Recepti</h3><br>
+  <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
+  for(int i=0; i<recepti.size(); i++){
+  %>
+  <div class="col-sm-4">
+    <div  class="textOverImage" 
+      style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uibVqFPWWxpXxUrL7NNZXGVUQJHfKavUXT4709LKf8Pv35YA?w=700)"
+		data-text="<%--recepti.get(i).getNaziv() %>
+		<%=recepti.get(i).getKratekOpis()%>>>--%>aaaaaaaa">
     </div>
-    <div class="col-sm-4"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
+    <%} %>
     </div>
     <div class="col-sm-4">
       <div class="well">
