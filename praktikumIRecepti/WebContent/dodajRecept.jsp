@@ -7,6 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>dodajRecept</title>
 
@@ -44,18 +45,18 @@
     </ul>
   </div>
 </nav>
-<form action="" method="post">
+<form  name="myForm" action="" onsubmit="return validateForm()" method="post">
         <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
-        <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" required name="steviloOseb"></p>
-        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave" required name="casPriprave"></p>
-        <p><b>Opis:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis" required name="kratekOpis"></textarea></p>
-        <p><b>Video:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" required name="video"></p>
-        <p><b>Slika:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  required name="slika"></p>
-        <p><b>Kalorije:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"  required name="kalorije"></p>
-        <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  required name="mascobe"></p>
-        <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati"  required name="hidrati"></p> 
-        <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  required name="priprava"></textarea></p>
-        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  required name="datum"></p> 
+        <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb"></p>
+        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="fname" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
+        <p><b>Opis:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis"  name="kratekOpis" required></textarea></p>
+        <p><b>Video:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" name="video"></p>
+        <p><b>Slika:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  name="slika"></p>
+        <p><b>Kalorije:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"   name="kalorije" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
+        <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p>
+        <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" pattern="(?=.*\d)(?=.*[0-9]).{8,}" title="You must use only numbers!" required></p> 
+        <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava"></textarea></p>
+        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  name="datum"></p> 
         
         <p><button type="button" class="btn btn-success" type="submit"name="add">DONE</button></p>
       </form>
