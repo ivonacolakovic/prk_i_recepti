@@ -101,6 +101,29 @@ public List<ReceptZaglavlje> vrniVse() throws Exception {
 		}
 		return ret;
 	}
+
+
+public ReceptZaglavlje najdi(int sifra) throws Exception {
+	ReceptZaglavlje ret = null;
+	
+	Connection conn=null;
+	try {
+		conn=baza.getConnection();
+		PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_recept=?");
+		ps.setInt(1, sifra);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			ret  = new ReceptZaglavlje(rs.getString("naziv"), rs.getInt("stviloPorcij"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
+
+			break;
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		conn.close();
+	}
+	return ret;
+}
 }
 		
 	
