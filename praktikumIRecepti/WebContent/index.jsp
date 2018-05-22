@@ -48,8 +48,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.jsp#">Doma</a></li>
-      <li><a href="#">Recepti</a></li>
-      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Top 10</a></li>
+      <li><a href="#">Most recent</a></li>
+      <li><a href="#">Kaj imas v hladilniku?</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
@@ -59,9 +60,9 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     
-     <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
+    
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      
     </ul>
   </div>
 </nav>
