@@ -79,21 +79,44 @@ public class ReceptZaglavljeDAO {
 		}
 	}
 	
-public List<ReceptZaglavlje> vrniVse() throws Exception {
-		
-	List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+	public List<ReceptZaglavlje> vrniVse() throws Exception {
+			
+		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+			
+			Connection conn=null;
+			try {
+				conn=baza.getConnection();
+	
+				ResultSet rs=conn.createStatement().executeQuery("select * from receptzaglavlje order by naziv");
+				while (rs.next()) {
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+	
+					ret.add(rz);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return ret;
+		}
+	
+	
+	public ReceptZaglavlje najdi(int sifra) throws Exception {
+		ReceptZaglavlje ret = null;
 		
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-
-			ResultSet rs=conn.createStatement().executeQuery("select * from receptzaglavlje order by naziv");
+			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_recept=?");
+			ps.setInt(1, sifra);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
-
-				ret.add(rz);
+				ret  = new ReceptZaglavlje(rs.getString("naziv"), rs.getInt("stviloPorcij"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
+	
+				break;
 			}
-			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -101,29 +124,33 @@ public List<ReceptZaglavlje> vrniVse() throws Exception {
 		}
 		return ret;
 	}
-
-
-public ReceptZaglavlje najdi(int sifra) throws Exception {
-	ReceptZaglavlje ret = null;
 	
-	Connection conn=null;
-	try {
-		conn=baza.getConnection();
-		PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_recept=?");
-		ps.setInt(1, sifra);
-		ResultSet rs = ps.executeQuery();
-		while (rs.next()) {
-			ret  = new ReceptZaglavlje(rs.getString("naziv"), rs.getInt("stviloPorcij"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
-
-			break;
-		}
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		conn.close();
+	//dodaj v ocenaDAO foreign key od recepta
+	
+	public List<ReceptZaglavlje> vrniNajnovejse(){
+		// SELECT * FROM ReceptZaglavlje ORDER BY casObjave DESC
+		
+		return null;
 	}
-	return ret;
-}
+	
+	public List<ReceptZaglavlje> vrniTop10(){
+		// CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc
+		// FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC;
+		// SELECT * FROM RECEPTZAGLAVLJE
+		// WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi;
+		//
+		
+		return null;
+	}
+	
+	public List<ReceptZaglavlje> vrniIskanePoKategorijah(){
+		//
+		//
+		//
+		
+		return null;
+	}
+
 }
 		
 	
