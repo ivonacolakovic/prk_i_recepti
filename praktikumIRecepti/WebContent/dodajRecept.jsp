@@ -58,6 +58,8 @@
         <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava"></textarea></p>
         <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  name="datum"></p>
         <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
+        
+        izbrisi
        
       </form>
       
