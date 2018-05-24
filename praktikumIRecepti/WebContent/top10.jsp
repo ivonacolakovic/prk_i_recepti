@@ -15,7 +15,7 @@
       recepti.get(i).getNaziv();
       recepti.get(i).getKratekOpis();
       recepti.get(i).getSlika();
-      } izbr
+      } 
       
 
 </body>
