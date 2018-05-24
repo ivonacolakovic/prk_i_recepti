@@ -10,7 +10,7 @@
 
       ReceptZaglavljeDAO  rzd =new ReceptZaglavljeDAO ();
       ArrayList <ReceptZaglavlje> recepti= new ArrayList<ReceptZaglavlje>();
-      for(int i= 0; i < recepti.size() ; i++)
+      for(int i= 0; i < recepti.size() ; i++){
       
       recepti.get(i).getNaziv();
       recepti.get(i).getKratekOpis();
