@@ -10,10 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-		
+
 	<table>
       	<%ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
-      	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniTop10();
+      	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniNajnovejse();
       	for(int i= 0; i < recepti.size() ; i++){%>
       		<tr>
       			<td>recepti.get(i).getSlika();</td>
