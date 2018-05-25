@@ -1,5 +1,6 @@
 package si.um.feri.praktikum.razredi;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ReceptZaglavlje {
@@ -15,6 +16,13 @@ public class ReceptZaglavlje {
 	private double ogljikoviHidrati;
 	private String opisPriprave;
 	private Date casObjave;
+	private TipJedi tk_id_tipJedi;
+	private Sezona tk_id_sezona;
+	private Kuhinja tk_id_kuhinja;
+	private ArrayList<Ocena> ocena = new ArrayList<>();
+	private ArrayList<Alergeni> alergeni = new ArrayList<>();
+	private ArrayList<Sestavine> sestavine = new ArrayList<>();
+	
 	
 	public ReceptZaglavlje() {
 		
@@ -114,6 +122,45 @@ public class ReceptZaglavlje {
 	public void setCasObjave(Date casObjave) {
 		this.casObjave = casObjave;
 	}
+	public TipJedi getTk_id_tipJedi() {
+		return tk_id_tipJedi;
+	}
+	public void setTk_id_tipJedi(TipJedi tk_id_tipJedi) {
+		this.tk_id_tipJedi = tk_id_tipJedi;
+	}
+	public Sezona getTk_id_sezona() {
+		return tk_id_sezona;
+	}
+	public void setTk_id_sezona(Sezona tk_id_sezona) {
+		this.tk_id_sezona = tk_id_sezona;
+	}
+	public Kuhinja getTk_id_kuhinja() {
+		return tk_id_kuhinja;
+	}
+	public void setTk_id_kuhinja(Kuhinja tk_id_kuhinja) {
+		this.tk_id_kuhinja = tk_id_kuhinja;
+	}
+	public ArrayList<Ocena> getOcena() {
+		return ocena;
+	}
+	public void setOcena(ArrayList<Ocena> ocena) {
+		this.ocena = ocena;
+	}
+	public ArrayList<Alergeni> getAlergeni() {
+		return alergeni;
+	}
+	public void setAlergeni(ArrayList<Alergeni> alergeni) {
+		this.alergeni = alergeni;
+	}
+	public ArrayList<Sestavine> getSestavine() {
+		return sestavine;
+	}
+	public void setSestavine(ArrayList<Sestavine> sestavine) {
+		this.sestavine = sestavine;
+	}
+	
+
+	
 	
 	
 	

@@ -56,7 +56,6 @@
         <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
         <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p> 
         <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava"></textarea></p>
-        <p><b>Datum objave:</b><input class="w3-input w3-padding-16 w3-border" type="date"   placeholder="Vnesete datum"  name="datum"></p>
         <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
         
         
@@ -79,8 +78,7 @@
     	  rz.setMascobe(Double.parseDouble(request.getParameter("mascobe")));
     	  rz.setOgljikoviHidrati(Double.parseDouble(request.getParameter("hidrati")));
     	  rz.setOpisPriprave(request.getParameter("hidrati"));
-    	  String datum1=request.getParameter("datum");
-    	  rz.setCasObjave(java.sql.Date.valueOf(datum1));
+    	  rz.setCasObjave(new Date());
     	  
     	  rzd.shrani(rz);
     	  

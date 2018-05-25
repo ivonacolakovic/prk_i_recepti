@@ -37,6 +37,61 @@
       display: none; 
     }
   }
+  #navMenu {   
+  margin:0;
+  padding:0;
+  
+  }
+  #navMenu ul {
+  margin:0;
+  padding:0;
+  line-height:30px;
+  }
+  #navMenu li {
+  margin:0;
+  padding:0;
+  list-style:none;
+  float:left;
+  position:relative;
+  background:#999;
+  }
+  #navMenu ul li a {
+  text-align:center;
+  font-family:"Comic Sans MS",cursive;
+  text-decoration:none;
+  height:30px;
+  width:150px;
+  display:block;
+  color:#FFF;
+  border:1px solid #FFF;
+  text-shadow: 1px 1px 1px #000;
+  }
+  #navMenu ul ul {
+  position:absolute;
+  visibility:hidden;
+  top:32px;
+  }
+  #navMenu ul li:hover ul {
+  visibility:visible;
+  }
+  #navMenu li:hover {
+  background:09F;
+  }
+  #navMenu ul li:hover ul li a:hover {
+  background:#CCC;
+  color:#000;
+  
+  }
+  #navMenu a:hover {
+  color:#000;
+  
+  }
+  .clearFloat {
+  clear:both;
+  margin:0;
+  padding:0;
+  
+  }
   </style>
 </head>
 <body>
@@ -48,8 +103,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.jsp#">Doma</a></li>
-      <li><a href="#">Recepti</a></li>
-      <li><a href="#">Page 2</a></li>
+     <li><a href="top10.jsp#">Top 10</a></li>
+      <li><a href="mostRecent.jsp#">Most recent</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
@@ -104,48 +159,84 @@
 </div>
   <h3>Recepti</h3><br>
    
-  
-<ul id="coolMenu">
-    <li><a href="#">Lorem</a></li>
-    <li><a href="#">Mauricii</a></li>
-    <li>
-        <a href="#">Periher</a>
-        <ul>
-            <li><a href="#">Hellenico</a></li>
-            <li><a href="#">Genere</a></li>
-            <li><a href="#">Indulgentia</a></li>
-        </ul>
-    </li>
-    <li><a href="#">Tyrio</a></li>
-    <li><a href="#">Quicumque</a></li>
+<div id="wrapper">
+<div id="navMenu">
+<ul>
+<li><a href="#">Tip jedi</a>
+<ul>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
 </ul>
+
+</ul>
+<ul>
+<li><a href="#">Sezona</a>
+<ul>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+</ul>
+
+</ul>
+<ul>
+<li><a href="#">Kuhinja</a>
+<ul>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+</ul>
+
+</ul>
+<ul>
+<li><a href="#">Cas priprave</a>
+<ul>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+</ul>
+
+</ul>
+<ul>
+<li><a href="#">Ocena</a>
+<ul>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+<li><a href="#">nekaj</a>
+</ul>
+
+</ul>
+<ul>
+<li ><a style="background:red;" href="#">Isci</a>
+</ul>
+<br class="clearFloat"/>
+</div>
+</div>
 
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
+  		<tr>
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+  			<td><%=recepti.get(i).getNaziv()%></td>
+  			<td><%=recepti.get(i).getKratekOpis()%></td>
+  		</tr>
+   <%} %>
   <div class="col-sm-4">
     <div  class="textOverImage" 
       style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uibVqFPWWxpXxUrL7NNZXGVUQJHfKavUXT4709LKf8Pv35YA?w=700)"
 		data-text="<%--recepti.get(i).getNaziv() %>
 		<%=recepti.get(i).getKratekOpis()%>>>--%>aaaaaaaa">
     </div>
-    <%} %>
+  
     </div>
-    <div class="col-sm-4">
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-    </div>
-  </div>
-</div><br>
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+  
 
 </body>
 </html>

@@ -86,6 +86,7 @@ public class ReceptZaglavljeDAO {
 			Connection conn=null;
 			try {
 				conn=baza.getConnection();
+				
 	
 				ResultSet rs=conn.createStatement().executeQuery("select * from receptzaglavlje order by naziv");
 				while (rs.next()) {
@@ -125,30 +126,82 @@ public class ReceptZaglavljeDAO {
 		return ret;
 	}
 	
-	//dodaj v ocenaDAO foreign key od recepta
 	
-	public List<ReceptZaglavlje> vrniNajnovejse(){
-		// SELECT * FROM ReceptZaglavlje ORDER BY casObjave DESC
-		
-		return null;
-	}
+
 	
-	public List<ReceptZaglavlje> vrniTop10(){
-		// CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc
-		// FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC;
-		// SELECT * FROM RECEPTZAGLAVLJE
-		// WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi;
-		//
+	public List<ReceptZaglavlje> vrniNajnovejse() throws SQLException{
 		
-		return null;
-	}
+		
+		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+			
+			Connection conn=null;
+			try {
+				conn=baza.getConnection();
+				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM ReceptZaglavlje ORDER BY casObjave DESC");
+				while (rs.next()) {
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
-	public List<ReceptZaglavlje> vrniIskanePoKategorijah(){
-		// 
-		//
-		//
+
+					ret.add(rz);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return ret;
+		}
+	
+
+
+	public List<ReceptZaglavlje> vrniTop10  () throws SQLException{
+
 		
-		return null;
+		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+			
+			Connection conn=null;
+			try {
+				conn=baza.getConnection();
+				conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
+				
+				ResultSet rs=conn.createStatement().executeQuery(" SELECT * FROM RECEPTZAGLAVLJE WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi");
+				while (rs.next()) {
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+	
+					ret.add(rz);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return ret;
+		}
+
+	
+	public List<ReceptZaglavlje> vrniIskanePoKategorijah() throws SQLException{
+
+		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+			
+			Connection conn=null;
+			try {
+				conn=baza.getConnection();
+				
+				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM RECEPTZAGLAVLJE WHERE tk_tipJedi = (SELECT id_TipJedi  FROM TIPJEDI WHERE NAZIV=?");
+				while (rs.next()) {
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+	
+					ret.add(rz);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return ret;
 	}
 
 }
