@@ -127,6 +127,7 @@ public class ReceptZaglavljeDAO {
 	}
 	
 	
+
 	
 	public List<ReceptZaglavlje> vrniNajnovejse() throws SQLException{
 		
@@ -140,6 +141,7 @@ public class ReceptZaglavljeDAO {
 				while (rs.next()) {
 					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
+
 					ret.add(rz);
 				}
 				rs.close();
@@ -152,8 +154,9 @@ public class ReceptZaglavljeDAO {
 		}
 	
 
-	
-	public List<ReceptZaglavlje> vrniTop10() throws SQLException{
+
+	public List<ReceptZaglavlje> vrniTop10  () throws SQLException{
+
 		
 		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
 			
