@@ -15,6 +15,8 @@ public class ReceptZaglavlje {
 	private double ogljikoviHidrati;
 	private String opisPriprave;
 	private Date casObjave;
+	private int tk_tipJedi;
+	
 	
 	public ReceptZaglavlje() {
 		
@@ -114,6 +116,13 @@ public class ReceptZaglavlje {
 	public void setCasObjave(Date casObjave) {
 		this.casObjave = casObjave;
 	}
+	public int getTk_tipJedi() {
+		return tk_tipJedi;
+	}
+	public void setTk_tipJedi(int tk_tipJedi) {
+		this.tk_tipJedi = tk_tipJedi;
+	}
+	
 	
 	
 	

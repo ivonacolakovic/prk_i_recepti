@@ -27,7 +27,7 @@ public void kreirajTabele() throws Exception {
 	Connection conn=null;
 	try {
 		conn=baza.getConnection();
-		conn.createStatement().execute("CREATE TABLE IF NOT EXISTS OCENA(id_ocena int not null auto_increment primary key,ocena int not null,komentar varchar(400) not null)");
+		conn.createStatement().execute("CREATE TABLE IF NOT EXISTS OCENA(id_ocena int not null auto_increment primary key,ocena int not null,komentar varchar(400) not null, tk_recept_id int not null)");
 		} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
@@ -46,16 +46,19 @@ public void pobrisiTabele() throws Exception {
 		conn.close();
 	}
 }
-public void shrani(Ocena o) throws SQLException {
+public void shrani(ReceptZaglavlje r, Ocena o) throws SQLException {
 	Connection conn=null;
 	try {
 		conn=baza.getConnection();
 
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar) VALUES (?,?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar) VALUES (?,?,?)");
 			ps.setInt(1, o.getOcena());
 			ps.setString(2, o.getKomentar());
+			ps.setInt(3, r.getId_recept());
 
 			ps.executeUpdate();
+			
+			shraniKomentar (r,o);
 		
 	} catch (Exception e) {
 		e.printStackTrace();
