@@ -128,7 +128,7 @@ public class ReceptZaglavljeDAO {
 	//dodaj v ocenaDAO foreign key od recepta
 	
 	public List<ReceptZaglavlje> vrniNajnovejse(){
-		// SELECT * FROM ReceptZaglavlje ORDER BY casObjave DESC
+		// SELECT TOP 30 * FROM ReceptZaglavlje ORDER BY casObjave DESC
 		
 		return null;
 	}

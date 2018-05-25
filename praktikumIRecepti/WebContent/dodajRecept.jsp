@@ -79,8 +79,7 @@
     	  rz.setMascobe(Double.parseDouble(request.getParameter("mascobe")));
     	  rz.setOgljikoviHidrati(Double.parseDouble(request.getParameter("hidrati")));
     	  rz.setOpisPriprave(request.getParameter("hidrati"));
-    	  String datum1=request.getParameter("datum");
-    	  rz.setCasObjave(java.sql.Date.valueOf(datum1));
+    	  rz.setCasObjave(new Date());
     	  
     	  rzd.shrani(rz);
     	  

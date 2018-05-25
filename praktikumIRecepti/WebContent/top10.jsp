@@ -20,7 +20,7 @@
       			<td>recepti.get(i).getNaziv();</td>
       			<td>recepti.get(i).getKratekOpis();</td>
       		</tr>
-      	<% } %>
+      <% } %>
       </table>
 
 </body>
