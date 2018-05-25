@@ -48,8 +48,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.jsp#">Doma</a></li>
-      <li><a href="#">Recepti</a></li>
-      <li><a href="#">Page 2</a></li>
+      <li><a href="top10.jsp#">Top 10</a></li>
+      <li><a href="mostRecent.jsp#">Most recent</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
@@ -111,9 +111,9 @@
   for(int i=0; i<recepti.size(); i++){
   %>
   		<tr>
-  			<td><img src="<%=recepti.get(i).getSlika() %>" height="100" width="200"/></td>
-  			<td>recepti.get(i).getNaziv()</td>
-  			<td>recepti.get(i).getKratekOpis()</td>
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+  			<td><%=recepti.get(i).getNaziv()%></td>
+  			<td><%=recepti.get(i).getKratekOpis()%></td>
   		</tr>
    <%} %>
   <div class="col-sm-4">
