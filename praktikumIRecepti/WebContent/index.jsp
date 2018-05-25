@@ -120,7 +120,6 @@
     </ul>
   </div>
 </nav>
-<form action="" method="post">
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -141,8 +140,7 @@
       <div class="item">
         <img src="https://timeincsecure-a.akamaihd.net/rtmp_uds/474428695/201711/3955/474428695_5661309737001_5661262459001-vs.jpg?pubId=474428695&videoId=5661262459001" alt="Image">
         <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...</p>
+         <!-- izpis na slici -->
         </div>      
       </div>
     </div>
@@ -157,58 +155,51 @@
       <span class="sr-only">Next</span>
     </a>
 </div>
-  <h3>Recepti</h3><br>
+  
    
 <div id="wrapper">
 <div id="navMenu">
 <ul>
 <li><a href="#">Tip jedi</a>
 <ul>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
+<li><a href="#">Juha</a>
+<li><a href="#">Solata</a>
+<li><a href="#">Predjed</a>
+<li><a href="#">Glavna jed</a>
+<li><a href="#">Sladica</a>
 </ul>
 
 </ul>
 <ul>
 <li><a href="#">Sezona</a>
 <ul>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
+<li><a href="#">Zima</a>
+<li><a href="#">Spomlad</a>
+<li><a href="#">Poletje</a>
+<li><a href="#">Jesen</a>
 </ul>
 
 </ul>
 <ul>
 <li><a href="#">Kuhinja</a>
 <ul>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
+<li><a href="#">Mehiska</a>
+<li><a href="#">Francoska</a>
+<li><a href="#">Italijanska</a>
+<li><a href="#">Kitajska</a>
 </ul>
 
 </ul>
 <ul>
 <li><a href="#">Cas priprave</a>
 <ul>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
+<li><a href="#">manj kot 30min</a>
+<li><a href="#">manj kot 1h</a>
+<li><a href="#">manj kot 2h</a>
 </ul>
 
 </ul>
-<ul>
-<li><a href="#">Ocena</a>
-<ul>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-<li><a href="#">nekaj</a>
-</ul>
+
 
 </ul>
 <ul>
@@ -217,7 +208,10 @@
 <br class="clearFloat"/>
 </div>
 </div>
-
+<div class="container text-center">  
+<h3>Recepti</h3><br>
+</div>
+<table>
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
@@ -228,14 +222,7 @@
   			<td><%=recepti.get(i).getKratekOpis()%></td>
   		</tr>
    <%} %>
-  <div class="col-sm-4">
-    <div  class="textOverImage" 
-      style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uibVqFPWWxpXxUrL7NNZXGVUQJHfKavUXT4709LKf8Pv35YA?w=700)"
-		data-text="<%--recepti.get(i).getNaziv() %>
-		<%=recepti.get(i).getKratekOpis()%>>>--%>aaaaaaaa">
-    </div>
-  
-    </div>
+  </table>
   
 
 </body>
