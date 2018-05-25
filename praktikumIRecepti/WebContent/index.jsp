@@ -104,18 +104,25 @@
 </div>
   
 <div class="container text-center">    
+<table>
   <h3>Recepti</h3><br>
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
+  		<tr>
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="100" width="200"/></td>
+  			<td>recepti.get(i).getNaziv()</td>
+  			<td>recepti.get(i).getKratekOpis()</td>
+  		</tr>
+   <%} %>
   <div class="col-sm-4">
     <div  class="textOverImage" 
       style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9uibVqFPWWxpXxUrL7NNZXGVUQJHfKavUXT4709LKf8Pv35YA?w=700)"
 		data-text="<%--recepti.get(i).getNaziv() %>
 		<%=recepti.get(i).getKratekOpis()%>>>--%>aaaaaaaa">
     </div>
-    <%} %>
+   
     </div>
     <div class="col-sm-4">
       <div class="well">

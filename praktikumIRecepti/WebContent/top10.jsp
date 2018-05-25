@@ -16,7 +16,7 @@
       	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniTop10();
       	for(int i= 0; i < recepti.size() ; i++){%>
       		<tr>
-      			<td>recepti.get(i).getSlika();</td>
+      			<td><img src="<%=recepti.get(i).getSlika() %>" height="100" width="200"/></td>
       			<td>recepti.get(i).getNaziv();</td>
       			<td>recepti.get(i).getKratekOpis();</td>
       		</tr>
