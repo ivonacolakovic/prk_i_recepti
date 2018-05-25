@@ -144,7 +144,7 @@ public class ReceptZaglavljeDAO {
 	}
 	
 	public List<ReceptZaglavlje> vrniIskanePoKategorijah(){
-		//
+		// 
 		//
 		//
 		
