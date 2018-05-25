@@ -20,16 +20,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Dodaj nov recept</h1>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Recepti</a>
+      <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
       <li ><a href="index.jsp#">Doma</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+     <li><a href="top10.jsp#">Top 10</a></li>
+      <li><a href="mostRecent.jsp#">Most recent</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
@@ -39,12 +38,13 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     
-     <li class="active"><a href="#"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
+     <li class="active"><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
+<h1>Dodaj nov recept</h1>
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
      <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
         <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></p>
