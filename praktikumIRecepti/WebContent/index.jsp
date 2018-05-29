@@ -211,19 +211,20 @@
 <div class="container text-center">  
 <h3>Recepti</h3><br>
 </div>
-<table>
+<div class="container">
+<table class="table">
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
-  		<tr>
+  		<tr class="success">
   			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
   			<td><%=recepti.get(i).getNaziv()%></td>
   			<td><%=recepti.get(i).getKratekOpis()%></td>
   		</tr>
    <%} %>
   </table>
-  
+</div>  
 
 </body>
 </html>
