@@ -27,14 +27,16 @@ public class ReceptZaglavlje {
 	public ReceptZaglavlje() {
 		
 	}
-	public ReceptZaglavlje(String naziv, String slika, String kratekOpis) {
+	public ReceptZaglavlje(int id_recept,String naziv, String slika, String kratekOpis) {
+		this.id_recept=id_recept;
 		this.naziv=naziv;
 		this.slika=slika;
 		this.kratekOpis=kratekOpis;
 		
 	}
 	
-	public ReceptZaglavlje(String naziv,int steviloOseb,double casPriprave,String kratekOpis,String slika,String video, double steviloKalorije, double mascobe, double ogljikoviHidrati,String opisPriprave, Date casObjave ) {
+	public ReceptZaglavlje(int id_recept,String naziv,int steviloOseb,double casPriprave,String kratekOpis,String slika,String video, double steviloKalorije, double mascobe, double ogljikoviHidrati,String opisPriprave, Date casObjave ) {
+		this.id_recept=id_recept;
 		this.naziv=naziv;
 		this.steviloOseb=steviloOseb;
 		this.casPriprave=casPriprave;

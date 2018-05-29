@@ -212,19 +212,42 @@
 <h3>Recepti</h3><br>
 </div>
 <div class="container">
-<table class="table">
+<table>
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
-  		<tr class="success">
+ <form action="podrobnostiRecepta.jsp" method="post">
+ 
+ <tr>
   			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
-  			<td><%=recepti.get(i).getNaziv()%></td>
+  			
+                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
   			<td><%=recepti.get(i).getKratekOpis()%></td>
   		</tr>
-   <%} %>
-  </table>
-</div>  
+   </form>
+  		  </table>
+  		  
+ <%} %>
+
+
+  <% 
+           //String podrobnosti = request.getParameter("podrobnosti");
+  		   //request.setAttribute("id", podrobnosti);
+  		   
+  		   %>
+ 
+
+ 
+  		
+  		   
+  		   
+  		   
+  		  
+ 
+
+	
+	
 
 </body>
 </html>

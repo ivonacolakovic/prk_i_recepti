@@ -29,7 +29,7 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double not null,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double not null, ogljikoviHidrati double not null, opisPriprave varchar(1000) not null)");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double not null,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double not null, ogljikoviHidrati double not null, opisPriprave varchar(9999) not null)");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -90,7 +90,7 @@ public class ReceptZaglavljeDAO {
 	
 				ResultSet rs=conn.createStatement().executeQuery("select * from receptzaglavlje order by naziv");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 					ret.add(rz);
 				}
@@ -110,11 +110,11 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_recept=?");
+			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_receptzaglavlje=?");
 			ps.setInt(1, sifra);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				ret  = new ReceptZaglavlje(rs.getString("naziv"), rs.getInt("stviloPorcij"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
+				ret  = new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getInt("steviloOseb"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
 	
 				break;
 			}
@@ -139,7 +139,7 @@ public class ReceptZaglavljeDAO {
 				conn=baza.getConnection();
 				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM ReceptZaglavlje ORDER BY casObjave DESC");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 
 					ret.add(rz);
@@ -163,11 +163,11 @@ public class ReceptZaglavljeDAO {
 			Connection conn=null;
 			try {
 				conn=baza.getConnection();
-				conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
+			conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
 				
 				ResultSet rs=conn.createStatement().executeQuery(" SELECT * FROM RECEPTZAGLAVLJE WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 					ret.add(rz);
 				}
@@ -191,7 +191,7 @@ public class ReceptZaglavljeDAO {
 				
 				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM RECEPTZAGLAVLJE WHERE tk_tipJedi = (SELECT id_TipJedi  FROM TIPJEDI WHERE NAZIV=?");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 					ret.add(rz);
 				}
@@ -203,6 +203,10 @@ public class ReceptZaglavljeDAO {
 			}
 			return ret;
 	}
+	
+	
+	
+	
 
 }
 		
