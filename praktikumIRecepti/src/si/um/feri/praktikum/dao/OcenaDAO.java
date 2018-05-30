@@ -2,7 +2,9 @@ package si.um.feri.praktikum.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -46,19 +48,19 @@ public void pobrisiTabele() throws Exception {
 		conn.close();
 	}
 }
-public void shrani(ReceptZaglavlje r, Ocena o) throws SQLException {
+public void shrani(int sifra, Ocena o) throws SQLException {
 	Connection conn=null;
 	try {
 		conn=baza.getConnection();
 
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar) VALUES (?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar,tk_recept_id) VALUES (?,?,?)");
 			ps.setInt(1, o.getOcena());
 			ps.setString(2, o.getKomentar());
-			ps.setInt(3, r.getId_recept());
+			ps.setInt(3, sifra);
 
 			ps.executeUpdate();
 			
-			shraniKomentar (r,o);
+			
 		
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -67,28 +69,28 @@ public void shrani(ReceptZaglavlje r, Ocena o) throws SQLException {
 	}
 }
 
-public void shraniKomentar(ReceptZaglavlje r, Ocena o) throws SQLException {
+public ArrayList<Ocena> vrniVse(int sifra) throws Exception {
+	ArrayList<Ocena> ret = new ArrayList<Ocena>();
+
 	Connection conn=null;
-	int sifra = r.getId_recept();
 	try {
 		conn=baza.getConnection();
 
-			PreparedStatement ps = conn.prepareStatement("update receptzaglavlje set tk_id_ocena=? where id_recept=?");
-			ps.setInt(1, o.getIdOcena());
-			ps.setInt(2, sifra);
-			
-
-			ps.executeUpdate();
-		
+		PreparedStatement ps = conn.prepareStatement("select * from ocena where tk_recept_id=?");
+		ps.setInt(1, sifra);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			Ocena o = new Ocena(rs.getInt("ocena"),rs.getString("komentar"));
+			ret.add(o);
+		}
+		rs.close();
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
 		conn.close();
 	}
-	
-	
+	return ret;
 }
-
 
 }
 	

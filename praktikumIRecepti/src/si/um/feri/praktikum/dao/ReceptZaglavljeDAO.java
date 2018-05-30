@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import si.um.feri.praktikum.razredi.ReceptZaglavlje;
+import si.um.feri.praktikum.razredi.Sestavine;
 
 public class ReceptZaglavljeDAO {
 	DataSource baza;
@@ -29,7 +30,7 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double not null,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double not null, ogljikoviHidrati double not null, opisPriprave varchar(1000) not null)");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double not null,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double not null, ogljikoviHidrati double not null, opisPriprave varchar(9999) not null)");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -90,7 +91,7 @@ public class ReceptZaglavljeDAO {
 	
 				ResultSet rs=conn.createStatement().executeQuery("select * from receptzaglavlje order by naziv");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 					ret.add(rz);
 				}
@@ -110,11 +111,11 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_recept=?");
+			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where id_receptzaglavlje=?");
 			ps.setInt(1, sifra);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				ret  = new ReceptZaglavlje(rs.getString("naziv"), rs.getInt("stviloPorcij"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
+				ret  = new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getInt("steviloOseb"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
 	
 				break;
 			}
@@ -139,7 +140,7 @@ public class ReceptZaglavljeDAO {
 				conn=baza.getConnection();
 				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM ReceptZaglavlje ORDER BY casObjave DESC");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 
 					ret.add(rz);
@@ -163,11 +164,11 @@ public class ReceptZaglavljeDAO {
 			Connection conn=null;
 			try {
 				conn=baza.getConnection();
-				conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
+			conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
 				
 				ResultSet rs=conn.createStatement().executeQuery(" SELECT * FROM RECEPTZAGLAVLJE WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 					ret.add(rz);
 				}
@@ -181,7 +182,7 @@ public class ReceptZaglavljeDAO {
 		}
 
 	
-	public List<ReceptZaglavlje> vrniIskanePoKategorijah() throws SQLException{
+	/*public List<ReceptZaglavlje> vrniIskanePoKategorijah() throws SQLException{
 
 		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
 			
@@ -191,7 +192,7 @@ public class ReceptZaglavljeDAO {
 				
 				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM RECEPTZAGLAVLJE WHERE tk_tipJedi = (SELECT id_TipJedi  FROM TIPJEDI WHERE NAZIV=?");
 				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
 					ret.add(rz);
 				}
@@ -202,7 +203,41 @@ public class ReceptZaglavljeDAO {
 				conn.close();
 			}
 			return ret;
+	}*/
+	
+	public ArrayList<ReceptZaglavlje> isciPoSestavinah(String input){
+		String[] parts = input.split(",");
+		ArrayList<String> sestavine = new ArrayList<String>();
+		ArrayList<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+		
+		for(int j = 0; j < parts.length; j++){
+			sestavine.add(parts[j]);
+		}
+
+		ArrayList<ReceptZaglavlje> recepti;
+		try {
+			recepti = (ArrayList<ReceptZaglavlje>) this.vrniVse();
+			for(int i = 0; i < recepti.size(); i++){
+				ArrayList<Sestavine> s = recepti.get(i).getSestavine();
+				for(int k = 0; k < s.size(); k++){
+					for(int m = 0; m < sestavine.size(); m++){
+						if(s.get(k).getNaziv().toLowerCase().equals(sestavine.get(m).toLowerCase())){
+							ret.add(recepti.get(i));
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ret;
 	}
+	
+	
+	
+	
 
 }
 		

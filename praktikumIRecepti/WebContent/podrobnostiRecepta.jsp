@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="si.um.feri.praktikum.razredi.*"%>
+<%@ page import="si.um.feri.praktikum.dao.*"%>
+<%@ page import="java.util.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -37,11 +41,29 @@
     </ul>
   </div>
 </nav>
-<h1>Recept 1</h1>
-<h3>Kratek opis:</h3>
-<h4></h4>
-<i>Datum objave:</i> <br><i>Ocena:</i>
-<img src="<% %>" alt="">
+
+<%int id = Integer.parseInt(request.getParameter("podrobnosti"));
+
+%>
+
+<%
+if(!request.getParameter("podrobnosti").equals(null)){
+
+
+	
+	//String id = (String) request.getParameter("id");
+	ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
+
+    //idRecepta = Integer.parseInt(id);
+
+	ReceptZaglavlje recept = rzd.najdi(id);
+
+%>
+
+<h1><%=recept.getNaziv() %></h1>
+<h3>Kratek opis: <%=recept.getKratekOpis() %></h3>
+<i>Datum objave:<%=recept.getCasObjave() %></i>
+<img src="<%=recept.getSlika() %>" height="200" width="300"/>
 <div class="textOverImage"
 		style="background-image: url(https://02.avoncdn.com/shop/assets/en/prod/prod_1190882_xl.jpg?w=700)"
 		data-text="Avon True Color Glazewear Lip Gloss 
@@ -52,15 +74,58 @@
 	<br>
 	<br>
 	<br>
-<p>Stevilo pozicij:</p>
-<p>Cas priprave:</p>
-<p>Kalorije:</p>
-<p>Mascobe</p>
-<p>Oglijikovi hidrati:</p>
-<p>Alergeni:</p>
-<p>Sestavine:</p>
-<p>Nacin priprave:</p>
-<p>Video</p>
+<p>Stevilo porcij:<%=recept.getSteviloOseb() %></p>
+<p>Cas priprave: <%=recept.getCasPriprave() %></p>
+<p>Kalorije: <%=recept.getSteviloKalorije() %></p>
+<p>Mascobe:<%=recept.getMascobe() %></p>
+<p>Oglijikovi hidrati:<%=recept.getOgljikoviHidrati() %></p>
+<p>Alergeni:<%=recept.getAlergeni() %></p>
+<p>Sestavine:<%=recept.getSestavine() %></p>
+<p>Nacin priprave:<%=recept.getOpisPriprave() %></p>
+<iframe src="<%=recept.getVideo() %>" height="300" width="300"></iframe>
+
+<%}else{} %>
+<br><br><br>
+<% 
+
+OcenaDAO od = new OcenaDAO();
+  ArrayList<Ocena> oceni = (ArrayList<Ocena>) od.vrniVse(id);
+  for(int i=0; i<oceni.size(); i++){
+  %>
+  <tr>
+  			<td><b>Ocena:</b><%=oceni.get(i).getOcena() %></td>
+  			<br>
+  			
+                <td><b>Komentar:</b><%=oceni.get(i).getKomentar()%></td>
+  		
+  		<%} %>
+  		</tr>
+  		
+ 
+  		
+  		<br><br><br>
+
+  
+
+<form action=""  method="post">
+        <p><b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5"placeholder="Vnesete ocena" name="ocena" ></p>
+        <p><b>Komentar:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete komentar"  name="komentar" ></textarea></p>
+        <p><button class="btn btn-success" type="submit" name="dodaj">DODAJ</button></p>
+        </form>
+<%
+        
+        OcenaDAO od1 = new OcenaDAO();
+        if (request.getParameter("dodaj")!= null) {
+        	Ocena o = new Ocena();
+        	  o.setKomentar(request.getParameter("komentar"));
+        	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
+        	  od1.shrani(id, o);
+        }
+        
+        
+        %>
+
+        
 
 </body>
 </html>
