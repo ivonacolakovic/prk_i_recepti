@@ -24,9 +24,9 @@
 
 
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
-     <p><b>Naziv :</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
-    <p><b>Enota :</b><input type="text" name="enota" placeholder="Vnesete enotu"></p>
-        <p><b>Kolicina :</b><input type="text" name="kolicina" placeholder="Vnesete kolicinu"></p>
+     <p><b>Naziv :</b><input type="text" name="naziv" placeholder="Vnesete naziv" required></p>
+    <p><b>Enota :</b><input type="text" name="enota" placeholder="Vnesete enotu" required></p>
+        <p><b>Kolicina :</b><input type="text" name="kolicina" placeholder="Vnesete kolicinu" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
        
         <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
         

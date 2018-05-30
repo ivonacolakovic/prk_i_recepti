@@ -24,8 +24,8 @@
 
 
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
-     <p><b>Naziv alergena:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
-     <p><b>Naziv alergena:</b><input type="hidden" name="naziv" placeholder="Vnesete naziv"></p>
+     <p><b>Naziv alergena:</b><input type="text" name="naziv" placeholder="Vnesete naziv" required></p>
+
        
         <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
         
