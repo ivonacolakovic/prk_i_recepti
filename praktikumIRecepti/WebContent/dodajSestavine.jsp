@@ -24,8 +24,9 @@
 
 
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
-     <p><b>Naziv alergena:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
-     <p><b>Naziv alergena:</b><input type="hidden" name="naziv" placeholder="Vnesete naziv"></p>
+     <p><b>Naziv :</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
+    <p><b>Enota :</b><input type="text" name="enota" placeholder="Vnesete enotu"></p>
+        <p><b>Kolicina :</b><input type="text" name="kolicina" placeholder="Vnesete kolicinu"></p>
        
         <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
         
@@ -34,20 +35,16 @@
       </form>
       
        <%
-     AlergeniDAO ad=new AlergeniDAO ();
-     ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+     SestavineDAO ad=new SestavineDAO ();
+     
       if (request.getParameter("add")!= null) {
-    	/*  String i = (String) request.getParameter("dodanRecept");
-    	 	int id = Integer.parseInt(i);
-    	 	ReceptZaglavlje fr = rzd.najdi(id);
-    	 	
-    	  System.out.println("naziv: "+ fr.getNaziv());
-    	  System.out.println("kratek Opis:  "+ fr.getKratekOpis());*/ 
-    	  Alergeni a=new Alergeni(request.getParameter("naziv"));
+    	  Sestavine s=new Sestavine();
     	 
-    	  a.setNaziv(request.getParameter("naziv"));
+    	  s.setNaziv(request.getParameter("naziv"));
+    	  s.setEnota(request.getParameter("enota"));
+    	  s.setKolicina(request.getParameter("kolicina"));
     	  
-  ad.shrani(a);
+  ad.shrani(s);
     	  
       }
       %>

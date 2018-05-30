@@ -45,7 +45,7 @@
   </div>
 </nav>
 <h1>Dodaj nov recept</h1>
-<form name="myForm" action="" onsubmit="return validateForm()" method="post">
+<form name="myForm" action="dodajAlergeni.jsp" onsubmit="return validateForm()" method="post">
      <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv"></p>
         <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></p>
         <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="casPriprave" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
@@ -81,7 +81,8 @@
     	  rz.setCasObjave(new Date());
     	  
     	  rzd.shrani(rz);
-    	  
+    	
+    	 
       }
       %>
 
