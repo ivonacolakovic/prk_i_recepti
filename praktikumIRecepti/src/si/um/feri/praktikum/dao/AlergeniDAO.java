@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import si.um.feri.praktikum.razredi.Alergeni;
+import si.um.feri.praktikum.razredi.Sestavine;
 
 
 public class AlergeniDAO{
@@ -68,17 +69,16 @@ public class AlergeniDAO{
 			conn.close();
 		}
 	}
-	
-	public List<Alergeni> vrniAlergene() throws Exception {
-			
+	public List<Alergeni> vrniAlergeni(int id) throws Exception {
+		
 		List<Alergeni> ret = new ArrayList<Alergeni>();
 			
 			Connection conn=null;
 			try {
 				conn=baza.getConnection();
-				
-	
-				ResultSet rs=conn.createStatement().executeQuery("select * from alergeni order by naziv");
+				PreparedStatement ps = conn.prepareStatement("select * from alergene where tk_recept_id=?");
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
 				while (rs.next()) {
 					Alergeni a =new Alergeni(rs.getString("naziv"));
 	

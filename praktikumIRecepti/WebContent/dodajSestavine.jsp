@@ -42,7 +42,7 @@
     	 
     	  s.setNaziv(request.getParameter("naziv"));
     	  s.setEnota(request.getParameter("enota"));
-    	  s.setKolicina(request.getParameter("kolicina"));
+    	  s.setKolicina(Double.parseDouble(request.getParameter("kolicina")));
     	  
   ad.shrani(s);
     	  

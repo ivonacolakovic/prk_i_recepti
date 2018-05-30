@@ -43,20 +43,13 @@
 </nav>
 
 <%int id = Integer.parseInt(request.getParameter("podrobnosti"));
+ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
 
+ReceptZaglavlje recept = rzd.najdi(id);
 %>
 
 <%
 if(!request.getParameter("podrobnosti").equals(null)){
-
-
-	
-	//String id = (String) request.getParameter("id");
-	ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
-
-    //idRecepta = Integer.parseInt(id);
-
-	ReceptZaglavlje recept = rzd.najdi(id);
 
 %>
 
@@ -113,13 +106,15 @@ OcenaDAO od = new OcenaDAO();
         <p><button class="btn btn-success" type="submit" name="dodaj">DODAJ</button></p>
         </form>
 <%
-        
+System.out.print(request.getParameter("komentar") + request.getParameter("ocena") + id);
+
         OcenaDAO od1 = new OcenaDAO();
         if (request.getParameter("dodaj")!= null) {
         	Ocena o = new Ocena();
         	  o.setKomentar(request.getParameter("komentar"));
         	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
-        	  od1.shrani(id, o);
+        	  od1.shrani(recept.getId_recept(), o);
+        	  System.out.print(request.getParameter("komentar") + request.getParameter("ocena") + id);
         }
         
         
