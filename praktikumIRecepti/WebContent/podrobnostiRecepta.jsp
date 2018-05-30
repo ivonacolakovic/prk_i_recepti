@@ -44,13 +44,11 @@
 
 <%int id = Integer.parseInt(request.getParameter("podrobnosti"));
 ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
-
 ReceptZaglavlje recept = rzd.najdi(id);
 %>
 
 <%
 if(!request.getParameter("podrobnosti").equals(null)){
-
 %>
 
 <h1><%=recept.getNaziv() %></h1>
@@ -80,7 +78,6 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <%}else{} %>
 <br><br><br>
 <% 
-
 OcenaDAO od = new OcenaDAO();
   ArrayList<Ocena> oceni = (ArrayList<Ocena>) od.vrniVse(id);
   for(int i=0; i<oceni.size(); i++){
@@ -91,7 +88,18 @@ OcenaDAO od = new OcenaDAO();
   			
                 <td><b>Komentar:</b><%=oceni.get(i).getKomentar()%></td>
   		
-  		<%} %>
+  		<%}
+  
+       
+        if (request.getParameter("dodaj")!=null ){
+        	 
+        	Ocena o = new Ocena();
+        	  o.setKomentar(request.getParameter("komentar"));
+        	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
+        	  o.setTk_recept_id(id);
+        	  od.shrani(o);
+        	 
+        }%>
   		</tr>
   		
  
@@ -106,16 +114,7 @@ OcenaDAO od = new OcenaDAO();
         <p><button class="btn btn-success" type="submit" name="dodaj">DODAJ</button></p>
         </form>
 <%
-System.out.print(request.getParameter("komentar") + request.getParameter("ocena") + id);
 
-        OcenaDAO od1 = new OcenaDAO();
-        if (request.getParameter("dodaj")!= null) {
-        	Ocena o = new Ocena();
-        	  o.setKomentar(request.getParameter("komentar"));
-        	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
-        	  od1.shrani(recept.getId_recept(), o);
-        	  System.out.print(request.getParameter("komentar") + request.getParameter("ocena") + id);
-        }
         
         
         %>

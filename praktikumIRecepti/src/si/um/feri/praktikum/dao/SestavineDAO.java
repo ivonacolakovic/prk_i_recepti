@@ -30,7 +30,7 @@ DataSource baza;
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS SESTAVINE(id_sestavine int not null auto_increment primary key, naziv varchar(100) not null,enota varchar(100) not null, kolicina double(8.2) not null,tk_recept_id int not null)");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS SESTAVINE(id_sestavine int not null auto_increment primary key, naziv varchar(100) not null,enota varchar(100) not null, kolicina double not null,tk_recept_id int not null)");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

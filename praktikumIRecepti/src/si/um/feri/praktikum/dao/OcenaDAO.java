@@ -48,7 +48,7 @@ public void pobrisiTabele() throws Exception {
 		conn.close();
 	}
 }
-public void shrani(int sifra, Ocena o) throws SQLException {
+public void shrani(Ocena o) throws SQLException {
 	Connection conn=null;
 	try {
 		conn=baza.getConnection();
@@ -56,7 +56,7 @@ public void shrani(int sifra, Ocena o) throws SQLException {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar,tk_recept_id) VALUES (?,?,?)");
 			ps.setInt(1, o.getOcena());
 			ps.setString(2, o.getKomentar());
-			ps.setInt(3, sifra);
+			ps.setInt(3, o.getTk_recept_id());
 
 			ps.executeUpdate();
 			
