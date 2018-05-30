@@ -20,7 +20,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Dodaj alergene</h1>
+<h1>Dodaj sestavine</h1>
 
 
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
