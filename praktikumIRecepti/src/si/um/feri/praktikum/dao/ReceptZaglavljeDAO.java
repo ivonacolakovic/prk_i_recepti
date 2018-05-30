@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import si.um.feri.praktikum.razredi.ReceptZaglavlje;
+import si.um.feri.praktikum.razredi.Sestavine;
 
 public class ReceptZaglavljeDAO {
 	DataSource baza;
@@ -181,7 +182,7 @@ public class ReceptZaglavljeDAO {
 		}
 
 	
-	public List<ReceptZaglavlje> vrniIskanePoKategorijah() throws SQLException{
+	/*public List<ReceptZaglavlje> vrniIskanePoKategorijah() throws SQLException{
 
 		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
 			
@@ -202,6 +203,36 @@ public class ReceptZaglavljeDAO {
 				conn.close();
 			}
 			return ret;
+	}*/
+	
+	public ArrayList<ReceptZaglavlje> isciPoSestavinah(String input){
+		String[] parts = input.split(",");
+		ArrayList<String> sestavine = new ArrayList<String>();
+		ArrayList<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+		
+		for(int j = 0; j < parts.length; j++){
+			sestavine.add(parts[j]);
+		}
+
+		ArrayList<ReceptZaglavlje> recepti;
+		try {
+			recepti = (ArrayList<ReceptZaglavlje>) this.vrniVse();
+			for(int i = 0; i < recepti.size(); i++){
+				ArrayList<Sestavine> s = recepti.get(i).getSestavine();
+				for(int k = 0; k < s.size(); k++){
+					for(int m = 0; m < sestavine.size(); m++){
+						if(s.get(k).getNaziv().toLowerCase().equals(sestavine.get(m).toLowerCase())){
+							ret.add(recepti.get(i));
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ret;
 	}
 	
 	

@@ -74,7 +74,7 @@ if(!request.getParameter("podrobnosti").equals(null)){
 	<br>
 	<br>
 	<br>
-<p>Stevilo pozicij:<%=recept.getSteviloOseb() %></p>
+<p>Stevilo porcij:<%=recept.getSteviloOseb() %></p>
 <p>Cas priprave: <%=recept.getCasPriprave() %></p>
 <p>Kalorije: <%=recept.getSteviloKalorije() %></p>
 <p>Mascobe:<%=recept.getMascobe() %></p>
