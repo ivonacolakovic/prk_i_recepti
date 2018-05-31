@@ -13,6 +13,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+  
+  body {
+    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+}
+  
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -25,11 +30,7 @@
       padding: 25px;
     }
     
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
+ 
 
   /* Hide the carousel text when the screen is less than 600 pixels wide */
   @media (max-width: 600px) {
@@ -92,6 +93,11 @@
   padding:0;
   
   }
+  #wrapper {
+  width: 60%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
+
   </style>
 </head>
 <body>
@@ -133,15 +139,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="la.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="http://jeffkortes.com/wp-content/uploads/2015/03/chicken-lunch.jpg" alt="Pasta" style="width:1150px;height:360px">
       </div>
 
       <div class="item">
-        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+        <img src="http://longwallpapers.com/Desktop-Wallpaper/delicious-food-wallpapers-high-quality-resolution-For-Desktop-Wallpaper.jpg" alt="Pancakes" style="width:1150px;height:360px">
       </div>
     
       <div class="item">
-        <img src="ny.jpg" alt="New york" style="width:100%;">
+        <img src="https://realfood.tesco.com/media/images/RFO-HarissaBowl-SPRING-1400x919px-mini-cfdef52e-f918-43e0-9c89-55840a82796c-0-1400x919.jpg" alt="New york" style="width:1150px;height:360px">
       </div>
     </div>
 
@@ -206,6 +212,7 @@
 <ul>
 <li ><a style="background:red;" href="#">Isci</a>
 </ul>
+
 <br class="clearFloat"/>
 </div>
 </div>
@@ -248,6 +255,7 @@
  
 
 	
+	</div>
 	
 
 </body>

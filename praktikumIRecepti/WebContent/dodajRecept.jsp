@@ -10,7 +10,18 @@
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>dodajRecept</title>
-
+<style>
+h1 {
+    text-decoration: underline;
+}
+ body {
+    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+}
+#wrapper {
+  width: 30%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,7 +55,9 @@
     </ul>
   </div>
 </nav>
-<h1>Dodaj nov recept</h1>
+<div id="wrapper">
+<h1 style="color:Tomato;">Dodaj nov recept</h1>
+<br>
 <form name="myForm" action="dodajAlergeni.jsp" onsubmit="return validateForm()" method="post" >
      <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv" required ></p>
         <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
@@ -85,6 +98,7 @@
     	 
       }
       %>
+      </div>
 
 </body>
 </html>
