@@ -13,6 +13,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+  h2 {
+  text-decoration: underline;
+  font-style: oblique;
+  }
   
   body {
     background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
@@ -217,7 +221,7 @@
 </div>
 </div>
 <div class="container text-center">  
-<h3>Recepti</h3><br>
+<h2 style="color:Tomato;">Recepti</h2><br>
 </div>
 <div class="container">
 <table>
