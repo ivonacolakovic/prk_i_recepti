@@ -7,11 +7,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style>
-  body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
-}
-</style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>dodajRecept</title>
@@ -37,22 +32,17 @@
         
        
       </form>
+      <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+      int id = rzd.vrniZadnjiId();
+      ReceptZaglavlje r = rzd.najdi(id);
+%>
       
        <%
-     AlergeniDAO ad=new AlergeniDAO ();
-     ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-      if (request.getParameter("add")!= null) {
-    	/*  String i = (String) request.getParameter("dodanRecept");
-    	 	int id = Integer.parseInt(i);
-    	 	ReceptZaglavlje fr = rzd.najdi(id);
-    	 	
-    	  System.out.println("naziv: "+ fr.getNaziv());
-    	  System.out.println("kratek Opis:  "+ fr.getKratekOpis());*/ 
-    	  Alergeni a=new Alergeni(request.getParameter("naziv"));
-    	 
-    	  a.setNaziv(request.getParameter("naziv"));
-    	  
-  ad.shrani(a);
+
+     if (request.getParameter("add")!= null) {       	 
+       	  r.setAlergeni(request.getParameter("naziv"));
+       	  
+     			rzd.shrani(r);
     	  
       }
       %>
