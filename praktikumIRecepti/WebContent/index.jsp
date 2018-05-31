@@ -15,12 +15,12 @@
   <style>
 
   h2 {
-  text-decoration: underline;
-  font-style: oblique;
+  
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   }
   
   body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+    background-image: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
   
     /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -59,11 +59,12 @@
   list-style:none;
   float:left;
   position:relative;
-  background:#999;
+ background-color: 	 #8c8c8c;
+   
   }
   #navMenu ul li a {
   text-align:center;
-  font-family:"Comic Sans MS",cursive;
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
   text-decoration:none;
   height:30px;
   width:150px;
@@ -144,15 +145,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="http://jeffkortes.com/wp-content/uploads/2015/03/chicken-lunch.jpg" alt="Pasta" style="width:1150px;height:360px">
+        <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/1520956952-chicken-tacos-horizontal.jpg" alt="Tacos" style="width:1120px;height:450px">
       </div>
 
       <div class="item">
-        <img src="http://longwallpapers.com/Desktop-Wallpaper/delicious-food-wallpapers-high-quality-resolution-For-Desktop-Wallpaper.jpg" alt="Pancakes" style="width:1150px;height:360px">
+        <img src="http://yesofcorsa.com/wp-content/uploads/2016/03/638734_pancakes.jpg" alt="Pancakes" style="width:1120px;height:450px">
       </div>
     
       <div class="item">
-        <img src="https://realfood.tesco.com/media/images/RFO-HarissaBowl-SPRING-1400x919px-mini-cfdef52e-f918-43e0-9c89-55840a82796c-0-1400x919.jpg" alt="New york" style="width:1150px;height:360px">
+        <img src="http://sevilla.abc.es/gurme//wp-content/uploads/2013/05/ensalada-foie-frutos-rojos.jpg" alt="Salad" style="width:1120px;height:450px">
       </div>
     </div>
 
@@ -215,14 +216,14 @@
 
 
 <ul>
-<li ><a style="background:red;" href="#">Isci</a>
+<li ><a style="background:tomato;" href="#">Isci</a>
 </ul>
 
 <br class="clearFloat"/>
 </div>
 </div>
 <div class="container text-center">  
-<h2 style="color:Tomato;">Recepti</h2><br>
+<h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
 <div class="container">
 <table>
