@@ -32,22 +32,17 @@
         
        
       </form>
+      <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+      int id = rzd.vrniZadnjiId();
+      ReceptZaglavlje r = rzd.najdi(id);
+%>
       
        <%
-     AlergeniDAO ad=new AlergeniDAO ();
-     ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-      if (request.getParameter("add")!= null) {
-    	/*  String i = (String) request.getParameter("dodanRecept");
-    	 	int id = Integer.parseInt(i);
-    	 	ReceptZaglavlje fr = rzd.najdi(id);
-    	 	
-    	  System.out.println("naziv: "+ fr.getNaziv());
-    	  System.out.println("kratek Opis:  "+ fr.getKratekOpis());*/ 
-    	  Alergeni a=new Alergeni(request.getParameter("naziv"));
-    	 
-    	  a.setNaziv(request.getParameter("naziv"));
-    	  
-  ad.shrani(a);
+
+     if (request.getParameter("add")!= null) {       	 
+       	  r.setAlergeni(request.getParameter("naziv"));
+       	  
+     			rzd.shrani(r);
     	  
       }
       %>

@@ -30,7 +30,7 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double not null,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double not null, ogljikoviHidrati double not null, opisPriprave varchar(9999) not null)");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200))");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -57,7 +57,7 @@ public class ReceptZaglavljeDAO {
 		try {
 			conn=baza.getConnection();
 
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave, alergeni) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 				ps.setString(1, r.getNaziv());
 				ps.setInt(2, r.getSteviloOseb());
 				ps.setDouble(3, r.getCasPriprave());
@@ -69,6 +69,16 @@ public class ReceptZaglavljeDAO {
 				ps.setDouble(9, r.getMascobe());
 				ps.setDouble(10, r.getOgljikoviHidrati());
 				ps.setString(11, r.getOpisPriprave());
+				ArrayList<String> alergeni = r.getAlergeni();
+				String a = null;
+				for(int i=0; i<alergeni.size(); i++) {
+					if(i!=alergeni.size()) {
+					a += alergeni.get(i)+", ";
+					}
+					else
+						a +=alergeni.get(i);
+				}
+				ps.setString(12, a);
 				
 				
 				ps.executeUpdate();
@@ -166,7 +176,7 @@ public class ReceptZaglavljeDAO {
 				conn=baza.getConnection();
 			conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
 				
-				ResultSet rs=conn.createStatement().executeQuery(" SELECT * FROM RECEPTZAGLAVLJE WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi");
+				ResultSet rs=conn.createStatement().executeQuery(" SELECT * FROM RECEPTZAGLAVLJE WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi)");
 				while (rs.next()) {
 					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
@@ -233,6 +243,30 @@ public class ReceptZaglavljeDAO {
 		}
 		
 		return ret;
+	}
+	
+	public int vrniZadnjiId() {
+		Connection conn=null;
+		int id = 99999;
+		try {
+			conn=baza.getConnection();
+			ResultSet rs = conn.createStatement().executeQuery("select max(id_receptzaglavlje) from receptzaglavlje");
+			if(rs.next()){
+                id=rs.getInt(1);
+            }
+			//System.out.println("id iz baze "+id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return id;
+		
 	}
 	
 	
