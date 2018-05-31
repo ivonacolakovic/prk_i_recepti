@@ -15,6 +15,10 @@
   width: 30%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
+h1 {
+font-style: italic;
+text-decoration: underline;
+}
 </style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -54,7 +58,8 @@
   </div>
 </nav>
 <div id="wrapper">
-<h1>Dodaj nov recept</h1>
+<h1 style="color:#e60000;">Dodaj nov recept </h1>
+<br>
 <table>
 <tr>
 <form name="myForm" action="dodajAlergeni.jsp" onsubmit="return validateForm()" method="post" >
