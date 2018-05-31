@@ -7,6 +7,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+ body {
+    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+}
+ #wrapper {
+  width: 30%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
+</style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>dodajRecept</title>
@@ -44,23 +53,60 @@
     </ul>
   </div>
 </nav>
+<div id="wrapper">
 <h1>Dodaj nov recept</h1>
+<table>
+<tr>
 <form name="myForm" action="dodajAlergeni.jsp" onsubmit="return validateForm()" method="post" >
-     <p><b>Naziv:</b><input type="text" name="naziv" placeholder="Vnesete naziv" required ></p>
-        <p><b>Stevilo porcij:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
-        <p><b>Cas priprave:</b><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="casPriprave" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
-        <p><b>Opis:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis"  name="kratekOpis" required></textarea></p>
-        <p><b>Video:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" name="video"></p>
-        <p><b>Slika:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  name="slika"></p>
-        <p><b>Kalorije:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"   name="kalorije" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p>
-        <p><b>Mascobe:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p>
-        <p><b>Ogljikovi hidrati:</b><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p> 
-        <p><b>Nacin priprave:</b><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava" required></textarea></p>
-        <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
-        
+
+     <td><p><b style="font-size:125%;">Naziv:</b></td>
+     <td><input type="text" name="naziv" placeholder="Vnesete naziv"  required ></p></td>
+    </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Stevilo porcij:</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p></td>
+        </tr>
+       <tr>
+        <td><p><b style="font-size:125%;">Cas priprave:</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="casPriprave" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Opis:</b></td>
+        <td><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis"  name="kratekOpis" required></textarea></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Video:</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" name="video"></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Slika:</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  name="slika"></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Kalorije:</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"   name="kalorije" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Mascobe:</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Ogljikovi hidrati:&nbsp;&nbsp;</b></td>
+        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
+        </tr>
+        <tr>
+        <td><p><b style="font-size:125%;">Nacin priprave:</b></td>
+        <td><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava" required></textarea></p></td>
+        </tr>
+        <tr>
+        <td><p><button class="btn btn-success" type="submit" name="add">DONE</button></p></td>
+        </form>
+        </tr>
         
        
-      </form>
+      
+      </table>
+      </div>
       
       <%
       ReceptZaglavljeDAO  rzd=new ReceptZaglavljeDAO ();
