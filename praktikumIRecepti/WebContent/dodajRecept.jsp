@@ -81,6 +81,9 @@
     	  rz.setCasObjave(new Date());
     	  
     	  rzd.shrani(rz);
+    	  int zadnjiId = rzd.vrniZadnjiId();
+    	  System.out.println("last id: "+zadnjiId);
+    	  request.setAttribute("zadnjiId", zadnjiId);
     	
     	 
       }
