@@ -60,54 +60,54 @@ text-decoration: underline;
 <div id="wrapper">
 <h1 style="color:#e60000;">Dodaj nov recept </h1>
 <br>
-<table>
-<tr>
+
 <form name="myForm" action="dodajAlergeni.jsp" onsubmit="return validateForm()" method="post" >
 
-     <td><p><b style="font-size:125%;">Naziv:</b></td>
-     <td><input type="text" name="naziv" placeholder="Vnesete naziv"  required ></p></td>
-    </tr>
-        <tr>
-        <td><p><b style="font-size:125%;">Stevilo porcij:</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p></td>
-        </tr>
-       <tr>
-        <td><p><b style="font-size:125%;">Cas priprave:</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="casPriprave" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p></td>
-        </tr>
-        <tr>
-        <td><p><b style="font-size:125%;">Opis:</b></td>
-        <td><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete kratek opis"  name="kratekOpis" required></textarea></p></td>
-        </tr>
-        <tr>
-        <td><p><b style="font-size:125%;">Video:</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete video" name="video"></p></td>
-        </tr>
-        <tr>
-        <td><p><b style="font-size:125%;">Slika:</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete slika"  name="slika"></p></td>
-        </tr>
-        <tr>
-        <td><p><b style="font-size:125%;">Kalorije:</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"   name="kalorije" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
-      
-        <td><p><b style="font-size:125%;">Mascobe:</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
-        
-        <td><p><b style="font-size:125%;">Ogljikovi hidrati:&nbsp;&nbsp;</b></td>
-        <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
-        
-        <td><p><b style="font-size:125%;">Nacin priprave:</b></td>
-        <td><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava" required></textarea></p></td>
-        </tr>
-        <tr>
-        <td><p><button class="btn btn-success" type="submit" name="add">DONE</button></p></td>
+     <div class="form-group">
+      <label for="usr">Naziv</label>
+      <input type="text" class="form-control" id="usr" placeholder="Vnesete naziv" required >
+    </div>
+    <div class="form-group">
+      <label for="stvp">Stevilo porcij:</label>
+      <input type="text" class="form-control" id="stvp" type="number" placeholder="Vnesete stevilo porcij" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+    </div>
+     <div class="form-group">
+      <label for="casp">Cas priprave:</label>
+      <input type="text" class="form-control" id="casp" type="text"  min="1"  placeholder="Vnesete cas priprave"  name="casPriprave" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+    </div>
+       <div class="form-group">
+      <label for="comment">Opis:</label>
+      <textarea class="form-control" rows="3" id="comment" type="text" placeholder="Vnesete kratek opis"  name="kratekOpis" required></textarea>
+    </div>
+        <div class="form-group">
+      <label for="video">Video:</label>
+      <input type="text" class="form-control" id="video"type="text" min="1"  placeholder="Vnesete video" name="video">
+    </div>
+     <div class="form-group">
+      <label for="slika">Slika:</label>
+      <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesete slika"  name="slika">
+    </div>
+     <div class="form-group">
+      <label for="kal">Kalorije:</label>
+      <input type="text" class="form-control" id="kal" type="text" min="1"  placeholder="Vnesete stevilo kalorije"   name="kalorije" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" >
+    </div>
+    <div class="form-group">
+      <label for="masc">Mascobe:</label>
+      <input type="text" class="form-control" id="masc" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  >
+    </div>
+    <div class="form-group">
+      <label for="oglj">Ogljikovi hidrati:</label>
+      <input type="text" class="form-control" id="oglj" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  >
+    </div>
+    <div class="form-group">
+      <label for="priprave">Nacin priprave:</label>
+      <textarea class="form-control" rows="3" id="priprave" type="text" placeholder="Vnesete nacin priprave"  name="priprava" required></textarea>
+    </div>
+  
+        <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
         </form>
-        </tr>
-        
        
-      
-      </table>
+   
       </div>
       
       <%
