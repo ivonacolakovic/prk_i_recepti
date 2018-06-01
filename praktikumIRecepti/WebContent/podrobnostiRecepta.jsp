@@ -11,6 +11,10 @@
   body {
     background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
 }
+  #wrapper {
+  width: 30%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
@@ -58,28 +62,26 @@ int r = recept.getId_recept();
 if(!request.getParameter("podrobnosti").equals(null)){
 %>
 
+<div id="wrapper">
 <h1><%=recept.getNaziv() %></h1>
-<h3>Kratek opis: <%=recept.getKratekOpis() %></h3>
-<i>Datum objave:<%=recept.getCasObjave() %></i>
+<br>
+<h4>Kratek opis: <%=recept.getKratekOpis() %></h4>
 <img src="<%=recept.getSlika() %>" height="200" width="300"/>
-<div class="textOverImage"
-		style="background-image: url(https://02.avoncdn.com/shop/assets/en/prod/prod_1190882_xl.jpg?w=700)"
-		data-text="Avon True Color Glazewear Lip Gloss 
- Our #1 lip gloss is new and improved. Glazewear delivers high shine, rich color, and instant moisturization.
- 
- 8$">
-	</div>
+<br>
+<i>Datum objave:<%=recept.getCasObjave() %></i>
+
+	
 	<br>
 	<br>
 	<br>
-<p>Stevilo porcij:<%=recept.getSteviloOseb() %></p>
-<p>Cas priprave: <%=recept.getCasPriprave() %></p>
-<p>Kalorije: <%=recept.getSteviloKalorije() %></p>
-<p>Mascobe:<%=recept.getMascobe() %></p>
-<p>Oglijikovi hidrati:<%=recept.getOgljikoviHidrati() %></p>
-<p>Alergeni:<%=recept.getAlergeniSkupaj() %></p>
-<p>Sestavine:<%=recept.getSestavine() %></p>
-<p>Nacin priprave:<%=recept.getOpisPriprave() %></p>
+<p><b>Stevilo porcij:<%=recept.getSteviloOseb() %></b></p>
+<p><b>Cas priprave: <%=recept.getCasPriprave() %></b></p>
+<p><b>Kalorije: <%=recept.getSteviloKalorije() %></b></p>
+<p><b>Mascobe:<%=recept.getMascobe() %></b></p>
+<p><b>Oglijikovi hidrati:<%=recept.getOgljikoviHidrati() %></b></p>
+<p><b>Alergeni:<%=recept.getAlergeniSkupaj() %></b></p>
+<p><b>Sestavine:<%=recept.getSestavine() %></b></p>
+<p><b>Nacin priprave:<%=recept.getOpisPriprave() %></b></p>
 <iframe src="<%=recept.getVideo() %>" height="300" width="300"></iframe>
 
 <%}else{} %>
@@ -143,5 +145,6 @@ if (request.getParameter("dodaj")!=null ){
 	System.out.println(r);
 }
 %>
+</div>
 </body>
 </html>

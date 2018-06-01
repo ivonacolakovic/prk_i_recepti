@@ -236,8 +236,9 @@
  <tr>
   			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
   			
-                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
-  			<td><%=recepti.get(i).getKratekOpis()%></td>
+                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>&nbsp;</td>
+  			
+  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
   		</tr>
    </form>
   		  </table>
