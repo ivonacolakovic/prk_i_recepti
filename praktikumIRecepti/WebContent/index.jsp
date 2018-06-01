@@ -104,6 +104,51 @@
   margin: 0 auto; /* center */
 }
 
+
+
+
+
+
+div.gallery img {
+    width: 200px;
+    height: 150px;
+}
+
+div.desc {
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+
   </style>
 </head>
 <body>
@@ -255,6 +300,8 @@
 <h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
 <div class="container">
+ <div class="responsive">
+  <div class="gallery">
 <table>
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
@@ -263,16 +310,23 @@
  <form action="podrobnostiRecepta.jsp" method="post">
  
  <tr>
-  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="400" width="500"/></td>
+  			 <a target="_blank" href="<%=recepti.get(i).getSlika() %>">
+                </a>
+                <td><button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
   			
-                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
-  			
-  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
+  			 <td><div class="desc"><%=recepti.get(i).getKratekOpis()%></div></td>
+  		
+
+<div class="clearfix"></div>
+  		
   		</tr>
    </form>
   		  </table>
   		  
  <%} %>
+
 
 
   <% 
