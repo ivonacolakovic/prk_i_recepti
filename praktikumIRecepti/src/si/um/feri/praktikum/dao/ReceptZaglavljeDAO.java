@@ -287,7 +287,79 @@ public class ReceptZaglavljeDAO {
 			return ret;
 		}
 	
+public List<ReceptZaglavlje> najdiPoSezona(String sezona) throws Exception {
+		
+		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+			
+			Connection conn=null;
+			try {
+				conn=baza.getConnection();
+				PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where sezona=?");
+				ps.setString(1, sezona);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
+
+					ret.add(rz);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return ret;
+		}
+public List<ReceptZaglavlje> najdiPoCas(String cas) throws Exception {
+	
+	List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+		double cas1 = Double.parseDouble(cas);
+		Connection conn=null;
+		try {
+			conn=baza.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where casPriprave<?");
+			ps.setDouble(1, cas1);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+
+
+				ret.add(rz);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+		return ret;
+	}
+public List<ReceptZaglavlje> najdiPoKuhinja(String kuhinja) throws Exception {
+	
+	List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+		
+		Connection conn=null;
+		try {
+			conn=baza.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where kuhinja=?");
+			ps.setString(1, kuhinja);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+
+
+				ret.add(rz);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+		return ret;
+	}
+
 
 	
 	

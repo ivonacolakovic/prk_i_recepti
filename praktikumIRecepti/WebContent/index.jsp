@@ -234,9 +234,9 @@
   <option value="kitajska">Kitajska</option>
 </select>
 <select name="caspriprave">
-  <option value="manjkot30min">manj kot 30min</option>
-  <option value="manjkot1h">manj kot 1h</option>
-  <option value="veckot1h">vec kot 1h</option>
+  <option value="30">manj kot 30min</option>
+  <option value="60">manj kot 1h</option>
+  <option value="120">manj kot 2h</option>
 
 </select>
 

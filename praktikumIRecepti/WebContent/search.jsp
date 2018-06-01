@@ -248,14 +248,100 @@
  <%} %>
 
 
-  <%}else{} 
+  <%}else{
+	 
+  } 
+           //String podrobnosti = request.getParameter("podrobnosti");
+  		   //request.setAttribute("id", podrobnosti);
+  		   
+  		   %>
+  <% 
+  if(!request.getParameter("kuhinja").equals(null)){
+  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoKuhinja(request.getParameter("kuhinja"));
+  for(int i=0; i<recepti.size(); i++){
+  %>
+ <form action="podrobnostiRecepta.jsp" method="post">
+ 
+ <tr>
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+  			
+                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
+  			
+  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
+  		</tr>
+   </form>
+  		  </table>
+  		  
+ <%} %>
+
+
+  <%}else{
+	  
+  } 
+           //String podrobnosti = request.getParameter("podrobnosti");
+  		   //request.setAttribute("id", podrobnosti);
+  		   
+  		   %>
+  		    		   
+   <% 
+  if(!request.getParameter("caspriprave").equals(null)){
+  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoCas(request.getParameter("caspriprave"));
+  for(int i=0; i<recepti.size(); i++){
+  %>
+ <form action="podrobnostiRecepta.jsp" method="post">
+ 
+ <tr>
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+  			
+                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
+  			
+  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
+  		</tr>
+   </form>
+  		  </table>
+  		  
+ <%} %>
+
+
+  <%}else{
+	  
+  } 
            //String podrobnosti = request.getParameter("podrobnosti");
   		   //request.setAttribute("id", podrobnosti);
   		   
   		   %>
   		   
-  
+  <% 
+  if(!request.getParameter("sezona").equals(null)){
+  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoSezona(request.getParameter("sezona"));
+  for(int i=0; i<recepti.size(); i++){
+  %>
+ <form action="podrobnostiRecepta.jsp" method="post">
  
+ <tr>
+  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+  			
+                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
+  			
+  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
+  		</tr>
+   </form>
+  		  </table>
+  		  
+ <%} %>
+
+
+  <%}else{
+	 
+  } 
+           //String podrobnosti = request.getParameter("podrobnosti");
+  		   //request.setAttribute("id", podrobnosti);
+  		   
+  		   %>
+  		   
 
  
   		
