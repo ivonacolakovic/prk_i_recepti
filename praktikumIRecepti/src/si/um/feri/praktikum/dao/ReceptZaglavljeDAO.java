@@ -19,7 +19,7 @@ public class ReceptZaglavljeDAO {
 	
 	public ReceptZaglavljeDAO() {
 		try {
-			baza=(DataSource)new InitialContext().lookup("java:/prk_i_recepti");
+			baza=(DataSource)new InitialContext().lookup("java:/prk_i_recepti");	
 			kreirajTabele();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -30,7 +30,7 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200))");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200), sezona varchar(100), tipjedi varchar(10) not null , kuhinja varchar(45))");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -57,7 +57,7 @@ public class ReceptZaglavljeDAO {
 		try {
 			conn=baza.getConnection();
 
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave,alergeni) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave, alergeni,sezona,tipjedi,kuhinja) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 				ps.setString(1, r.getNaziv());
 				ps.setInt(2, r.getSteviloOseb());
 				ps.setDouble(3, r.getCasPriprave());
@@ -70,7 +70,9 @@ public class ReceptZaglavljeDAO {
 				ps.setDouble(10, r.getOgljikoviHidrati());
 				ps.setString(11, r.getOpisPriprave());
 				ps.setString(12, r.getAlergeniSkupaj());
-				
+				ps.setString(13, r.getSezona());
+				ps.setString(14, r.getTipjedi());
+				ps.setString(15, r.getKuhinja());
 				
 				ps.executeUpdate();
 			
@@ -116,7 +118,7 @@ public class ReceptZaglavljeDAO {
 			ps.setInt(1, sifra);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				ret  = new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getInt("steviloOseb"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()));
+				ret  = new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getInt("steviloOseb"),rs.getDouble("casPriprave"),rs.getString("kratekOpis"),rs.getString("slika"),rs.getString("video"),rs.getDouble("steviloKalorije"),rs.getDouble("mascobe"),rs.getDouble("ogljikoviHidrati"),rs.getString("opisPriprave"), new java.util.Date(rs.getDate("casObjave").getTime()),rs.getString("alergeni"));
 	
 				break;
 			}

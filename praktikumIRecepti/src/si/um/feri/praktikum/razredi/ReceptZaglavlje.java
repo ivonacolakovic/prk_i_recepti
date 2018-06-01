@@ -16,9 +16,9 @@ public class ReceptZaglavlje {
 	private double ogljikoviHidrati;
 	private String opisPriprave;
 	private Date casObjave;
-	private TipJedi tk_id_tipJedi;
-	private Sezona tk_id_sezona;
-	private Kuhinja tk_id_kuhinja;
+	private String kuhinja;
+	private String tipjedi;
+	private String sezona;
 	private ArrayList<Ocena> ocena = new ArrayList<>();
 	//private ArrayList<String> alergeni = new ArrayList<>();
 	private ArrayList<Sestavine> sestavine = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ReceptZaglavlje {
 		
 	}
 	
-	public ReceptZaglavlje(int id_recept,String naziv,int steviloOseb,double casPriprave,String kratekOpis,String slika,String video, double steviloKalorije, double mascobe, double ogljikoviHidrati,String opisPriprave, Date casObjave ) {
+	public ReceptZaglavlje(int id_recept,String naziv,int steviloOseb,double casPriprave,String kratekOpis,String slika,String video, double steviloKalorije, double mascobe, double ogljikoviHidrati,String opisPriprave, Date casObjave,String alergeniSkupaj ) {
 		this.id_recept=id_recept;
 		this.naziv=naziv;
 		this.steviloOseb=steviloOseb;
@@ -49,6 +49,7 @@ public class ReceptZaglavlje {
 		this.ogljikoviHidrati=ogljikoviHidrati;
 		this.opisPriprave=opisPriprave;
 		this.casObjave=casObjave;
+		this.alergeniSkupaj=alergeniSkupaj;
 	}
 	
 	public int getId_recept() {
@@ -125,39 +126,32 @@ public class ReceptZaglavlje {
 	public void setCasObjave(Date casObjave) {
 		this.casObjave = casObjave;
 	}
-	public TipJedi getTk_id_tipJedi() {
-		return tk_id_tipJedi;
-	}
-	public void setTk_id_tipJedi(TipJedi tk_id_tipJedi) {
-		this.tk_id_tipJedi = tk_id_tipJedi;
-	}
-	public Sezona getTk_id_sezona() {
-		return tk_id_sezona;
-	}
-	public void setTk_id_sezona(Sezona tk_id_sezona) {
-		this.tk_id_sezona = tk_id_sezona;
-	}
-	public Kuhinja getTk_id_kuhinja() {
-		return tk_id_kuhinja;
-	}
-	public void setTk_id_kuhinja(Kuhinja tk_id_kuhinja) {
-		this.tk_id_kuhinja = tk_id_kuhinja;
-	}
+	
 	public ArrayList<Ocena> getOcena() {
 		return ocena;
 	}
 	public void setOcena(ArrayList<Ocena> ocena) {
 		this.ocena = ocena;
 	}
-	/*public ArrayList<String> getAlergeni() {
-		return alergeni;
+	
+	public String getKuhinja() {
+		return kuhinja;
 	}
-	public void setAlergeni(String a) {
-		String[] parts = a.split(",");
-		for(int j = 0; j < parts.length; j++){
-			this.alergeni.add(parts[j]);
-		}
-	}*/
+	public void setKuhinja(String kuhinja) {
+		this.kuhinja = kuhinja;
+	}
+	public String getTipjedi() {
+		return tipjedi;
+	}
+	public void setTipjedi(String tipjedi) {
+		this.tipjedi = tipjedi;
+	}
+	public String getSezona() {
+		return sezona;
+	}
+	public void setSezona(String sezona) {
+		this.sezona = sezona;
+	}
 	public ArrayList<Sestavine> getSestavine() {
 		return sestavine;
 	}

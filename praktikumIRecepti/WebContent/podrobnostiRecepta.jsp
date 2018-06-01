@@ -99,16 +99,7 @@ OcenaDAO od = new OcenaDAO();
   		
   		<%}
   
-       
-        if (request.getParameter("dodaj")!=null ){
-        	 
-        	Ocena o = new Ocena();
-        	  o.setKomentar(request.getParameter("komentar"));
-        	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
-        	  o.setTk_recept_id(id);
-        	  od.shrani(o);
-        	 
-        }%>
+%>
   		</tr>
   		
  

@@ -80,11 +80,11 @@ text-decoration: underline;
       <textarea class="form-control" rows="3" id="comment" type="text" placeholder="Vnesite kratek opis"  name="kratekOpis" required></textarea>
     </div>
         <div class="form-group">
-      <label for="video">Video:</label>
+      <label for="video">Video(link):</label>
       <input type="text" class="form-control" id="video"type="text" min="1"  placeholder="Vnesite video" name="video">
     </div>
      <div class="form-group">
-      <label for="slika">Slika:</label>
+      <label for="slika">Slika(link):</label>
       <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesite sliko"  name="slika">
     </div>
      <div class="form-group">
@@ -107,6 +107,48 @@ text-decoration: underline;
       <label for="usr">Naziv alergena (locite z vejico):</label>
       <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" name="alergeni" required >
     </div>
+    <div>
+    <input type="radio" id="tipjedi1" name="tipjedi" value="juha">
+    <label for="tipjedi1">Juha</label>
+
+     <input type="radio" id="tipjedi2" name="tipjedi" value="solata">
+    <label for="tipjedi2">Solata</label>
+
+   <input type="radio" id="tipjedi3" name="tipjedi" value="predjed">
+    <label for="tipjedi3">Predjed</label>
+    
+     <input type="radio" id="tipjedi4" name="tipjedi" value="glavnajest">
+    <label for="tipjedi4">Glavna jest</label>
+    
+     <input type="radio" id="tipjedi5" name="tipjedi" value="sladica">
+    <label for="tipjedi5">Sladica</label>
+  </div><br>
+      <div>
+    <input type="radio" id="sezona1" name="sezona" value="zima">
+    <label for="sezona1">Zima</label>
+
+    <input type="radio" id="sezona2" name="sezona" value="spomlad">
+    <label for="sezona2">Spomlad</label>
+    
+  <input type="radio" id="sezona3" name="sezona" value="poletje">
+    <label for="sezona3">Poletje</label>
+    
+     <input type="radio" id="sezona4" name="sezona" value="jesen">
+    <label for="sezona4">Jesen</label>
+  </div><br>
+        <div>
+    <input type="radio" id="kuhinja1" name="kuhinja" value="mehiska">
+    <label for="kuhinja1">Mehiska</label>
+
+    <input type="radio" id="kuhinja2" name="kuhinja" value="francoska">
+    <label for="kuhinja2">Francoska</label>
+    
+  <input type="radio" id="kuhinja3" name="kuhinja" value="italijanska">
+    <label for="kuhinja3">Italijanska</label>
+    
+     <input type="radio" id="kuhinja4" name="kuhinja" value="kitajska">
+    <label for="kuhinja4">Kitajska</label>
+  </div>
   
         <p><button type="submit"  name="add">DODAJ</button></p>
         </form>
@@ -135,6 +177,9 @@ text-decoration: underline;
     	  rz.setOpisPriprave(request.getParameter("hidrati"));
     	  rz.setCasObjave(new Date());
     	  rz.setAlergeniSkupaj(request.getParameter("alergeni"));
+    	  rz.setKuhinja(request.getParameter("kuhinja"));
+    	  rz.setSezona(request.getParameter("sezona"));
+    	  rz.setTipjedi(request.getParameter("tipjedi"));
     	  
     	  rzd.shrani(rz);
     	  int zadnjiId = rzd.vrniZadnjiId();
