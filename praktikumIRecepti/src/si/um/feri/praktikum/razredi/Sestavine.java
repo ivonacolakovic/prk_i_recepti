@@ -6,12 +6,13 @@ public class Sestavine {
 	private String naziv;
 	private String enota;
 	private double kolicina;
+	private int tk_recept;
 	
 	public Sestavine() {
 		
 	}
 	
-public Sestavine(String naziv,String enota, double kolicina ) {
+public Sestavine(String naziv, double kolicina,String enota ) {
 	this.enota=enota;
 	this.naziv=naziv;
 	this.kolicina=kolicina;
@@ -22,6 +23,7 @@ public Sestavine(String naziv,String enota, double kolicina ) {
 	public int getIdSestavine() {
 		return idSestavine;
 	}
+	
 	public void setIdSestavine(int idSestavine) {
 		this.idSestavine = idSestavine;
 	}
@@ -45,5 +47,14 @@ public Sestavine(String naziv,String enota, double kolicina ) {
 	public void setKolicina(double kolicina) {
 		this.kolicina = kolicina;
 	}
+
+	public int getTk_recept() {
+		return tk_recept;
+	}
+
+	public void setTk_recept(int tk_recept) {
+		this.tk_recept = tk_recept;
+	}
+	
 	
 }

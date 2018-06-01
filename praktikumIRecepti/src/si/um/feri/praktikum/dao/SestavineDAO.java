@@ -57,10 +57,11 @@ DataSource baza;
 		try {
 			conn=baza.getConnection();
 
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO SESTAVINE(naziv, enota, kolicina) VALUES (?, ?, ?)");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO SESTAVINE(naziv, enota, kolicina, tk_recept_id) VALUES (?, ?, ?,?)");
 				ps.setString(1, r.getNaziv());
 				ps.setString(2, r.getEnota());
 				ps.setDouble(3, r.getKolicina());
+				ps.setInt(4, r.getTk_recept());
 				
 				ps.executeUpdate();
 			
@@ -81,7 +82,7 @@ DataSource baza;
 				PreparedStatement ps = conn.prepareStatement("select * from sestavine where tk_recept_id=?");
 				ps.setInt(1, id);
 				ResultSet rs = ps.executeQuery();while (rs.next()) {
-					Sestavine s =new Sestavine(rs.getString("naziv"), rs.getString("enota"), rs.getDouble("kolicina"));
+					Sestavine s =new Sestavine(rs.getString("naziv"), rs.getDouble("kolicina"),rs.getString("enota"));
 	
 					ret.add(s);
 				}
@@ -105,7 +106,7 @@ DataSource baza;
 			ps.setInt(1, sifra);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				ret  = new Sestavine(rs.getString("naziv"), rs.getString("enota"), rs.getDouble("kolicina"));
+				ret  = new Sestavine(rs.getString("naziv"), rs.getDouble("kolicina"), rs.getString("enota"));
 	
 				break;
 			}

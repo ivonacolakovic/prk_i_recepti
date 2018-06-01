@@ -61,7 +61,7 @@ text-decoration: underline;
 <h1 style="color:#e60000;">Dodaj nov recept </h1>
 <br>
 
-<form name="myForm" action="" onsubmit="return validateForm()" method="post" >
+<form name="myForm" action="dodajSestavine.jsp" onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
       <label for="usr">Naziv</label>

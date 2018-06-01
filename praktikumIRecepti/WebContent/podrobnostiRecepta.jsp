@@ -15,6 +15,21 @@
   width: 30%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
@@ -80,9 +95,28 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <p><b>Mascobe:<%=recept.getMascobe() %></b></p>
 <p><b>Oglijikovi hidrati:<%=recept.getOgljikoviHidrati() %></b></p>
 <p><b>Alergeni:<%=recept.getAlergeniSkupaj() %></b></p>
-<p><b>Sestavine:<%=recept.getSestavine() %></b></p>
 <p><b>Nacin priprave:<%=recept.getOpisPriprave() %></b></p>
-<iframe src="<%=recept.getVideo() %>" height="300" width="300"></iframe>
+<iframe src="<%=recept.getVideo()%>" height="300" width="300"></iframe>
+<br><br>
+<b>Sestavine:
+<table>
+<tr>
+    <th>Naziv</th>
+    <th>Kolicina</th> 
+    <th>Enota</th>
+  </tr>
+<%SestavineDAO sd = new SestavineDAO();
+List<Sestavine> sestavine = sd.vrniSestavine(recept.getId_recept());
+for(int i=0;i<sestavine.size();i++){%> 
+<tr>
+    <td><%=sestavine.get(i).getNaziv()%></td>
+    <td><%=sestavine.get(i).getKolicina()%></td>
+    <td><%=sestavine.get(i).getEnota()%></td>
+  </tr>
+
+<%} %>
+</table>
+
 
 <%}else{} %>
 <br><br><br>
@@ -111,8 +145,8 @@ OcenaDAO od = new OcenaDAO();
 <form action="podrobnostiRecepta.jsp"  method="post">
         <p><b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5"placeholder="Vnesete ocena" name="ocena" ></p>
         <p><b>Komentar:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete komentar"  name="komentar" ></textarea></p>
-        <input type="hidden" name="neshto" />
-        <p><input type="submit"  value="dodaj" name="dodaj">DODAJ</p>
+
+        <p><button type="submit"  value="dodaj" name="dodaj">DODAJ</button></p>
         </form>
         
 <%
@@ -124,7 +158,7 @@ OcenaDAO od1 = new OcenaDAO();
 System.out.println(request.getParameter("dodaj"));
 System.out.println(request.getParameter("ocena"));
 System.out.println(request.getParameter("komentar"));
-if (request.getParameter("neshto")!=null ){
+if (request.getParameter("dodaj")!=null ){
 	System.out.println("u if sum i dosadno mi e ");
 
 

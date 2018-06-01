@@ -26,15 +26,16 @@
 </head>
 <body>
 <h1>Dodaj sestavine</h1>
-
+<%
+if (request.getParameter("add")!= null) {}
+%>
 
 <form name="myForm" action="" onsubmit="return validateForm()" method="post">
      <p><b>Naziv :</b><input type="text" name="naziv" placeholder="Vnesete naziv" required></p>
     <p><b>Enota :</b><input type="text" name="enota" placeholder="Vnesete enotu" required></p>
-        <p><b>Kolicina :</b><input type="text" name="kolicina" placeholder="Vnesete kolicinu" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
+     <p><b>Kolicina :</b><input type="text" name="kolicina" placeholder="Vnesete kolicinu" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required></p>
        
-        <p><button class="btn btn-success" type="submit" name="add">DONE</button></p>
-        
+        <p><button class="btn btn-success" type="submit" name="dodaj">Dodaj</button></p>
         
        
       </form>
@@ -42,17 +43,21 @@
        <%
      SestavineDAO ad=new SestavineDAO ();
      
-      if (request.getParameter("add")!= null) {
+      if (request.getParameter("dodaj")!= null) {
     	  Sestavine s=new Sestavine();
-    	 
+    	  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
     	  s.setNaziv(request.getParameter("naziv"));
     	  s.setEnota(request.getParameter("enota"));
     	  s.setKolicina(Double.parseDouble(request.getParameter("kolicina")));
+    	  s.setTk_recept(rzd.vrniZadnjiId());
     	  
   ad.shrani(s);
     	  
       }
       %>
+      <form action="index.jsp" method=post>
+       <p><button class="btn btn-success" type="submit" name="Konec">Konec</button></p>
+       </form>
 
 </body>
 </html>
