@@ -16,6 +16,7 @@ public class Ocena {
 		this.ocena=ocena;
 		this.komentar=komentar;
 		
+		
 	}
 	
 	public int getIdOcena() {
