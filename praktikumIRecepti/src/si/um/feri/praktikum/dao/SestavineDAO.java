@@ -10,7 +10,7 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import si.um.feri.praktikum.razredi.Alergeni;
+
 import si.um.feri.praktikum.razredi.ReceptZaglavlje;
 import si.um.feri.praktikum.razredi.Sestavine;
 import si.um.feri.praktikum.razredi.TipJedi;

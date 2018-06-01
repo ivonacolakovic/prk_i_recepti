@@ -69,16 +69,7 @@ public class ReceptZaglavljeDAO {
 				ps.setDouble(9, r.getMascobe());
 				ps.setDouble(10, r.getOgljikoviHidrati());
 				ps.setString(11, r.getOpisPriprave());
-				ArrayList<String> alergeni = r.getAlergeni();
-				String a = null;
-				for(int i=0; i<alergeni.size(); i++) {
-					if(i!=alergeni.size()) {
-					a += alergeni.get(i)+", ";
-					}
-					else
-						a +=alergeni.get(i);
-				}
-				ps.setString(12, a);
+				ps.setString(12, r.getAlergeniSkupaj());
 				
 				
 				ps.executeUpdate();

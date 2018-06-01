@@ -20,8 +20,9 @@ public class ReceptZaglavlje {
 	private Sezona tk_id_sezona;
 	private Kuhinja tk_id_kuhinja;
 	private ArrayList<Ocena> ocena = new ArrayList<>();
-	private ArrayList<String> alergeni = new ArrayList<>();
+	//private ArrayList<String> alergeni = new ArrayList<>();
 	private ArrayList<Sestavine> sestavine = new ArrayList<>();
+	private String alergeniSkupaj;
 	
 	
 	public ReceptZaglavlje() {
@@ -148,7 +149,7 @@ public class ReceptZaglavlje {
 	public void setOcena(ArrayList<Ocena> ocena) {
 		this.ocena = ocena;
 	}
-	public ArrayList<String> getAlergeni() {
+	/*public ArrayList<String> getAlergeni() {
 		return alergeni;
 	}
 	public void setAlergeni(String a) {
@@ -156,13 +157,20 @@ public class ReceptZaglavlje {
 		for(int j = 0; j < parts.length; j++){
 			this.alergeni.add(parts[j]);
 		}
-	}
+	}*/
 	public ArrayList<Sestavine> getSestavine() {
 		return sestavine;
 	}
 	public void setSestavine(ArrayList<Sestavine> sestavine) {
 		this.sestavine = sestavine;
 	}
+	public String getAlergeniSkupaj() {
+		return alergeniSkupaj;
+	}
+	public void setAlergeniSkupaj(String alergeniSkupaj) {
+		this.alergeniSkupaj = alergeniSkupaj;
+	}
+	
 	
 
 	
