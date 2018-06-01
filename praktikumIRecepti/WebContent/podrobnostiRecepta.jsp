@@ -50,6 +50,8 @@
 <%int id = Integer.parseInt(request.getParameter("podrobnosti"));
 ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
 ReceptZaglavlje recept = rzd.najdi(id);
+int r = recept.getId_recept();
+
 %>
 
 <%
@@ -116,15 +118,30 @@ OcenaDAO od = new OcenaDAO();
 <form action=""  method="post">
         <p><b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5"placeholder="Vnesete ocena" name="ocena" ></p>
         <p><b>Komentar:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete komentar"  name="komentar" ></textarea></p>
-        <p><button class="btn btn-success" type="submit" name="dodaj">DODAJ</button></p>
+        <p><input type="submit" value="dodaj" name="dodaj"></input></p>
         </form>
+        
 <%
+System.out.println(r);
+//session.setAttribute("id", r);
+//String nesh = (session.getAttribute("id")).toString();
+//System.out.println(nesh);
+OcenaDAO od1 = new OcenaDAO();
+System.out.println(request.getParameter("dodaj"));
+System.out.println(request.getParameter("ocena"));
+System.out.println(request.getParameter("komentar"));
+if (request.getParameter("dodaj")!=null ){
 
-        
-        
-        %>
 
-        
+	  Ocena o = new Ocena();
+  	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
+  	  o.setKomentar(request.getParameter("komentar"));
+  	  o.setTk_recept_id(r);
+  	  od1.shrani(o);
 
+}else{
+	System.out.println(r);
+}
+%>
 </body>
 </html>
