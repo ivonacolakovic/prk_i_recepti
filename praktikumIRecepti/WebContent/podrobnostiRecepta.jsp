@@ -108,10 +108,11 @@ OcenaDAO od = new OcenaDAO();
 
   
 
-<form action=""  method="post">
+<form action="podrobnostiRecepta.jsp"  method="post">
         <p><b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5"placeholder="Vnesete ocena" name="ocena" ></p>
         <p><b>Komentar:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete komentar"  name="komentar" ></textarea></p>
-        <p><input type="submit" value="dodaj" name="dodaj"></input></p>
+        <input type="hidden" name="neshto" />
+        <p><input type="submit"  value="dodaj" name="dodaj">DODAJ</p>
         </form>
         
 <%
@@ -123,7 +124,8 @@ OcenaDAO od1 = new OcenaDAO();
 System.out.println(request.getParameter("dodaj"));
 System.out.println(request.getParameter("ocena"));
 System.out.println(request.getParameter("komentar"));
-if (request.getParameter("dodaj")!=null ){
+if (request.getParameter("neshto")!=null ){
+	System.out.println("u if sum i dosadno mi e ");
 
 
 	  Ocena o = new Ocena();

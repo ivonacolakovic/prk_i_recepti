@@ -262,6 +262,37 @@ public class ReceptZaglavljeDAO {
 		
 	}
 	
+	public List<ReceptZaglavlje> najdiPoTip(String tip) throws Exception {
+		
+		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+			
+			Connection conn=null;
+			try {
+				conn=baza.getConnection();
+				PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where tipjedi=?");
+				ps.setString(1, tip);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
+	
+
+					ret.add(rz);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				conn.close();
+			}
+			return ret;
+		}
+	
+	
+
+	
+	
+	
+	
 	
 	
 	

@@ -175,11 +175,11 @@
 <ul>
 <li><a href="#">Tip jedi</a>
 <ul>
-<li><a href="juha.jsp">Juha</a>
-<li><a href="3">Solata</a>
+<li><a href="">Juha</a>
+<li><a href="">Solata</a>
 <li><a href="">Predjed</a>
 <li><a href="#">Glavna jed</a>
-<li><a href="sladica.jsp">Sladica</a>
+<li><a href="">Sladica</a>
 </ul>
 
 </ul>
@@ -212,36 +212,7 @@
 </ul>
 
 </ul>
-<br><br>
-<form action="search.jsp">
-<select name="tipjedi">
-  <option value="juha">Juha</option>
-  <option value="solata">Solata</option>
-  <option value="predjed">Predjed</option>
-  <option value="glavnajed">Glavna jed</option>
-  <option value="sladica">Sladica</option>
-</select>
-<select name="sezona">
-  <option value="zima">Zima</option>
-  <option value="pomlad">Pomlad</option>
-  <option value="jesen">Jesen</option>
-  <option value="poletje">Poletje</option>
-</select>
-<select name="kuhinja">
-  <option value="francoska">Francoska</option>
-  <option value="italijanska">Italijanska</option>
-  <option value="mehiska">Mehiska</option>
-  <option value="kitajska">Kitajska</option>
-</select>
-<select name="caspriprave">
-  <option value="manjkot30min">manj kot 30min</option>
-  <option value="manjkot1h">manj kot 1h</option>
-  <option value="veckot1h">vec kot 1h</option>
 
-</select>
-
-<input type="submit" value="Submit">
-</form>
 
 
 <ul>
@@ -256,8 +227,10 @@
 </div>
 <div class="container">
 <table>
-  <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
+  <% 
+  if(!request.getParameter("tipjedi").equals(null)){
+  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoTip(request.getParameter("tipjedi"));
   for(int i=0; i<recepti.size(); i++){
   %>
  <form action="podrobnostiRecepta.jsp" method="post">
@@ -275,11 +248,13 @@
  <%} %>
 
 
-  <% 
+  <%}else{} 
            //String podrobnosti = request.getParameter("podrobnosti");
   		   //request.setAttribute("id", podrobnosti);
   		   
   		   %>
+  		   
+  
  
 
  
