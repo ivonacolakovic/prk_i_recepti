@@ -182,6 +182,7 @@ text-decoration: underline;
     	  rz.setTipjedi(request.getParameter("tipjedi"));
     	  
     	  rzd.shrani(rz);
+    	  response.sendRedirect("http://localhost:8080/praktikumIRecepti/dodajSestavine.jsp");
     	  int zadnjiId = rzd.vrniZadnjiId();
     	  System.out.println("last id: "+zadnjiId);
     	  request.setAttribute("zadnjiId", zadnjiId);
@@ -191,12 +192,6 @@ text-decoration: underline;
     	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
       }
       %>
-      <div id="wrapper">
-       <div class="form-group">
-<form action="dodajSestavine.jsp">
-<button type="submit"  name="add">DODAJ SESTAVINE</button>
-</form>
-</div>
-</div>
+      
 </body>
 </html>
