@@ -61,7 +61,7 @@ text-decoration: underline;
 <h1 style="color:#e60000;">Dodaj nov recept </h1>
 <br>
 
-<form name="myForm" action="dodajSestavine.jsp" onsubmit="return validateForm()" method="post" >
+<form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
       <label for="usr">Naziv</label>
@@ -191,6 +191,12 @@ text-decoration: underline;
     	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
       }
       %>
-
+      <div id="wrapper">
+       <div class="form-group">
+<form action="dodajSestavine.jsp">
+<button type="submit"  name="add">DODAJ SESTAVINE</button>
+</form>
+</div>
+</div>
 </body>
 </html>
