@@ -90,16 +90,13 @@ text-decoration: underline;
         <tr>
         <td><p><b style="font-size:125%;">Kalorije:</b></td>
         <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo kalorije"   name="kalorije" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
-        </tr>
-        <tr>
+      
         <td><p><b style="font-size:125%;">Mascobe:</b></td>
         <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo mascobe"  name="mascobe" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
-        </tr>
-        <tr>
+        
         <td><p><b style="font-size:125%;">Ogljikovi hidrati:&nbsp;&nbsp;</b></td>
         <td><input class="w3-input w3-padding-16 w3-border" type="text" min="1"  placeholder="Vnesete stevilo ogljikovi hidrati" name="hidrati" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ></p></td>
-        </tr>
-        <tr>
+        
         <td><p><b style="font-size:125%;">Nacin priprave:</b></td>
         <td><textarea rows="10"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete nacin priprave"  name="priprava" required></textarea></p></td>
         </tr>
