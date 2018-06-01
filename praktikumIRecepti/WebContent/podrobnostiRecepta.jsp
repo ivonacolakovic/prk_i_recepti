@@ -77,7 +77,7 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <p>Kalorije: <%=recept.getSteviloKalorije() %></p>
 <p>Mascobe:<%=recept.getMascobe() %></p>
 <p>Oglijikovi hidrati:<%=recept.getOgljikoviHidrati() %></p>
-<p>Alergeni:<%=recept.getAlergeni() %></p>
+<p>Alergeni:<%=recept.getAlergeniSkupaj() %></p>
 <p>Sestavine:<%=recept.getSestavine() %></p>
 <p>Nacin priprave:<%=recept.getOpisPriprave() %></p>
 <iframe src="<%=recept.getVideo() %>" height="300" width="300"></iframe>

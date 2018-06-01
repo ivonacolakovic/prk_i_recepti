@@ -19,7 +19,7 @@ public class ReceptZaglavljeDAO {
 	
 	public ReceptZaglavljeDAO() {
 		try {
-			baza=(DataSource)new InitialContext().lookup("java:/prk_i_recepti");	
+			baza=(DataSource)new InitialContext().lookup("java:/prk_i_recepti");
 			kreirajTabele();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class ReceptZaglavljeDAO {
 		try {
 			conn=baza.getConnection();
 
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave, alergeni) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave,alergeni) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 				ps.setString(1, r.getNaziv());
 				ps.setInt(2, r.getSteviloOseb());
 				ps.setDouble(3, r.getCasPriprave());

@@ -61,15 +61,15 @@ text-decoration: underline;
 <h1 style="color:#e60000;">Dodaj nov recept </h1>
 <br>
 
-<form name="myForm" action="dodajSestavine.jsp" onsubmit="return validateForm()" method="post" >
+<form name="myForm" action="" onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
       <label for="usr">Naziv</label>
-      <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" required >
+      <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" name="naziv" required >
     </div>
     <div class="form-group">
       <label for="stvp">Stevilo porcij:</label>
-      <input type="text" class="form-control" id="stvp" type="number" placeholder="Vnesite stevilo porcij" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloOseb" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+      <input type="text" class="form-control" id="stvp" type="number" placeholder="Vnesite stevilo porcij" type="number" min="1" placeholder="Vnesete stevilo porcij" name="steviloPorcij" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
     </div>
      <div class="form-group">
       <label for="casp">Cas priprave (min):</label>
@@ -108,7 +108,7 @@ text-decoration: underline;
       <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" name="alergeni" required >
     </div>
   
-        <p><button class="btn btn-success" type="submit" name="add">DODAJ</button></p>
+        <p><button type="submit"  name="add">DODAJ</button></p>
         </form>
        
    
@@ -116,12 +116,15 @@ text-decoration: underline;
       
       <%
       ReceptZaglavljeDAO  rzd=new ReceptZaglavljeDAO ();
-     
+    //System.out.println("dugme "+request.getParameter("add"));
+      
       if (request.getParameter("add")!= null) {
+    	 //System.out.println("u ifu");
     	  ReceptZaglavlje rz=new ReceptZaglavlje();
     	 
     	  rz.setNaziv(request.getParameter("naziv"));
-    	  rz.setSteviloOseb(Integer.parseInt(request.getParameter("steviloOseb")));
+    	  System.out.println("stP: "+request.getParameter("steviloPorcij"));
+    	  rz.setSteviloOseb(Integer.parseInt(request.getParameter("steviloPorcij")));
     	  rz.setCasPriprave(Double.parseDouble(request.getParameter("casPriprave")));
     	  rz.setKratekOpis(request.getParameter("kratekOpis"));
     	  rz.setVideo(request.getParameter("video"));
@@ -138,6 +141,9 @@ text-decoration: underline;
     	  System.out.println("last id: "+zadnjiId);
     	  request.setAttribute("zadnjiId", zadnjiId);
     	 
+      }
+      else{
+    	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
       }
       %>
 
