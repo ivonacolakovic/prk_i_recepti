@@ -22,6 +22,8 @@ h2 {
  font-family: 'Raleway', Helvetica, Arial, sans-serif;
 
 }
+
+
 </style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -65,7 +67,7 @@ h2 {
 <div id="wrapper">
 <h2 style="color:#e60000;">DODAJ NOV RECEPT </h2>
 <br>
-
+<div style="background-color:#f2f2f2" class="div2">
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
@@ -102,12 +104,12 @@ h2 {
       <label for="oglj">Ogljikovi hidrati:</label>
       <input type="text" class="form-control" id="oglj" type="text" min="1"  placeholder="Vnesete ogljikove hidrate (g)" name="hidrati" >
     </div>
- 
+
      <div class="form-group">
       <label for="usr">Naziv alergena (locite z vejico):</label>
       <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" name="alergeni" required >
     </div>
-    <div>
+    <div >
     <input type="radio" id="tipjedi1" name="tipjedi" value="juha" required>
     <label for="tipjedi1">Juha</label>
 
@@ -123,7 +125,7 @@ h2 {
      <input type="radio" id="tipjedi5" name="tipjedi" value="sladica" required>
     <label for="tipjedi5">Sladica</label>
   </div><br>
-      <div>
+      <div >
     <input type="radio" id="sezona1" name="sezona" value="zima" required>
     <label for="sezona1" >Zima</label>
 
@@ -136,7 +138,7 @@ h2 {
      <input type="radio" id="sezona4" name="sezona" value="jesen" required>
     <label for="sezona4">Jesen</label>
   </div><br>
-        <div>
+        <div >
     <input type="radio" id="kuhinja1" name="kuhinja" value="mehiska" required>
     <label for="kuhinja1">Mehiska</label>
 
@@ -161,9 +163,9 @@ h2 {
         <p><button type="submit"  name="add">DODAJ</button></p>
         </form>
        
-   
+  
       </div>
-      
+      </div>
       <%
       ReceptZaglavljeDAO  rzd=new ReceptZaglavljeDAO ();
     //System.out.println("dugme "+request.getParameter("add"));
