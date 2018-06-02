@@ -96,7 +96,7 @@ public class ReceptZaglavljeDAO {
 				while (rs.next()) {
 					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
-					ret.add(rz);
+					ret.add(rz); 
 				}
 				rs.close();
 			} catch (Exception e) {

@@ -20,7 +20,7 @@
   }
   
   body {
-    background-image: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
+    background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
   
     /* Remove the navbar's default margin-bottom and rounded borders */ 
