@@ -110,7 +110,7 @@ div.desc {
   display: none; /*hide original SELECT element:*/
 }
 .select-selected {
-  background-color: #32CD32;
+  background-color: #696969;
 }
 /*style the arrow inside the select element:*/
 .select-selected:after {
@@ -140,7 +140,7 @@ div.desc {
 /*style items (options):*/
 .select-items {
   position: absolute;
-  background-color: #32CD32;
+  background-color: #696969;
   top: 100%;
   left: 0;
   right: 0;
@@ -157,7 +157,7 @@ div.desc {
 
 
 .button {
-    background-color: #D80000  ;
+    background-color: #32CD32 ;
     border: none;
     color: white;
     padding: 8px 16px;

@@ -8,17 +8,40 @@
 <html>
 <head>
 <style>
- body {
-    background-color: 	#F5F5DC;
-}
+ 
+  
  #wrapper {
-  width: 30%;     /* specify a width! */
+  width: 40%;     /* specify a width! */
+  margin: 0 auto; /* center */
+  border-radius: 5px;
+    background-color: #f2f2f2;
+     width: 40%;
+    
+}
+ #naslov {
+  width: 15%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
 h2 {
  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-
+width:30%;
 }
+img {
+    float: left;
+}
+.form-group {
+overflow: auto;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.img2 {
+    float: left;
+}
+
 </style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -57,16 +80,23 @@ h2 {
     </ul>
   </div>
 </nav>
-<div id="wrapper">
+<div id="naslov">
 <h2 style="color:#e60000;">REGISTRACIJA </h2>
-<br>
+</div>
 
+
+<br>
+<div class="clearfix">
+<img class= "img2" src="https://openclipart.org/image/2400px/svg_to_png/273534/Connections.png" alt="Smiley face"  style="width:300px;height:350px; margin-left:20px; margin-right:50px;">
+<div id="wrapper">
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
+    
       <label for="usr">Ime</label>
       <input type="text" class="form-control" id="usr" placeholder="Vnesite ime" name="ime" required >
     </div>
+   
       <div class="form-group">
       <label for="usr">Priimek</label>
       <input type="text" class="form-control" id="usr" placeholder="Vnesite priimek" name="priimek" required >
@@ -82,14 +112,27 @@ h2 {
     
       <div class="form-group">
       <label for="usr">Geslo</label>
-      <input type="text" class="form-control" id="usr" placeholder="Vnesite geslo" name="geslo" required >
+      <input type="password" class="form-control"  placeholder="Vnesite geslo" name="geslo" id="myInput" required >
+    <input type="checkbox" onclick="myFunction()">Show Password
     </div>
-    
-        <p><button type="submit"  name="add">DODAJ</button></p>
+    <div id="naslov">
+        <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
+        </div>
         </form>
        
    
       </div>
+      </div>
+      <script>
+function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
       <%
       UporabnikiDAO  ud=new UporabnikiDAO ();
     
