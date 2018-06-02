@@ -9,15 +9,15 @@
 <head>
 <style>
  body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+    background-color: 	#F5F5DC;
 }
  #wrapper {
   width: 30%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
-h1 {
-font-style: italic;
-text-decoration: underline;
+h2 {
+ font-family: 'Raleway', Helvetica, Arial, sans-serif;
+
 }
 </style>
 <script src="/js/validation.js"></script>
@@ -58,7 +58,7 @@ text-decoration: underline;
   </div>
 </nav>
 <div id="wrapper">
-<h1 style="color:#e60000;">Dodaj nov recept </h1>
+<h2 style="color:#e60000;">DODAJ NOV RECEPT </h2>
 <br>
 
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
@@ -124,29 +124,29 @@ text-decoration: underline;
     <label for="tipjedi5">Sladica</label>
   </div><br>
       <div>
-    <input type="radio" id="sezona1" name="sezona" value="zima">
+    <input type="radio" id="sezona1" name="sezona" value="zima" required>
     <label for="sezona1">Zima</label>
 
-    <input type="radio" id="sezona2" name="sezona" value="spomlad">
+    <input type="radio" id="sezona2" name="sezona" value="spomlad" required>
     <label for="sezona2">Spomlad</label>
     
-  <input type="radio" id="sezona3" name="sezona" value="poletje">
+  <input type="radio" id="sezona3" name="sezona" value="poletje" required>
     <label for="sezona3">Poletje</label>
     
-     <input type="radio" id="sezona4" name="sezona" value="jesen">
+     <input type="radio" id="sezona4" name="sezona" value="jesen" required>
     <label for="sezona4">Jesen</label>
   </div><br>
         <div>
-    <input type="radio" id="kuhinja1" name="kuhinja" value="mehiska">
+    <input type="radio" id="kuhinja1" name="kuhinja" value="mehiska" required>
     <label for="kuhinja1">Mehiska</label>
 
-    <input type="radio" id="kuhinja2" name="kuhinja" value="francoska">
+    <input type="radio" id="kuhinja2" name="kuhinja" value="francoska" required>
     <label for="kuhinja2">Francoska</label>
     
-  <input type="radio" id="kuhinja3" name="kuhinja" value="italijanska">
+  <input type="radio" id="kuhinja3" name="kuhinja" value="italijanska" required>
     <label for="kuhinja3">Italijanska</label>
     
-     <input type="radio" id="kuhinja4" name="kuhinja" value="kitajska">
+     <input type="radio" id="kuhinja4" name="kuhinja" value="kitajska" required>
     <label for="kuhinja4">Kitajska</label>
   </div>
   
