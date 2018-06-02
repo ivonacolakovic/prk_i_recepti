@@ -108,19 +108,19 @@ text-decoration: underline;
       <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" name="alergeni" required >
     </div>
     <div>
-    <input type="radio" id="tipjedi1" name="tipjedi" value="juha">
+    <input type="radio" id="tipjedi1" name="tipjedi" value="juha" required>
     <label for="tipjedi1">Juha</label>
 
-     <input type="radio" id="tipjedi2" name="tipjedi" value="solata">
+     <input type="radio" id="tipjedi2" name="tipjedi" value="solata" required>
     <label for="tipjedi2">Solata</label>
 
-   <input type="radio" id="tipjedi3" name="tipjedi" value="predjed">
+   <input type="radio" id="tipjedi3" name="tipjedi" value="predjed" required>
     <label for="tipjedi3">Predjed</label>
     
-     <input type="radio" id="tipjedi4" name="tipjedi" value="glavnajest">
+     <input type="radio" id="tipjedi4" name="tipjedi" value="glavnajest" required>
     <label for="tipjedi4">Glavna jest</label>
     
-     <input type="radio" id="tipjedi5" name="tipjedi" value="sladica">
+     <input type="radio" id="tipjedi5" name="tipjedi" value="sladica" required>
     <label for="tipjedi5">Sladica</label>
   </div><br>
       <div>
