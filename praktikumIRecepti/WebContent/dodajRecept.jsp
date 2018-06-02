@@ -8,6 +8,10 @@
 <html>
 <head>
 <style>
+ #naslov {
+  width: 15%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
 
 #div{
 
@@ -171,8 +175,10 @@ h2 {
       <label for="slika">Slika(link):</label>
       <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesite sliko"  name="slika">
     </div>
-  
-        <p><button type="submit"  name="add">DODAJ</button></p>
+    <br>
+  <div id="naslov">
+        <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
+        </div>
         </form>
        
   
