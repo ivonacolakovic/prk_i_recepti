@@ -60,7 +60,7 @@ tr:nth-child(even) {
     <ul class="nav navbar-nav navbar-right">
     
     
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       
     </ul>
   </div>

@@ -194,7 +194,7 @@ div.desc {
     <ul class="nav navbar-nav navbar-right">
     
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
@@ -359,31 +359,33 @@ document.addEventListener("click", closeAllSelect);</script>
 <div class="container text-center">  
 <h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
-<div class="container">
+
  <div class="responsive">
   <div class="gallery">
-<table>
+
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
  <form action="podrobnostiRecepta.jsp" method="post">
  
- <tr>
 
-  			<td><img src="<%=recepti.get(i).getSlika() %>" height="400" width="500"/></td>
-  			 <a target="_blank" href="<%=recepti.get(i).getSlika() %>">
+ <a target="_blank" href="<%=recepti.get(i).getSlika() %>">
+
+  			<img src="<%=recepti.get(i).getSlika() %>" height="400" width="500"/>
+  			 
                 </a>
-                <td><button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
+                <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
-  			 <td><div class="desc"><%=recepti.get(i).getKratekOpis()%></div></td>
+  			 <div class="desc"><%=recepti.get(i).getKratekOpis()%></div>
+  			 </div>
+  			 </div>
   		
 
-<div class="clearfix"></div>
   		
-  		</tr>
+  	
    </form>
-  		  </table>
+  		 
   		  
  <%} %>
 
@@ -405,7 +407,7 @@ document.addEventListener("click", closeAllSelect);</script>
  
 
 	
-	</div>
+	
 	
 
 </body>
