@@ -9,13 +9,21 @@
 <head>
 <style>
 
+#div{
+
+ border-radius: 5px;
+    background-color: #f2f2f2;
+     width: 40%;
+     margin: 0 auto;
+}
+
  #example {
     background-image:url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
     background-repeat:no-repeat;
     background-size:100% 100%;
 }
  #wrapper {
-  width: 30%;     /* specify a width! */
+  width: 85%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
 h2 {
@@ -64,10 +72,14 @@ h2 {
     </ul>
   </div>
 </nav>
+
+<div id="div">
 <div id="wrapper">
-<h2 style="color:#e60000;">DODAJ NOV RECEPT </h2>
+
+</br>
+<h2 style="color:#e60000;" > DODAJ NOV RECEPT </h2>
 <br>
-<div style="background-color:#f2f2f2" class="div2">
+
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
