@@ -56,22 +56,19 @@
 }
 
 
-
-
-
+div.gallery:hover {
+    border: 1px solid #777;
+}
 
 div.gallery img {
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    height: auto;
 }
 
 div.desc {
-    padding: 10px;
+    padding: 15px;
     text-align: center;
 }
-
-
-
 .responsive {
     padding: 0 6px;
     float: left;
@@ -360,25 +357,27 @@ document.addEventListener("click", closeAllSelect);</script>
 <h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
 
- <div class="responsive">
-  <div class="gallery">
 
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
 
+ 
   <form action="podrobnostiRecepta.jsp" method="post">
 
+ <div class="responsive">
+  <div class="gallery">
  <a target="_blank" href="<%=recepti.get(i).getSlika() %>">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" height="150" width="200"/>
+  			<img src="<%=recepti.get(i).getSlika() %>" height="300" width="200"/>
   			 
                 </a>
-                <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+                
+  			 <div class="desc">
+  			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
-  			 <div class="desc"><%=recepti.get(i).getKratekOpis()%></div>
-  			  
+  			 </div>
   			 </div>
   			 </div>
   		
@@ -387,6 +386,8 @@ document.addEventListener("click", closeAllSelect);</script>
   	
   
   		 </form>
+  		 	  
+  		
   		  
  <%} %>
 
