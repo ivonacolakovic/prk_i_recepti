@@ -8,8 +8,17 @@
 <html lang="en">
 <head>
 <style>
-  body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+#div{
+
+ border-radius: 5px;
+    background-color: #f2f2f2;
+     width: 40%;
+     margin: 0 auto;
+}
+   #example {
+    background-image:url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
 }
   #wrapper {
   width: 30%;     /* specify a width! */
@@ -40,6 +49,7 @@ tr:nth-child(even) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id="example">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -76,7 +86,7 @@ int r = recept.getId_recept();
 <%
 if(!request.getParameter("podrobnosti").equals(null)){
 %>
-
+<div id="div">
 <div id="wrapper">
 <h1><%=recept.getNaziv() %></h1>
 <br>
@@ -148,7 +158,7 @@ OcenaDAO od = new OcenaDAO();
 
         <p><button type="submit"  value="dodaj" name="dodaj">DODAJ</button></p>
         </form>
-        
+        </div>
 <%
 System.out.println(r);
 //session.setAttribute("id", r);
@@ -172,6 +182,7 @@ if (request.getParameter("dodaj")!=null ){
 	System.out.println(r);
 }
 %>
+</div>
 </div>
 </body>
 </html>

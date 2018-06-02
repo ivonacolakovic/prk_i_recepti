@@ -367,25 +367,26 @@ document.addEventListener("click", closeAllSelect);</script>
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
- <form action="podrobnostiRecepta.jsp" method="post">
- 
+
+  <form action="podrobnostiRecepta.jsp" method="post">
 
  <a target="_blank" href="<%=recepti.get(i).getSlika() %>">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" height="400" width="500"/>
+  			<img src="<%=recepti.get(i).getSlika() %>" height="150" width="200"/>
   			 
                 </a>
                 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
   			 <div class="desc"><%=recepti.get(i).getKratekOpis()%></div>
+  			  
   			 </div>
   			 </div>
   		
 
   		
   	
-   </form>
-  		 
+  
+  		 </form>
   		  
  <%} %>
 
