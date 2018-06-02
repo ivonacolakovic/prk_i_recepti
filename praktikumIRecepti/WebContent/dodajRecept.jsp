@@ -8,8 +8,11 @@
 <html>
 <head>
 <style>
- body {
-    background-color: 	#F5F5DC;
+
+ #example {
+    background-image:url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
 }
  #wrapper {
   width: 30%;     /* specify a width! */
@@ -33,6 +36,8 @@ h2 {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div id="example">
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -79,14 +84,12 @@ h2 {
       <label for="comment">Opis:</label>
       <textarea class="form-control" rows="3" id="comment" type="text" placeholder="Vnesite kratek opis"  name="kratekOpis" required></textarea>
     </div>
-        <div class="form-group">
-      <label for="video">Video(link):</label>
-      <input type="text" class="form-control" id="video"type="text" min="1"  placeholder="Vnesite video" name="video">
-    </div>
      <div class="form-group">
-      <label for="slika">Slika(link):</label>
-      <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesite sliko"  name="slika">
+         <label for="priprave">Nacin priprave:</label>
+      <textarea class="form-control" rows="6" id="priprave" type="text" placeholder="Vnesite nacin priprave"  name="priprava" required></textarea>
     </div>
+  
+     
      <div class="form-group">
       <label for="kal">Kalorije:</label>
       <input type="text" class="form-control" id="kal" type="text" min="1"  placeholder="Vnesite stevilo kalorij"   name="kalorije" >
@@ -99,10 +102,7 @@ h2 {
       <label for="oglj">Ogljikovi hidrati:</label>
       <input type="text" class="form-control" id="oglj" type="text" min="1"  placeholder="Vnesete ogljikove hidrate (g)" name="hidrati" >
     </div>
-    <div class="form-group">
-      <label for="priprave">Nacin priprave:</label>
-      <textarea class="form-control" rows="6" id="priprave" type="text" placeholder="Vnesite nacin priprave"  name="priprava" required></textarea>
-    </div>
+ 
      <div class="form-group">
       <label for="usr">Naziv alergena (locite z vejico):</label>
       <input type="text" class="form-control" id="usr" placeholder="Vnesite naziv" name="alergeni" required >
@@ -125,7 +125,7 @@ h2 {
   </div><br>
       <div>
     <input type="radio" id="sezona1" name="sezona" value="zima" required>
-    <label for="sezona1">Zima</label>
+    <label for="sezona1" >Zima</label>
 
     <input type="radio" id="sezona2" name="sezona" value="spomlad" required>
     <label for="sezona2">Spomlad</label>
@@ -149,6 +149,14 @@ h2 {
      <input type="radio" id="kuhinja4" name="kuhinja" value="kitajska" required>
     <label for="kuhinja4">Kitajska</label>
   </div>
+     <div class="form-group">
+      <label for="video">Video(link):</label>
+      <input type="text" class="form-control" id="video"type="text" min="1"  placeholder="Vnesite video" name="video">
+    </div>
+     <div class="form-group">
+      <label for="slika">Slika(link):</label>
+      <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesite sliko"  name="slika">
+    </div>
   
         <p><button type="submit"  name="add">DODAJ</button></p>
         </form>
@@ -192,6 +200,6 @@ h2 {
     	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
       }
       %>
-      
+      </div>
 </body>
 </html>
