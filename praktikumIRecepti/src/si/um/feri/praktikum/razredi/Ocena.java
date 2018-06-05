@@ -5,6 +5,7 @@ public class Ocena {
 	private int idOcena;
 	private String komentar;
 	private int ocena;
+	private String lajk;
 	private int tk_recept_id;
 	
 	public Ocena () {
@@ -16,6 +17,10 @@ public class Ocena {
 		this.ocena=ocena;
 		this.komentar=komentar;
 		
+		
+	}
+	
+	public Ocena(String like){
 		
 	}
 	
@@ -46,6 +51,16 @@ public class Ocena {
 
 	public void setTk_recept_id(int tk_recept_id) {
 		this.tk_recept_id = tk_recept_id;
+	}
+
+
+	public String getLajk() {
+		return lajk;
+	}
+
+
+	public void setLajk(String lajk) {
+		this.lajk = lajk;
 	}
 	
 	
