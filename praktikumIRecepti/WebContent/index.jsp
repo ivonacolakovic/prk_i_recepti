@@ -24,10 +24,7 @@ div.gallery:hover {
     border: 1px solid #777;
 }
 
-div.gallery img {
-    width: 100%;
-    height: auto;
-}
+
 
 div.desc {
     padding: 15px;
@@ -365,7 +362,7 @@ document.addEventListener("click", closeAllSelect);</script>
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:300px" height="150px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:180px" height="150px">
   			<div class="desc">
   			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
