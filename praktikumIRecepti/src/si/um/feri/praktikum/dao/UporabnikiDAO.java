@@ -11,9 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
-import javax.activation.DataSource;
 import javax.naming.InitialContext;
-
+import javax.sql.DataSource;
 
 import si.um.feri.praktikum.razredi.Uporabniki;
 
