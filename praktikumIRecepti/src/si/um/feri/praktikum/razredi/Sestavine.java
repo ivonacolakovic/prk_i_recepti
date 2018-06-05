@@ -1,6 +1,5 @@
 package si.um.feri.praktikum.razredi;
 
-import java.util.ArrayList;
 
 public class Sestavine {
 
