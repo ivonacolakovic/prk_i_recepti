@@ -13,6 +13,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
 
   h2 {
   
@@ -334,38 +354,28 @@ document.addEventListener("click", closeAllSelect);</script>
 <h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
 
- <div class="row">
+
+
+
+
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
-
-
+  <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-
-  <div class="column">
-
   			<img src="<%=recepti.get(i).getSlika() %>" style="width:300px" height="150px">
-  			 
-              
-                
-  			 
+  			<div class="desc">
   			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
-  			 
   			 </div>
-  			 
-  		
-
-  		
-  	
-  
+  			
   		 </form>
   		 </div>
-  		
-  		  
+  
  <%} %>
+
 
 
 

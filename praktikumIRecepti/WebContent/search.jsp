@@ -244,9 +244,10 @@
   			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
   		</tr>
    </form>
-  		  </table>
+  		  
   		  
  <%} %>
+ </table>
 
 
   <%}else{
