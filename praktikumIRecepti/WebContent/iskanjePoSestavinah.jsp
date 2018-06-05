@@ -23,28 +23,44 @@
 Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine katere ze imas!</h3>
 <br/>
 <br/>
-Vnesi sestavine: (loci z vejico)
+Vnesi sestavine: (loci samo z vejico)
 <br/>
 <input type="text" name="sestavine"/>
 <button type="submit" name="OK">OK</button>
+<br/>
+<br/>
 <table>
 <% 	ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
 	ArrayList<ReceptZaglavlje> recepti = null;
 	String input = request.getParameter("sestavine");
 	
-	if(input != null){
+	if(input != null && request.getParameter("OK")!=null){
 		recepti = rzd.isciPoSestavinah(input);
+		if(!recepti.isEmpty()){
+	
+		for(int i = 0; i < recepti.size(); i++){
+		%>
+			<tr>
+				<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
+	  			<td><%=recepti.get(i).getNaziv()%></td>
+	  			<td><%=recepti.get(i).getKratekOpis()%></td>
+			</tr>
+		
+		<%	
+			}
+		}
+		else{
+			%><div class="alert alert-danger">
+		  <strong>Danger!</strong> Ni recepta ki vsebuje vnesene sestavine.
+		</div><%
+		}
+		
 	}
-	
-	for(int i = 0; i < recepti.size(); i++){
-	%>
-		<tr>
-			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
-  			<td><%=recepti.get(i).getNaziv()%></td>
-  			<td><%=recepti.get(i).getKratekOpis()%></td>
-		</tr>
-	
-	<%	
+	else{
+		//TODO: ispisi da ni zadetkov
+		%><div class="alert alert-warning">
+		  <strong>Warning!</strong> Niste vnesli sestavine.
+		</div><%
 	}
 %>
 </table>

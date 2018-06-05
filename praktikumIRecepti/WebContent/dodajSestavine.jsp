@@ -85,10 +85,11 @@ if (request.getParameter("add")!= null) {}
       
        <%
      SestavineDAO ad=new SestavineDAO ();
+       ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
      
       if (request.getParameter("dodaj")!= null) {
     	  Sestavine s=new Sestavine();
-    	  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+    	  
     	  s.setNaziv(request.getParameter("naziv"));
     	  s.setEnota(request.getParameter("enota"));
     	  s.setKolicina(Double.parseDouble(request.getParameter("kolicina")));
@@ -96,19 +97,18 @@ if (request.getParameter("add")!= null) {}
     	  
   
       }
+      int id = rzd.vrniZadnjiId();
       %>
-      <form  action="podrobnostiRecepta.jsp" method="post">
-         <button  class="btn btn-success" type="submit" name="konec">Konec</button>
+      <form  action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+         <button  class="btn btn-success" type="submit" value="<%=id %>" name="podrobnosti">Konec</button>
       </form>
       <%
     
      
-      if (request.getParameter("konec")!= null) {
-    	  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+      if (request.getParameter("podrobnosti")!= null) {
     	  ReceptZaglavlje recept=new ReceptZaglavlje();
     	  recept.setSestavine(rzd.vrniZadnjiId());
-    	  
-  	  
+    	  request.setAttribute("podrobnosti", id);
     	  
       }
       %>

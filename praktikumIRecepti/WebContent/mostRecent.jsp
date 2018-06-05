@@ -63,7 +63,7 @@
     <ul class="nav navbar-nav">
       <li ><a href="index.jsp">Doma</a></li>
      <li><a href="top10.jsp">Top 10</a></li>
-      <li class="active"><a href="mostRecent.jsp">Most recent</a></li>
+      <li class="active"><a href="mostRecent.jsp">Najnovejsi</a></li>
       <li><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
