@@ -82,7 +82,7 @@ h2 {
 <div id="wrapper">
 
 </br>
-<h2 style="color:#e60000;" > DODAJ NOV RECEPT </h2>
+<h2 style="color:#3c3c3c;" > DODAJ NOV RECEPT </h2>
 <br>
 
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
@@ -169,11 +169,11 @@ h2 {
     <label for="kuhinja4">Kitajska</label>
   </div>
      <div class="form-group">
-      <label for="video">Video(link):</label>
+      <label for="video">Video (link):</label>
       <input type="text" class="form-control" id="video"type="text" min="1"  placeholder="Vnesite video" name="video">
     </div>
      <div class="form-group">
-      <label for="slika">Slika(link):</label>
+      <label for="slika">Slika (link):</label>
       <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesite sliko"  name="slika">
     </div>
     <br>
