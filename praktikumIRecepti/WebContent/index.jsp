@@ -56,44 +56,20 @@
 }
 
 
-div.gallery:hover {
-    border: 1px solid #777;
+* {
+    box-sizing: border-box;
 }
 
-div.gallery img {
-    width: 100%;
-    height: auto;
+.row {
+    display: flex;
 }
 
-div.desc {
-    padding: 15px;
-    text-align: center;
+/* Create three equal columns that sits next to each other */
+.column {
+    flex: 33.33%;
+    padding: 5px;
+    float:left;
 }
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
-}
-
-@media only screen and (max-width: 700px) {
-    .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .responsive {
-        width: 100%;
-    }
-}
-
-.clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 
 
 /*the container must be positioned relative:*/
@@ -358,36 +334,35 @@ document.addEventListener("click", closeAllSelect);</script>
 <h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
 
-
+ <div class="row">
   <% ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
 
- 
+
   <form action="podrobnostiRecepta.jsp" method="post">
 
- <div class="responsive">
-  <div class="gallery">
- <a target="_blank" href="<%=recepti.get(i).getSlika() %>">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" height="300" width="200"/>
+  <div class="column">
+
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:300px" height="150px">
   			 
-                </a>
+              
                 
-  			 <div class="desc">
+  			 
   			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
+  			 
   			 </div>
-  			 </div>
-  			 </div>
+  			 
   		
 
   		
   	
   
   		 </form>
-  		 	  
+  		 </div>
   		
   		  
  <%} %>

@@ -59,7 +59,7 @@ overflow: auto;
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">LoveAtFirstBite</a>
     </div>
     <ul class="nav navbar-nav">
       <li ><a href="index.jsp#">Doma</a></li>
