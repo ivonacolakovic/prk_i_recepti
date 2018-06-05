@@ -94,7 +94,21 @@ if (request.getParameter("add")!= null) {}
     	  s.setKolicina(Double.parseDouble(request.getParameter("kolicina")));
     	  s.setTk_recept(rzd.vrniZadnjiId());
     	  
-  ad.shrani(s);
+  
+      }
+      %>
+      <form  action="podrobnostiRecepta.jsp" method="post">
+         <button  class="btn btn-success" type="submit" name="konec">Konec</button>
+      </form>
+      <%
+    
+     
+      if (request.getParameter("konec")!= null) {
+    	  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+    	  ReceptZaglavlje recept=new ReceptZaglavlje();
+    	  recept.setSestavine(rzd.vrniZadnjiId());
+    	  
+  	  
     	  
       }
       %>

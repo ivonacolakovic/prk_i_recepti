@@ -1,5 +1,7 @@
 package si.um.feri.praktikum.razredi;
 
+import java.util.ArrayList;
+
 public class Sestavine {
 
 	private int idSestavine;
@@ -7,6 +9,7 @@ public class Sestavine {
 	private String enota;
 	private double kolicina;
 	private int tk_recept;
+	
 	
 	public Sestavine() {
 		

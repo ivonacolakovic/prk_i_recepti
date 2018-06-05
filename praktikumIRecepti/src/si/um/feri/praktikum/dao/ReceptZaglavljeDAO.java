@@ -30,7 +30,7 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(500) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200), sezona varchar(100), tipjedi varchar(10) not null , kuhinja varchar(45))");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(9999x) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200), sezona varchar(100), tipjedi varchar(10) not null , kuhinja varchar(45))");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

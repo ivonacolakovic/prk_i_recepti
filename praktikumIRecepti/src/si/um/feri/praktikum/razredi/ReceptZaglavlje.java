@@ -3,6 +3,8 @@ package si.um.feri.praktikum.razredi;
 import java.util.ArrayList;
 import java.util.Date;
 
+import si.um.feri.praktikum.dao.SestavineDAO;
+
 public class ReceptZaglavlje {
 	private int id_recept;
 	private String naziv;
@@ -155,8 +157,9 @@ public class ReceptZaglavlje {
 	public ArrayList<Sestavine> getSestavine() {
 		return sestavine;
 	}
-	public void setSestavine(ArrayList<Sestavine> sestavine) {
-		this.sestavine = sestavine;
+	public void setSestavine(int id_recept) throws Exception {
+		SestavineDAO sd = new SestavineDAO();
+		ArrayList<Sestavine> sestavine = (ArrayList<Sestavine>) sd.vrniSestavine( id_recept); 
 	}
 	public String getAlergeniSkupaj() {
 		return alergeniSkupaj;
