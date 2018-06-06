@@ -136,8 +136,8 @@ h2 {
    <input type="radio" id="tipjedi3" name="tipjedi" value="predjed" required>
     <label for="tipjedi3">Predjed</label>
     
-     <input type="radio" id="tipjedi4" name="tipjedi" value="glavnajest" required>
-    <label for="tipjedi4">Glavna jest</label>
+     <input type="radio" id="tipjedi4" name="tipjedi" value="glavnajed" required>
+    <label for="tipjedi4">Glavna jed</label>
     
      <input type="radio" id="tipjedi5" name="tipjedi" value="sladica" required>
     <label for="tipjedi5">Sladica</label>
@@ -146,8 +146,8 @@ h2 {
     <input type="radio" id="sezona1" name="sezona" value="zima" required>
     <label for="sezona1" >Zima</label>
 
-    <input type="radio" id="sezona2" name="sezona" value="spomlad" required>
-    <label for="sezona2">Spomlad</label>
+    <input type="radio" id="sezona2" name="sezona" value="pomlad" required>
+    <label for="sezona2">Pomlad</label>
     
   <input type="radio" id="sezona3" name="sezona" value="poletje" required>
     <label for="sezona3">Poletje</label>

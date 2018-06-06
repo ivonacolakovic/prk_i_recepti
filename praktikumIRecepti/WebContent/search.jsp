@@ -104,6 +104,78 @@
   margin: 0 auto; /* center */
 }
 
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  float: left;
+  text-align:center;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: #696969;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #696969;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+.button {
+    background-color: #32CD32 ;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 12px;
+}
+
   </style>
 </head>
 <body>
@@ -172,53 +244,49 @@
   
    
 <div id="wrapper">
-<div id="navMenu">
-<ul>
-<li><a href="#">Tip jedi</a>
-<ul>
-<li><a href="">Juha</a>
-<li><a href="">Solata</a>
-<li><a href="">Predjed</a>
-<li><a href="#">Glavna jed</a>
-<li><a href="">Sladica</a>
-</ul>
+<form action="search.jsp">
+<div class="custom-select" style="width:200px;">
+<select name="tipjedi">
+  <option value="ostalo" selected="selected">Tip jedi</option>
+  <option value="juha">Juha</option>
+  <option value="solata">Solata</option>
+  <option value="predjed">Predjed</option>
+  <option value="glavnajed">Glavna jed</option>
+  <option value="sladica">Sladica</option>
+</select>
+</div>
+<div class="custom-select" style="width:200px;">
+<select name="sezona">
+  <option value="ostalo" selected="selected">Sezona</option>
+  <option value="zima">Zima</option>
+  <option value="pomlad">Pomlad</option>
+  <option value="jesen">Jesen</option>
+  <option value="poletje">Poletje</option>
+</select>
+</div>
+<div class="custom-select" style="width:200px;">
+<select name="kuhinja">
+  <option value="ostalo" selected="selected">Kuhinja</option>
+  <option value="francoska">Francoska</option>
+  <option value="italijanska">Italijanska</option>
+  <option value="mehiska">Mehiska</option>
+  <option value="kitajska">Kitajska</option>
+</select>
+</div>
+<div class="custom-select" style="width:200px;">
+<select name="caspriprave">
+  <option value="ostalo" selected="selected">Cas priprave</option>
+  <option value="30">manj kot 30min</option>
+  <option value="60">manj kot 1h</option>
+  <option value="120">manj kot 2h</option>
+</select>
+</div>
 
-</ul>
-<ul>
-<li><a href="#">Sezona</a>
-<ul>
-<li><a href="#">Zima</a>
-<li><a href="#">Spomlad</a>
-<li><a href="#">Poletje</a>
-<li><a href="#">Jesen</a>
-</ul>
+<input type="submit" value="Submit" class="button">
 
-</ul>
-<ul>
-<li><a href="#">Kuhinja</a>
-<ul>
-<li><a href="#">Mehiska</a>
-<li><a href="#">Francoska</a>
-<li><a href="#">Italijanska</a>
-<li><a href="#">Kitajska</a>
-</ul>
+</form>
 
-</ul>
-<ul>
-<li><a href="#">Cas priprave</a>
-<ul>
-<li><a href="#">manj kot 30min</a>
-<li><a href="#">manj kot 1h</a>
-<li><a href="#">manj kot 2h</a>
-</ul>
-
-</ul>
-
-
-
-<ul>
-<li ><a style="background:tomato;" href="#">Isci</a>
-</ul>
+</div>
 
 <br class="clearFloat"/>
 </div>
@@ -227,72 +295,26 @@
 <h2 style="color:#e60000;">RECEPTI</h2><br>
 </div>
 <div class="container">
+
 <table>
   <% 
-  if(!request.getParameter("tipjedi").equals(null)){
-  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoTip(request.getParameter("tipjedi"));
-  for(int i=0; i<recepti.size(); i++){
-  %>
- <form action="podrobnostiRecepta.jsp" method="post">
  
- <tr>
-  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
-  			
-                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
-  			
-  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
-  		</tr>
-   </form>
-  		  </table>
-  		  
- <%} %>
-
-
-  <%}else{
-	 
-  } 
-           //String podrobnosti = request.getParameter("podrobnosti");
-  		   //request.setAttribute("id", podrobnosti);
-  		   
-  		   %>
-  <% 
-  if(!request.getParameter("kuhinja").equals(null)){
-  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoKuhinja(request.getParameter("kuhinja"));
-  for(int i=0; i<recepti.size(); i++){
-  %>
- <form action="podrobnostiRecepta.jsp" method="post">
+  String tj = request.getParameter("tipjedi");
+  String sez = request.getParameter("sezona");
+  String kuh = request.getParameter("kuhinja");
+  String cp = request.getParameter("caspriprave");
+  System.out.println("idemooo "+request.getParameter("tipjedi")+request.getParameter("sezona")+request.getParameter("kuhinja")+request.getParameter("caspriprave"));
  
- <tr>
-  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
-  			
-                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
-  			
-  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
-  		</tr>
-   </form>
-  		  </table>
-  		  
- <%} %>
-
-
-  <%}else{
+  System.out.println(tj+sez+kuh+cp);
+  
+  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniIskanePoKategorijah(tj, sez, kuh, cp);
+  if(!recepti.isEmpty()){
 	  
-  } 
-           //String podrobnosti = request.getParameter("podrobnosti");
-  		   //request.setAttribute("id", podrobnosti);
-  		   
-  		   %>
-  		    		   
-   <% 
-  if(!request.getParameter("caspriprave").equals(null)){
-  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoCas(request.getParameter("caspriprave"));
   for(int i=0; i<recepti.size(); i++){
+	  System.out.println(recepti.get(i).getNaziv());
   %>
- <form action="podrobnostiRecepta.jsp" method="post">
- 
+	
  <tr>
   			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
   			
@@ -300,54 +322,18 @@
   			
   			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
   		</tr>
-   </form>
-  		  </table>
+  
   		  
- <%} %>
-
-
-  <%}else{
-	  
-  } 
-           //String podrobnosti = request.getParameter("podrobnosti");
-  		   //request.setAttribute("id", podrobnosti);
-  		   
-  		   %>
-  		   
-  <% 
-  if(!request.getParameter("sezona").equals(null)){
-  ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-  ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.najdiPoSezona(request.getParameter("sezona"));
-  for(int i=0; i<recepti.size(); i++){
-  %>
- <form action="podrobnostiRecepta.jsp" method="post">
- 
- <tr>
-  			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
-  			
-                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
-  			
-  			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
-  		</tr>
-   </form>
-  		  </table>
   		  
- <%} %>
+ <%}
+  }else{%>
+  <div class="alert alert-warning">
+  <strong>Warning!</strong> Ni najdenih receptov za izbrane kategorije.
+</div>
+<%} %>
+</table>
 
-
-  <%}else{
-	 
-  } 
-           //String podrobnosti = request.getParameter("podrobnosti");
-  		   //request.setAttribute("id", podrobnosti);
-  		   
-  		   %>
-  		   
-
- 
-  		
-  		   
-  		   
+     
   		   
   		  
  

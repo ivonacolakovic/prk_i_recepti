@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -185,28 +187,60 @@ public class ReceptZaglavljeDAO {
 		}
 
 	
-	/*public List<ReceptZaglavlje> vrniIskanePoKategorijah() throws SQLException{
-
+	public List<ReceptZaglavlje> vrniIskanePoKategorijah(String tipJedi, String sezona, String kuhinja, String casPriprave) throws SQLException{
+		//	System.out.println("usli u metodu");
+		//Double d = new Double(casPriprave);
+		double cp ; 
 		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
-			
+			//System.out.println(tipJedi.equals(null));
+		String query = null;
 			Connection conn=null;
+			if(!tipJedi.equals("ostalo")) {
+				tipJedi = "'"+tipJedi+"'";
+			}else{
+				tipJedi = null;
+			}
+			if(!sezona.equals("ostalo")) {
+				sezona = "'"+sezona+"'";
+			}else {
+				sezona = null;
+			}
+			if(!kuhinja.equals("ostalo")) {
+				kuhinja = "'"+kuhinja+"'";
+			}else {
+				kuhinja = null;
+			}
+			if(!casPriprave.equals("ostalo")) {
+				cp = Double.parseDouble(casPriprave);
+			}else {
+				cp = 0;
+			}
+			//System.out.println(tipJedi.equals(null));
+			query = "SELECT * FROM receptzaglavlje WHERE (IFNULL("+tipJedi+", 'tipjedi') = 'tipjedi' OR tipjedi="+tipJedi+") AND (IFNULL("+sezona+", 'sezona') = 'sezona' OR sezona="+sezona+") AND (IFNULL("+kuhinja+", 'kuhinja') = 'kuhinja' OR kuhinja="+kuhinja+") AND (IFNULL("+cp+", 0) = 0 OR casPriprave<="+cp+")";
+			System.out.println(query);
 			try {
 				conn=baza.getConnection();
+				Statement ps = conn.createStatement();
 				
-				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM RECEPTZAGLAVLJE WHERE tk_tipJedi = (SELECT id_TipJedi  FROM TIPJEDI WHERE NAZIV=?");
+				ResultSet rs = ps.executeQuery(query);
+				
 				while (rs.next()) {
+					//System.out.println("tu sam ");
 					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
-	
+					
+					//System.out.println("iz baze: "+rz.getNaziv());
 					ret.add(rz);
 				}
+				//System.out.println("konec");
 				rs.close();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				conn.close();
 			}
 			return ret;
-	}*/
+	}
 	
 	public ArrayList<ReceptZaglavlje> isciPoSestavinah(String input){
 		String[] parts = input.split(",");
@@ -262,7 +296,7 @@ public class ReceptZaglavljeDAO {
 		
 	}
 	
-	public List<ReceptZaglavlje> najdiPoTip(String tip) throws Exception {
+	/*public List<ReceptZaglavlje> najdiPoTip(String tip) throws Exception {
 		
 		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
 			
@@ -359,7 +393,7 @@ public List<ReceptZaglavlje> najdiPoKuhinja(String kuhinja) throws Exception {
 		}
 		return ret;
 	}
-
+*/
 
 	
 	

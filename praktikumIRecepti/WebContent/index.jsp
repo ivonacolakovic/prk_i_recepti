@@ -215,6 +215,7 @@
 <form action="search.jsp">
 <div class="custom-select" style="width:200px;">
 <select name="tipjedi">
+  <option value="ostalo" selected="selected">Tip jedi</option>
   <option value="juha">Juha</option>
   <option value="solata">Solata</option>
   <option value="predjed">Predjed</option>
@@ -224,6 +225,7 @@
 </div>
 <div class="custom-select" style="width:200px;">
 <select name="sezona">
+  <option value="ostalo" selected="selected">Sezona</option>
   <option value="zima">Zima</option>
   <option value="pomlad">Pomlad</option>
   <option value="jesen">Jesen</option>
@@ -232,6 +234,7 @@
 </div>
 <div class="custom-select" style="width:200px;">
 <select name="kuhinja">
+  <option value="ostalo" selected="selected">Kuhinja</option>
   <option value="francoska">Francoska</option>
   <option value="italijanska">Italijanska</option>
   <option value="mehiska">Mehiska</option>
@@ -240,14 +243,15 @@
 </div>
 <div class="custom-select" style="width:200px;">
 <select name="caspriprave">
+  <option value="ostalo" selected="selected">Cas priprave</option>
   <option value="30">manj kot 30min</option>
   <option value="60">manj kot 1h</option>
   <option value="120">manj kot 2h</option>
-
 </select>
 </div>
 
 <input type="submit" value="Submit" class="button">
+
 </form>
 
 </div>
