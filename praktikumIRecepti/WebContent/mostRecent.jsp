@@ -7,8 +7,26 @@
 <html>
 <head>
 <style>
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+    background-color:white;
+}
  body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+    background-image: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
  #wrapper {
   width: 30%;     /* specify a width! */
@@ -52,7 +70,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Najnovejsi recepti</title>
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -82,31 +100,26 @@
 </nav>
 
 <div id="wrapper">
-<h1>Most recent receipts</h1>
+<h1>Najnovejsi recepti</h1>
+</div>
 <br>
-<div class="container">
-	<table >
+
 	
       	<%ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
       	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniNajnovejse();
       	for(int i= 0; i < recepti.size() ; i++){%>
-      		<tr>
       		
-      			<td><img src="<%=recepti.get(i).getSlika() %>" height="100" width="200"/></td>
-      			
-      			<td><b><%= recepti.get(i).getNaziv()%> ,&nbsp;</b></td>
-      			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
-      		</tr>
-      	<% } %>
-      	
-      </table>
-     
-      <form action="podrobnostiRecepta.jsp"  class="btn">
-    <input type="submit" value="MORE" />
-</form>
-      
-    	</div>
-      		
-</div>
+      		<div class="gallery">
+      		<form action="podrobnostiRecepta.jsp" method="post">
+      		<img src="<%=recepti.get(i).getSlika() %>" style="width:180px" height="150px">
+  			<div class="desc">
+  			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+  			
+  			 </div>
+  			
+  		 </form>
+  		 </div>
+  
+ <%} %>
 </body>
 </html>

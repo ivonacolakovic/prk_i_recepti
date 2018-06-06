@@ -299,13 +299,16 @@
 <table>
   <% 
  
+
   String tj = request.getParameter("tipjedi");
   String sez = request.getParameter("sezona");
   String kuh = request.getParameter("kuhinja");
   String cp = request.getParameter("caspriprave");
   System.out.println("idemooo "+request.getParameter("tipjedi")+request.getParameter("sezona")+request.getParameter("kuhinja")+request.getParameter("caspriprave"));
+%>
  
-  System.out.println(tj+sez+kuh+cp);
+ <%
+ 	System.out.println(tj+sez+kuh+cp);
   
   ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniIskanePoKategorijah(tj, sez, kuh, cp);
@@ -314,16 +317,16 @@
   for(int i=0; i<recepti.size(); i++){
 	  System.out.println(recepti.get(i).getNaziv());
   %>
-	
- <tr>
+	<form action="podrobnostiRecepta.jsp" method="post">
+ 		<tr>
   			<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
   			
-                <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
+            <td><button class="btn btn-success" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button></td>
   			
   			<td><i><%=recepti.get(i).getKratekOpis()%></i></td>
   		</tr>
   
-  		  
+  	</form>	  
   		  
  <%}
   }else{%>

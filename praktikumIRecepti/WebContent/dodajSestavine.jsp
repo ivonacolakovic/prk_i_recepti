@@ -86,14 +86,16 @@ if (request.getParameter("add")!= null) {}
        <%
      SestavineDAO ad=new SestavineDAO ();
        ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-     
+     System.out.println("dodavam:" + request.getParameter("dodaj"));
       if (request.getParameter("dodaj")!= null) {
+    	  System.out.println("U IF SUM I GLUPO MI E " );
     	  Sestavine s=new Sestavine();
     	  
     	  s.setNaziv(request.getParameter("naziv"));
     	  s.setEnota(request.getParameter("enota"));
     	  s.setKolicina(Double.parseDouble(request.getParameter("kolicina")));
     	  s.setTk_recept(rzd.vrniZadnjiId());
+    	  ad.shrani(s);
     	  
   
       }
