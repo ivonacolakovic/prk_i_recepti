@@ -26,7 +26,7 @@ div.desc {
     background-color:white;
 }
  body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
+    background-image: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
  #wrapper {
   width: 30%;     /* specify a width! */
