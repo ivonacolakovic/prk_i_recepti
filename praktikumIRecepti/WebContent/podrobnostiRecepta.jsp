@@ -53,13 +53,13 @@ tr:nth-child(even) {
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">LoveAtFirstBite</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.jsp#">Doma</a></li>
-      <li><a href="#">Top 10</a></li>
-      <li><a href="#">Most recent</a></li>
-      <li><a href="#">Kaj imas v hladilniku?</a></li>
+      <li class="active"><a href="index.jsp">Doma</a></li>
+     <li><a href="top10.jsp">Top 10</a></li>
+      <li><a href="mostRecent.jsp">Najnovejsi</a></li>
+      <li><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
     </ul>
        <form class="navbar-form navbar-left" action="/action_page.php">
       <div class="form-group">
@@ -69,19 +69,21 @@ tr:nth-child(even) {
     </form>
     <ul class="nav navbar-nav navbar-right">
     
-    
+     <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
+</div>
 
-<%int id = Integer.parseInt(request.getParameter("podrobnosti"));
+<%
+if(!request.getParameter("podrobnosti").equals(null)){
+	int id = Integer.parseInt(request.getParameter("podrobnosti"));
+
 ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
 ReceptZaglavlje recept = rzd.najdi(id);
 int r = recept.getId_recept();
-System.out.println(r);
-
 %>
 <form method="post">
         <button type="submit" name="like" value="like" class="btn btn-default btn-sm">
@@ -103,6 +105,8 @@ if(request.getParameter("like")!=null){
 	System.out.println(request.getParameter("like"));
 	      String l = "lajk";
 		  Ocena o = new Ocena();
+		  o.setOcena(1);
+		  o.setKomentar(null);
 	  	  o.setLajk(l);
 	  	  o.setTk_recept_id(r);
 	  	  od1.shrani(o);
@@ -167,54 +171,65 @@ for(int i=0;i<sestavine.size();i++){%>
 
 <%}else{} %>
 <br><br><br>
+
 <% 
 OcenaDAO od = new OcenaDAO();
   ArrayList<Ocena> oceni = (ArrayList<Ocena>) od.vrniVse(id);
+  if(oceni.isEmpty()){
+	  %>
+	  <div class="alert alert-danger">
+		  <strong>Danger!</strong> Ni komentara za recepta.
+		</div><table>
+ <% }else{
   for(int i=0; i<oceni.size(); i++){
   %>
+  <tr>
+  <td>
 <%=oceni.get(i).getOcena()%>
-    
+ </td>   <td>
 <%=oceni.get(i).getKomentar()%>
-    
-  		<%}
+   </td> </tr>
+  		<%}}
   
 %>
-  		
+  </table>		
  
   		
-  		<br><br><br>
+  		
 
   
 
-<form action="podrobnostiRecepta.jsp" method="post">
-        <p><b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5"placeholder="Vnesete ocena" id="ocena" name="ocena" ></p>
-        <p><b>Komentar:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete komentar"  id="komentar" name="komentar" ></textarea></p>
-
-        <p><input type="submit" id="dodaj" value="dodaj" name="dodaj"/></p>
+<form action="komentar.jsp" method="post">
+        <button  type="submit" name="komentar" value="<%= id %>">Dodaj komentar</button>
+  			
         </form>
-        </div>
-<%
-System.out.println(r);
+       
+<%}
+
+/*System.out.println(r);
 //session.setAttribute("id", r);
 //String nesh = (session.getAttribute("id")).toString();
 //System.out.println(nesh);
 OcenaDAO od1 = new OcenaDAO();
 System.out.println("dodaj je : " + request.getParameter("dodaj"));
-System.out.println("ocena je :" +request.getParameter("ocena"));
-System.out.println("komentar je :" +request.getParameter("komentar"));
-if (request.getParameter("dodaj")!=null ){
+//System.out.println("ocena je :" +request.getParameter("ocena"));
+//System.out.println("komentar je :" +request.getParameter("komentar"));
+if (request.getParameter(String.valueOf(id))!=null ){
 	System.out.println("u if sum i dosadno mi e ");
-
-
 	  Ocena o = new Ocena();
   	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
   	  o.setKomentar(request.getParameter("komentar"));
   	  o.setTk_recept_id(r);
+  	  o.setLajk(null);
   	  od1.shrani(o);
+  	response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
 
-}else{
-	System.out.println(r);
 }
+else{
+
+	System.out.println("eve sum jas aren");
+	
+}}*/
 %>
 </div>
 </div>
