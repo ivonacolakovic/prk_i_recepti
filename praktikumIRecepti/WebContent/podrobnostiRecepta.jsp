@@ -201,8 +201,23 @@ OcenaDAO od = new OcenaDAO();
 
 <form action="komentar.jsp" method="post">
         <button  type="submit" name="komentar" value="<%= id %>">Dodaj komentar</button>
-  			
         </form>
+        <form action="index.jsp" method="post">
+         <button  type="submit" name="pdf" value="">Izpis</button>
+        
+       </form>
+        <%
+        System.out.println("fjiespjfsejfosj" + recept.getId_recept());
+       PDF dp=new PDF ();
+       if(request.getParameter("pdf")==null){
+     	   System.out.println(recept.getId_recept());
+    	   dp.izprintajPDF(recept);
+     
+     		 
+       }
+      %>
+  			
+        
        
 <%}
 

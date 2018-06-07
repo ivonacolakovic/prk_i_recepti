@@ -11,12 +11,12 @@ import com.itextpdf.text.pdf.PdfWriter;
 import si.um.feri.praktikum.dao.ReceptZaglavljeDAO;
 
 public class PDF {
-    public void izprintajPDF(){
+    public void izprintajPDF(ReceptZaglavlje recept){
     	
     	try {
     		
-    		ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
-    		ReceptZaglavlje recept = rzd.najdi(1);
+//    		ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+//    		ReceptZaglavlje recept = rzd.najdi(id);
     		
     	
     	String file_name="C:\\Users\\Ivana\\Desktop\\PRAKTIKUM 1\\generate_pdf\\test_pdf.pdf";
@@ -26,7 +26,7 @@ public class PDF {
     	
     	document.open();
     	
-    	Paragraph para = new Paragraph(recept.getNaziv());
+    	Paragraph para = new Paragraph("IME: " + recept.getNaziv());
       	Paragraph g = new Paragraph(recept.getKratekOpis());
      	Paragraph s = new Paragraph(recept.getSteviloOseb());
      	Paragraph c = new Paragraph(String.valueOf(recept.getCasPriprave()));
@@ -43,21 +43,16 @@ public class PDF {
     	recept.setSestavine(recept.getId_recept());
     	ArrayList<Sestavine> sestavine = (ArrayList<Sestavine>) recept.getSestavine();
     	System.out.println("kjhgfdsasdfghjkloplkjhg");
+    	String sestavinee = "";
     	for(int i=0;i<sestavine.size();i++){ 
-    		
-    		System.out.println("wlkjhgf");
-    		
-    		sn = new Paragraph(sestavine.get(i).getNaziv());
-    	//	System.out.println(sestavine.get(i).getNaziv());
-    		sk = new Paragraph(String.valueOf(sestavine.get(i).getKolicina()));
-    		se = new Paragraph(sestavine.get(i).getEnota());
-    	
-    	   
-    	   
-
-    	 
+    		if(i<sestavine.size()-1) {
+    		    sestavinee += sestavine.get(i).getNaziv() + " " + String.valueOf(sestavine.get(i).getKolicina()) + sestavine.get(i).getEnota() + ", "; 
+    		}else{
+    			sestavinee += sestavine.get(i).getNaziv() + " " + String.valueOf(sestavine.get(i).getKolicina()) + sestavine.get(i).getEnota(); 
+    		}    	 
 
     	}
+    	sn = new Paragraph("SESTAVINE: " + sestavinee);
     	
     	
     	
@@ -78,8 +73,6 @@ public class PDF {
     	
 
       	document.add(sn);
-    	document.add(sk);
-    	document.add(se);
     	
     	
     	
