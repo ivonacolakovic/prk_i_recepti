@@ -1,6 +1,8 @@
 package si.um.feri.praktikum.razredi;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
@@ -35,6 +37,30 @@ public class PDF {
     	Paragraph np = new Paragraph(recept.getOpisPriprave());
     	
     	
+    	Paragraph sn = null ;
+		Paragraph sk  = null;
+		Paragraph se  = null;
+    	recept.setSestavine(recept.getId_recept());
+    	ArrayList<Sestavine> sestavine = (ArrayList<Sestavine>) recept.getSestavine();
+    	System.out.println("kjhgfdsasdfghjkloplkjhg");
+    	for(int i=0;i<sestavine.size();i++){ 
+    		
+    		System.out.println("wlkjhgf");
+    		
+    		sn = new Paragraph(sestavine.get(i).getNaziv());
+    	//	System.out.println(sestavine.get(i).getNaziv());
+    		sk = new Paragraph(String.valueOf(sestavine.get(i).getKolicina()));
+    		se = new Paragraph(sestavine.get(i).getEnota());
+    	
+    	   
+    	   
+
+    	 
+
+    	}
+    	
+    	
+    	
     	
     	
     	
@@ -47,6 +73,13 @@ public class PDF {
     	document.add(o);
     	document.add(a);
     	document.add(np);
+    	
+    	
+    	
+
+      	document.add(sn);
+    	document.add(sk);
+    	document.add(se);
     	
     	
     	
