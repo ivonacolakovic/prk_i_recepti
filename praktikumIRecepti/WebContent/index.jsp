@@ -14,12 +14,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+  
+  #div{
+
+ border-radius: 5px;
+    background-color: red;
+     width: 75%;
+     margin: 0 auto;
+  }
 
     div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 180px;
+    width: 300 px;
 }
 
 div.gallery:hover {
@@ -38,10 +46,24 @@ div.desc {
     background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
 
-
-  #wrapper {
-  width: 70%;     /* specify a width! */
+#wrapper {
+  width: 62%;     /* specify a width! */
   margin: 0 auto; /* center */
+  }
+  .button {
+
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+.button4 {background-color: #e7e7e7; color: black;}
+
 
   </style>
 </head>
@@ -150,7 +172,7 @@ div.desc {
 </select>
 </div>
 
-<input type="submit" value="Potrdi" class="button">
+<input type="submit" value="Potrdi" class="button button4">
 
 </form>
 
@@ -235,7 +257,10 @@ document.addEventListener("click", closeAllSelect);</script>
 
 
 <div class="container text-center">  
-<h2 style="color:#e60000;">RECEPTI</h2><br>
+<h1 >RECEPTI</h1>
+
+<br/>
+<br/>
 </div>
 
 
@@ -246,17 +271,20 @@ document.addEventListener("click", closeAllSelect);</script>
   ArrayList<ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniVse();
   for(int i=0; i<recepti.size(); i++){
   %>
+  <div id="div">
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:180px" height="150px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="220px">
   			<div class="desc">
-  			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+  			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
   			 </div>
   			
   		 </form>
   		 </div>
+  		 </div>
+  		 
   
  <%} %>
 

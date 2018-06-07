@@ -22,6 +22,10 @@ div.desc {
   
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   }
+    h1 {
+  
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  }
   
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -120,20 +124,7 @@ div.desc {
 
 
 
-.button {
-    background-color: #32CD32 ;
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 13px;
-    margin: 4px 2px;
-    cursor: pointer;
-    position: relative;
-    border-radius: 12px;
-}
+
 
 
 //dodajrecept
