@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" type="text/css" href="style.css">
   <title>Index</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-  div.gallery {
+
+    div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
@@ -30,134 +32,16 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
+ 
 
-  h2 {
-  
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  }
-  
   body {
     background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
-  
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-    
- 
 
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
- 
-  .clearFloat {
-  clear:both;
-  margin:0;
-  padding:0;
-  
-  }
+
   #wrapper {
-  width: 63%;     /* specify a width! */
+  width: 70%;     /* specify a width! */
   margin: 0 auto; /* center */
-}
-
-
-* {
-    box-sizing: border-box;
-}
-
-.row {
-    display: flex;
-}
-
-/* Create three equal columns that sits next to each other */
-.column {
-    flex: 33.33%;
-    padding: 10px;
-    float:left;
-}
-
-
-/*the container must be positioned relative:*/
-.custom-select {
-  position: relative;
-  font-family: Arial;
-  float: left;
-  text-align:center;
-}
-.custom-select select {
-  display: none; /*hide original SELECT element:*/
-}
-.select-selected {
-  background-color: #696969;
-}
-/*style the arrow inside the select element:*/
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-  user-select: none;
-}
-/*style items (options):*/
-.select-items {
-  position: absolute;
-  background-color: #696969;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-
-
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 8px 27px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 8px;
-    cursor: pointer;
-}
 
   </style>
 </head>

@@ -6,8 +6,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
 <style>
-  div.gallery {
+   div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
@@ -23,7 +24,6 @@ div.gallery:hover {
 div.desc {
     padding: 15px;
     text-align: center;
-    background-color:white;
 }
  body {
     background-image: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
@@ -32,37 +32,7 @@ div.desc {
   width: 30%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-}
 
-.container img {
-    width: 100%;
-    height: 50%;
-}
-
-.container .btn {
-    position: absolute;
-    transition: .5s ease;
-    top: 70%;
-    left: 15%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: none;
-    color: black;
-    font-size: 13px;
-    padding: 10px 13px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.container .btn:hover {
-    background-color: black;
-}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">

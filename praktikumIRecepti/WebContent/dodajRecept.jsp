@@ -7,6 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
  #naslov {
   width: 15%;     /* specify a width! */
@@ -30,10 +31,7 @@
   width: 85%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
-h2 {
- font-family: 'Raleway', Helvetica, Arial, sans-serif;
 
-}
 
 
 </style>

@@ -7,6 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
  
   
@@ -16,31 +17,15 @@
   border-radius: 5px;
     background-color: #f2f2f2;
      width: 40%;
+     padding:60px;
     
 }
  #naslov {
   width: 15%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
-h2 {
- font-family: 'Raleway', Helvetica, Arial, sans-serif;
-width:30%;
-}
-img {
-    float: left;
-}
-.form-group {
-overflow: auto;
-}
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 
-.img2 {
-    float: left;
-}
+
 
 </style>
 <script src="/js/validation.js"></script>
@@ -112,8 +97,12 @@ overflow: auto;
     
       <div class="form-group">
       <label for="usr">Geslo</label>
-      <input type="password" class="form-control"  placeholder="Vnesite geslo" name="geslo" id="myInput" required >
+      <input type="password" class="form-control"  placeholder="Vnesite geslo" name="geslo" id="password" required >
     <input type="checkbox" onclick="myFunction()">Show Password
+    </div>
+    <div class="form-group">
+    <label for="usr">Potrdi Geslo</label>
+    <input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" required>
     </div>
     <div id="naslov">
         <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
@@ -132,6 +121,19 @@ function myFunction() {
         x.type = "password";
     }
 }
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
 </script>
       <%
       UporabnikiDAO  ud=new UporabnikiDAO ();
