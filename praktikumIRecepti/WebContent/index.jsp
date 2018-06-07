@@ -68,7 +68,7 @@ div.desc {
   
   }
   #wrapper {
-  width: 70%;     /* specify a width! */
+  width: 63%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
 
@@ -147,18 +147,16 @@ div.desc {
 
 
 .button {
-    background-color: #32CD32 ;
+    background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 27px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 13px;
-    margin: 4px 2px;
+    font-size: 16px;
+    margin: 0px 8px;
     cursor: pointer;
-    position: relative;
-    border-radius: 12px;
 }
 
   </style>
@@ -180,13 +178,13 @@ div.desc {
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Poisci">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default">Poisci</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
     
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -264,10 +262,11 @@ div.desc {
   <option value="30">manj kot 30min</option>
   <option value="60">manj kot 1h</option>
   <option value="120">manj kot 2h</option>
+
 </select>
 </div>
 
-<input type="submit" value="Submit" class="button">
+<input type="submit" value="Potrdi" class="button">
 
 </form>
 
