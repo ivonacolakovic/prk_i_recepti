@@ -159,7 +159,7 @@ public class ReceptZaglavlje {
 	}
 	public void setSestavine(int id_recept) throws Exception {
 		SestavineDAO sd = new SestavineDAO();
-		ArrayList<Sestavine> sestavine = (ArrayList<Sestavine>) sd.vrniSestavine( id_recept); 
+		sestavine = (ArrayList<Sestavine>) sd.vrniSestavine( id_recept); 
 	}
 	public String getAlergeniSkupaj() {
 		return alergeniSkupaj;
