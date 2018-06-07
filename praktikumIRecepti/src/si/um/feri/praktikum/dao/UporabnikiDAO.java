@@ -63,9 +63,9 @@ public class UporabnikiDAO {
 		
 			ps.setString(1, r.getIme());
 			ps.setString(2, r.getPriimek());
-			ps.setString(1, r.getEmail());
-			ps.setString(1, r.getUporabniskoIme());
-			ps.setString(1, r.getGeslo());
+			ps.setString(3, r.getEmail());
+			ps.setString(4, r.getUporabniskoIme());
+			ps.setString(5, r.getGeslo());
 			
 			
 			ps.executeUpdate();
