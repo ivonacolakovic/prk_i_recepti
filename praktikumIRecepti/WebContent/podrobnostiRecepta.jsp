@@ -211,7 +211,7 @@ OcenaDAO od = new OcenaDAO();
        PDF dp=new PDF ();
        if(request.getParameter("pdf")==null){
      	   System.out.println(recept.getId_recept());
-    	   dp.izprintajPDF(recept);
+    	    dp.izprintajPDF(recept);
      
      		 
        }

@@ -30,14 +30,14 @@
 }
 h2 {
  font-family: 'Raleway', Helvetica, Arial, sans-serif;
-
+ text-align:center;
 }
 
 
 </style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>dodajRecept</title>
+<title>Prijava</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -79,15 +79,14 @@ h2 {
 <br/>
  <br/>
  <br/>
-<div id="div">
+ <div id="div">
 <div id="wrapper">
-
-
- <br/>
+ 
+  <br/>
 <h2 style="color:#3c3c3c;" > PRIJAVA </h2>
-<br/>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
-
+ <br/>
+  
     <div class="form-group">
       <label for="usr">Uporabnisko ime</label>
       <input type="text" class="form-control" id="usr" placeholder="Vnesite uporabnisko ime" name="uporabniskoIme" required >

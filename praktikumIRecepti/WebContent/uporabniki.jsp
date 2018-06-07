@@ -7,25 +7,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
 <style>
  
-  
- #wrapper {
-  width: 40%;     /* specify a width! */
-  margin: 0 auto; /* center */
-  border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 40%;
-     padding:60px;
-    
-}
+
  #naslov {
   width: 15%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
 
+#div{
 
+ border-radius: 5px;
+    background-color: #f2f2f2;
+     width: 35%;
+     margin: 0 auto;
+
+
+ 
+}
+ #wrapper {
+  width: 85%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
+h2 {
+ font-family: 'Raleway', Helvetica, Arial, sans-serif;
+ text-align:center;
+}
+
+img {
+    float: left;
+}
+.form-group {
+overflow: auto;
+}
+
+.img2 {
+    float: left;
+}
 
 </style>
 <script src="/js/validation.js"></script>
@@ -65,15 +83,22 @@
     </ul>
   </div>
 </nav>
-<div id="naslov">
-<h2 style="color:#e60000;">REGISTRACIJA </h2>
-</div>
+<br/>
 
 
-<br>
 <div class="clearfix">
-<img class= "img2" src="https://openclipart.org/image/2400px/svg_to_png/273534/Connections.png" alt="Smiley face"  style="width:300px;height:350px; margin-left:20px; margin-right:50px;">
+ <br/>
+  <br/>
+   <br/>
+
+    
+<img class= "img2" src="https://openclipart.org/image/2400px/svg_to_png/273534/Connections.png" alt="Smiley face"  style="width:350px;height:350px; margin-left:20px; margin-right:50px;">
+<div id="div">
 <div id="wrapper">
+   <br/>
+  <h2 style="color:#3c3c3c;" > REGISTRACIJA </h2>
+   
+ <br/>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
@@ -97,15 +122,18 @@
     
       <div class="form-group">
       <label for="usr">Geslo</label>
-      <input type="password" class="form-control"  placeholder="Vnesite geslo" name="geslo" id="password" required >
-    <input type="checkbox" onclick="myFunction()">Show Password
-    </div>
+      <input type="password" class="form-control"  placeholder="Vnesite geslo" name="geslo" id="myInput" required >
+      <input type="checkbox" onclick="myFunction()">Show Password
+    
+        </div>
     <div class="form-group">
     <label for="usr">Potrdi Geslo</label>
-    <input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" required>
+    <input type="password" class="form-control" placeholder="Confirm Password"  id="confirm_password" required>
     </div>
     <div id="naslov">
         <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
+        <br/>
+        
         </div>
         </form>
        
@@ -148,6 +176,7 @@ confirm_password.onkeyup = validatePassword;
     		    	  u.setEmail(request.getParameter("email"));
     		    	  u.setUporabniskoIme(request.getParameter("uporabniskoIme"));
     		    	  u.setGeslo(request.getParameter("geslo"));
+    		    	 // u.setGeslo(request.getParameter("gesloP"));
     		    	  
     
      
