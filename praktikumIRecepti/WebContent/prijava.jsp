@@ -9,6 +9,22 @@
 <head>
 <style>
 
+
+img {
+    float: right;
+}
+.form-group {
+overflow: auto;
+}
+
+.img2 {
+    float: right;
+}
+.img3 {
+    float: right;
+}
+
+
  #naslov {
   width: 15%;     /* specify a width! */
   margin: 0 auto; /* center */
@@ -18,8 +34,8 @@
 
  border-radius: 5px;
     background-color: #f2f2f2;
-     width: 35%;
-     margin: 0 auto;
+     width: 27%;
+     margin: 100px 300px 200px 460px;
 
 
  
@@ -48,7 +64,7 @@ h2 {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="example">
+
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -71,17 +87,23 @@ h2 {
     
      <li class="active"><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+  
     </ul>
   </div>
 </nav>
- <br/>
-<br/>
- <br/>
- <br/>
+
+
+
+
+<img class= "img2" src="https://mitrasale.com/wp-content/uploads/2018/01/social-media-messaging.png" alt="Smiley face"  style="width:600px;height:400px; margin-left:20px; margin-right:50px;">
+ 
  <div id="div">
 <div id="wrapper">
  
+    
+
+
   <br/>
 <h2 style="color:#3c3c3c;" > PRIJAVA </h2>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
@@ -102,7 +124,7 @@ h2 {
         <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
         
         <br/>
-        <br/>
+      
         </div>
         </form>
        
@@ -112,7 +134,8 @@ h2 {
        
    
       </div>
-      </div>
+ 
+    
       <script>
 function myFunction() {
     var x = document.getElementById("myInput");
