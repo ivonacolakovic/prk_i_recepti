@@ -9,23 +9,14 @@
 <head>
 <style>
 
-
-img {
-    float: right;
+ body {
+    background-image: url("http://content.seamless.com/swdesign/img/background/landingpage-tacos-20140730.jpg");
 }
 .form-group {
 overflow: auto;
 }
 
-.img2 {
-    float: right;
-   
-}
-.img3 {
-    float: left;
-     margin: 400px 0px 0px 20px;
-     
-}
+
 
 
  #naslov {
@@ -56,6 +47,7 @@ h2 {
 </style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Prijava</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,6 +59,8 @@ h2 {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -86,9 +80,9 @@ h2 {
     </form>
     <ul class="nav navbar-nav navbar-right">
     
-     <li class="active"><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
+     <li ><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li class="active"><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
   
     </ul>
   </div>
@@ -96,11 +90,8 @@ h2 {
 
 
 
-<img class= "img3" src="http://www.pngmart.com/files/5/Indian-Food-PNG-HD.png" alt="Smiley face"  style="width:600px;height:300px; margin-left:20px; margin-right:50px;">
-  
 
-<img class= "img2" src="http://www.marcosmexicangrill.com/assets/images/content/menu/sliderphoto_01_tacos.png" alt="Smiley face"  style="width:500px;height:250px; margin-left:20px; margin-right:50px;">
- 
+
  <div id="div">
 <div id="wrapper">
  
@@ -138,7 +129,7 @@ h2 {
    
       </div>
  
-    
+
       <script>
 function myFunction() {
     var x = document.getElementById("myInput");
@@ -149,6 +140,7 @@ function myFunction() {
     }
 }
 </script>
+
       <%
       UporabnikiDAO  ud=new UporabnikiDAO ();
     
@@ -172,5 +164,7 @@ function myFunction() {
     				}
     	     }
     	      %>
+    	      
+ 
 </body>
 </html>

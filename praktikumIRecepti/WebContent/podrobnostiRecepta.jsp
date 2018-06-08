@@ -11,6 +11,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+#outer
+{
+    width:100%;
+    text-align: center;
+    
+}
+.inner
+{
+    float:left;
+      margin-left: 2px;
+    
+}
+#n {
+margin-left: 40px;
+}
 
 #wrapper {
   width: 85%;     /* specify a width! */
@@ -234,19 +249,20 @@ OcenaDAO od = new OcenaDAO();
  
   		
   		
-
-  
+<div style="width:600px;">
 
 <form action="komentar.jsp" method="post">
-        <button  type="submit" name="komentar" value="<%= id %>" class="btn btn-primary">Komentiraj</button>
+
+        <div class="inner"><button  type="submit" name="komentar" value="<%= id %>" class="btn btn-primary">Komentiraj</button></div>
         </form>
-        
       
-       <br/>
         <form action="index.jsp" method="post">
-         <button  type="submit" name="pdf" value="" class="btn btn-danger" > PDF </button>
+         <div class="inner"><button  type="submit" name="pdf" value="" class="btn btn-danger" > PDF </button></div>
         
        </form>
+       </div>
+       
+      
        <br>
        <br>
        <br>
@@ -266,7 +282,9 @@ OcenaDAO od = new OcenaDAO();
        
 <%}
 %>
+
 <form method="post">
+
 <button type="submit" name="like" value="like" class="btn btn-default btn-sm">
   <span class="glyphicon glyphicon-thumbs-up"></span> Like
 </button>
@@ -275,10 +293,12 @@ OcenaDAO od = new OcenaDAO();
 </button>
 
 </form>
+
 <br>
 <br>
 <br>
 <br>
+
 <%
 /*System.out.println(r);
 //session.setAttribute("id", r);
