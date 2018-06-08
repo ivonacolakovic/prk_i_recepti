@@ -38,7 +38,7 @@
     right:230px;
     width:35%;
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: white;
 }
 
 #div3{
@@ -47,7 +47,7 @@
   
     width:80%;
   border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: white;
     margin:0px auto;
 }
 
