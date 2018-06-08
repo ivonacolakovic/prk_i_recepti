@@ -158,21 +158,19 @@ function myFunction() {
     		    	  Uporabniki u=new Uporabniki();
 
     		    	 String ime = request.getParameter("uporabniskoIme");
-    		    	  String geslo = request.getParameter("geslo");
+    		    String geslo = request.getParameter("geslo");
     		    	  
     
      
-    		    	  if(ud.najdi(ime,geslo))
+    		    	  if(ud.najdi(ime,geslo)!= null ){
     		    		  response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
-    		        	  
+    		    	  }
     		    	  else{
     		    	  %><div class="alert alert-danger">
     				  <strong>Danger!</strong> Napaka, poskusite se enkrat.
     				</div><%
     				}
-    	      {
-    	    	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
-    	      }}
+    	     }
     	      %>
 </body>
 </html>

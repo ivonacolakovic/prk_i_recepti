@@ -27,14 +27,14 @@ public class PDF {
     	document.open();
     	
     	Paragraph para = new Paragraph("IME: " + recept.getNaziv());
-      	Paragraph g = new Paragraph(recept.getKratekOpis());
-     	Paragraph s = new Paragraph(recept.getSteviloOseb());
-     	Paragraph c = new Paragraph(String.valueOf(recept.getCasPriprave()));
-     	Paragraph k = new Paragraph(String.valueOf(recept.getSteviloKalorije()));
-    	Paragraph m = new Paragraph(String.valueOf(recept.getMascobe()));
-    	Paragraph o = new Paragraph(String.valueOf(recept.getOgljikoviHidrati()));
-    	Paragraph a = new Paragraph(recept.getAlergeniSkupaj());
-    	Paragraph np = new Paragraph(recept.getOpisPriprave());
+      	Paragraph g = new Paragraph("KRATEK OPIS: " + recept.getKratekOpis());
+     	Paragraph s = new Paragraph("STEVILO OSEB: " + recept.getSteviloOseb());
+     	Paragraph c = new Paragraph("CAS PRIPRAVE: " + String.valueOf(recept.getCasPriprave()));
+     	Paragraph k = new Paragraph("STEVILO KALORIJE: " + String.valueOf(recept.getSteviloKalorije()));
+    	Paragraph m = new Paragraph("MASCOBE: " + String.valueOf(recept.getMascobe()));
+    	Paragraph o = new Paragraph("OGLJIKOVI HIDRATI: "+ String.valueOf(recept.getOgljikoviHidrati()));
+    	Paragraph a = new Paragraph("ALEGENI: " +recept.getAlergeniSkupaj());
+    	Paragraph np = new Paragraph("OPIS PRIPRAVE: " + recept.getOpisPriprave());
     	
     	
     	Paragraph sn = null ;
