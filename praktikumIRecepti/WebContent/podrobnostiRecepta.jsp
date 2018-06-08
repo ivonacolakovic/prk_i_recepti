@@ -7,23 +7,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<style>
-#div{
 
- border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 40%;
-     margin: 0 auto;
-}
-   #example {
-    background-image:url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-}
-  #wrapper {
-  width: 30%;     /* specify a width! */
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+
+#wrapper {
+  width: 85%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
+
+#wrapper1 {
+  width: 75%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
+#div1{
+
+
+  position:absolute;
+    top:750px;
+    left:190px;
+    width:35%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+#div2{
+  position:absolute;
+    top:750px;
+    right:230px;
+    width:35%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#div3{
+
+    top:100px;
+  
+    width:80%;
+  border-radius: 5px;
+    background-color: white;
+    margin:0px auto;
+}
+
+ 
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -41,7 +69,7 @@ tr:nth-child(even) {
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>podrobnosti</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -85,15 +113,7 @@ ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO ();
 ReceptZaglavlje recept = rzd.najdi(id);
 int r = recept.getId_recept();
 %>
-<form method="post">
-        <button type="submit" name="like" value="like" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-thumbs-up"></span> Like
-        </button>
-        <button type="submit" name="dislike" value="dislike" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-        </button>
-      
-      </form>
+
       
 
 
@@ -127,42 +147,60 @@ if(request.getParameter("like")!=null){
 		
 	}
 %>
-<div id="div">
-<div id="wrapper">
+<div id="div3" >
+<div id="wrapper1">
+
+
 <h1><%=recept.getNaziv() %></h1>
+
+<h3><%=recept.getKratekOpis() %></h3>
 <br>
-<h4>Kratek opis: <%=recept.getKratekOpis() %></h4>
-<img src="<%=recept.getSlika() %>" height="200" width="300"/>
+<img src="<%=recept.getSlika() %>" height="420" width="800"/> 
 <br>
 <i>Datum objave:<%=recept.getCasObjave() %></i>
+<br/>
+<br/>
 
-	
-	<br>
-	<br>
-	<br>
-<p><b>Stevilo porcij:<%=recept.getSteviloOseb() %></b></p>
-<p><b>Cas priprave: <%=recept.getCasPriprave() %></b></p>
-<p><b>Kalorije: <%=recept.getSteviloKalorije() %></b></p>
-<p><b>Mascobe:<%=recept.getMascobe() %></b></p>
-<p><b>Oglijikovi hidrati:<%=recept.getOgljikoviHidrati() %></b></p>
-<p><b>Alergeni:<%=recept.getAlergeniSkupaj() %></b></p>
-<p><b>Nacin priprave:<%=recept.getOpisPriprave() %></b></p>
-<iframe src="<%=recept.getVideo()%>" height="300" width="300"></iframe>
+</div>
+</div>
+
+<div id="div1" >
+<div id="wrapper">
+
+
+	<br/>
+<h4><b>Stevilo porcij:</b><%=recept.getSteviloOseb() %></h4>
+<h4><b>Cas priprave: </b><%=recept.getCasPriprave() %></h4>
+<h4><b>Kalorije: </b><%=recept.getSteviloKalorije() %></h4>
+<h4><b>Mascobe: </b><%=recept.getMascobe() %></h4>
+<h4><b>Oglijikovi hidrati: </b><%=recept.getOgljikoviHidrati() %></h4>
+<h4><b>Alergeni: </b><%=recept.getAlergeniSkupaj() %></h4>
+<h4><b>Nacin priprave: </b><%=recept.getOpisPriprave() %></h4>
+<iframe src="<%=recept.getVideo()%>" width="420" height="315"></iframe>
+
+<br>
+<br>
+<br>
+
+ </div>
+ </div>
+<div id="div2">
+<div id="wrapper">
 <br><br>
-<b>Sestavine:</b>
+<h3>Sestavine:</h3>
 <table>
 <tr>
-    <th>Naziv</th>
-    <th>Kolicina</th> 
-    <th>Enota</th>
+   <th><h4>Naziv</h4></th>
+    <th><h4>Kolicina</h4></th> 
+    <th><h4>Enota</h4></th>
   </tr>
 <%SestavineDAO sd = new SestavineDAO();
 List<Sestavine> sestavine = sd.vrniSestavine(recept.getId_recept());
 for(int i=0;i<sestavine.size();i++){%> 
 <tr>
-    <td><%=sestavine.get(i).getNaziv()%></td>
-    <td><%=sestavine.get(i).getKolicina()%></td>
-    <td><%=sestavine.get(i).getEnota()%></td>
+    <td><h5><%=sestavine.get(i).getNaziv()%></h5></td>
+    <td><h5><%=sestavine.get(i).getKolicina()%></h5></td>
+    <td><h5><%=sestavine.get(i).getEnota()%></h5></td>
   </tr>
 
 <%} %>
@@ -200,18 +238,25 @@ OcenaDAO od = new OcenaDAO();
   
 
 <form action="komentar.jsp" method="post">
-        <button  type="submit" name="komentar" value="<%= id %>">Dodaj komentar</button>
+        <button  type="submit" name="komentar" value="<%= id %>" class="btn btn-primary">Komentiraj</button>
         </form>
+        
+      
+       <br/>
         <form action="index.jsp" method="post">
-         <button  type="submit" name="pdf" value="">Izpis</button>
+         <button  type="submit" name="pdf" value="" class="btn btn-danger" > PDF </button>
         
        </form>
+       <br>
+       <br>
+       <br>
         <%
         System.out.println("fjiespjfsejfosj" + recept.getId_recept());
        PDF dp=new PDF ();
        if(request.getParameter("pdf")==null){
      	   System.out.println(recept.getId_recept());
     	    dp.izprintajPDF(recept);
+    	    
      
      		 
        }
@@ -220,7 +265,21 @@ OcenaDAO od = new OcenaDAO();
         
        
 <%}
+%>
+<form method="post">
+<button type="submit" name="like" value="like" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-thumbs-up"></span> Like
+</button>
+<button type="submit" name="dislike" value="dislike" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+</button>
 
+</form>
+<br>
+<br>
+<br>
+<br>
+<%
 /*System.out.println(r);
 //session.setAttribute("id", r);
 //String nesh = (session.getAttribute("id")).toString();
@@ -248,5 +307,6 @@ else{
 %>
 </div>
 </div>
+
 </body>
 </html>
