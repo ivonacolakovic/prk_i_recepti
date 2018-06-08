@@ -19,8 +19,8 @@
 
  border-radius: 5px;
     background-color: #f2f2f2;
-     width: 35%;
-     margin: 0 auto;
+     width: 32%;
+     margin: 70px 300px 200px 400px;
 
 
  
@@ -41,8 +41,8 @@ img {
 overflow: auto;
 }
 
-.img2 {
-    float: left;
+.img3 {
+    float: right;
 }
 
 </style>
@@ -79,7 +79,7 @@ overflow: auto;
     
      <li ><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li class="active"><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -87,13 +87,10 @@ overflow: auto;
 
 
 <div class="clearfix">
- <br/>
-  <br/>
-   <br/>
 
-    
-<img class= "img2" src="https://openclipart.org/image/2400px/svg_to_png/273534/Connections.png" alt="Smiley face"  style="width:350px;height:350px; margin-left:20px; margin-right:50px;">
-<div id="div">
+ 
+<img class= "img3" src="https://mitrasale.com/wp-content/uploads/2018/01/social-media-messaging.png" alt="Smiley face"  style="width:600px;height:400px; margin-left:20px; margin-right:50px;">
+  <div id="div">
 <div id="wrapper">
    <br/>
   <h2 style="color:#3c3c3c;" > REGISTRACIJA </h2>

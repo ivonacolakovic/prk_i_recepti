@@ -19,9 +19,12 @@ overflow: auto;
 
 .img2 {
     float: right;
+   
 }
 .img3 {
-    float: right;
+    float: left;
+     margin: 400px 0px 0px 20px;
+     
 }
 
 
@@ -35,7 +38,7 @@ overflow: auto;
  border-radius: 5px;
     background-color: #f2f2f2;
      width: 27%;
-     margin: 100px 300px 200px 460px;
+     margin: 80px 200px 200px 600px;
 
 
  
@@ -64,8 +67,6 @@ h2 {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -95,8 +96,10 @@ h2 {
 
 
 
+<img class= "img3" src="http://www.pngmart.com/files/5/Indian-Food-PNG-HD.png" alt="Smiley face"  style="width:600px;height:300px; margin-left:20px; margin-right:50px;">
+  
 
-<img class= "img2" src="https://mitrasale.com/wp-content/uploads/2018/01/social-media-messaging.png" alt="Smiley face"  style="width:600px;height:400px; margin-left:20px; margin-right:50px;">
+<img class= "img2" src="http://www.marcosmexicangrill.com/assets/images/content/menu/sliderphoto_01_tacos.png" alt="Smiley face"  style="width:500px;height:250px; margin-left:20px; margin-right:50px;">
  
  <div id="div">
 <div id="wrapper">
