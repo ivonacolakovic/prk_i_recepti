@@ -12,7 +12,7 @@
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 180px;
+    width: 240px;
 }
 
 div.gallery:hover {
@@ -81,7 +81,7 @@ div.desc {
       		
       		<div class="gallery">
       		<form action="podrobnostiRecepta.jsp" method="post">
-      		<img src="<%=recepti.get(i).getSlika() %>" style="width:180px" height="150px">
+      		<img src="<%=recepti.get(i).getSlika() %>" style="width:240px" height="150px">
   			<div class="desc">
   			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
