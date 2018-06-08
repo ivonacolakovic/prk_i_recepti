@@ -8,15 +8,26 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css"></link>
 <style>
-   div.gallery {
+
+#div{
+
+
+
+     margin: 0 auto;
+     width: 75%;
+  }
+  
+    div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 240px;
+    width: 300 px;
+     
 }
 
 div.gallery:hover {
     border: 1px solid #777;
+    
 }
 
 
@@ -33,6 +44,21 @@ div.desc {
   margin: 0 auto; /* center */
 }
 
+  .button {
+
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+.button4 {background-color: #e7e7e7; color: black;}
+
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
@@ -41,6 +67,7 @@ div.desc {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Najnovejsi recepti</title>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -70,7 +97,9 @@ div.desc {
 </nav>
 
 <div id="wrapper">
-<h1>Najnovejsi recepti</h1>
+<h1>NAJNOVEJSI RECEPTI</h1>
+<br>
+<br>
 </div>
 <br>
 
@@ -78,17 +107,19 @@ div.desc {
       	<%ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
       	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniNajnovejse();
       	for(int i= 0; i < recepti.size() ; i++){%>
-      		
-      		<div class="gallery">
+    
+      		  <div id="div">
+          		<div class="gallery">
       		<form action="podrobnostiRecepta.jsp" method="post">
-      		<img src="<%=recepti.get(i).getSlika() %>" style="width:240px" height="150px">
+      		<img src="<%=recepti.get(i).getSlika() %>"style="width:350px" height="260px">
   			<div class="desc">
-  			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+  			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
   			 </div>
   			
   		 </form>
   		 </div>
+  		 	 </div>
   
  <%} %>
 </body>
