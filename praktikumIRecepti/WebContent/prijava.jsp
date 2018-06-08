@@ -156,22 +156,23 @@ function myFunction() {
     		  if (request.getParameter("add")!= null) {
     		    	 
     		    	  Uporabniki u=new Uporabniki();
-    		    	 
-    		    	  u.setIme(request.getParameter("ime"));
-    		    	  u.setPriimek(request.getParameter("priimek"));
-    		    	  u.setEmail(request.getParameter("email"));
-    		    	  u.setUporabniskoIme(request.getParameter("uporabniskoIme"));
-    		    	  u.setGeslo(request.getParameter("geslo"));
+
+    		    	 String ime = request.getParameter("uporabniskoIme");
+    		    	  String geslo = request.getParameter("geslo");
     		    	  
     
      
-    		    	  ud.shrani(u);
-    		    	
-    		    	 
-    		      }
-    	      else{
+    		    	  if(ud.najdi(ime,geslo))
+    		    		  response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
+    		        	  
+    		    	  else{
+    		    	  %><div class="alert alert-danger">
+    				  <strong>Danger!</strong> Napaka, poskusite se enkrat.
+    				</div><%
+    				}
+    	      {
     	    	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
-    	      }
+    	      }}
     	      %>
 </body>
 </html>

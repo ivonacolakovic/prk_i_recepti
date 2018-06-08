@@ -172,5 +172,30 @@ public class UporabnikiDAO {
 		}
 		return id;
 	}
-}
+	
+	public boolean najdi(String ime, String geslo) throws SQLException {
+		Connection conn = null;
+		boolean n = false;
+		try {
+			conn = baza.getConnection();
+			PreparedStatement ps = conn.prepareStatement("select * from uporabniki where ime=? and geslo=?");
+			ps.setString(1, ime);
+			ps.setString(2, geslo);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				n = true;
+				
+			}else 
+				n= false;
+			}
+			finally{
+				conn.close();
+			}
+		return n;
+			
+		}
+	}
+
+
 			
