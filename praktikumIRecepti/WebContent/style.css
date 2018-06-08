@@ -27,6 +27,15 @@ div.desc {
   font-family: 'Raleway', Helvetica, Arial, sans-serif;
   }
   
+  h4 {
+  
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  }
+     h3 {
+  
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  }
+    
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
