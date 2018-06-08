@@ -173,29 +173,28 @@ public class UporabnikiDAO {
 		return id;
 	}
 	
-	public boolean najdi(String ime, String geslo) throws SQLException {
+	public Uporabniki najdi(String ime, String geslo) throws SQLException {
 		Connection conn = null;
-		boolean n = false;
+		Uporabniki rz = new Uporabniki();
 		try {
 			conn = baza.getConnection();
 			PreparedStatement ps = conn.prepareStatement("select * from uporabniki where ime=? and geslo=?");
 			ps.setString(1, ime);
 			ps.setString(2, geslo);
 			ResultSet rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				n = true;
+			while(rs.next()){			
 				
-			}else 
-				n= false;
+				rz =new Uporabniki(rs.getInt("id_uporbniki"),rs.getString("ime"), rs.getString("priimek"),rs.getString("email"), rs.getString("uporabniskoIme"), rs.getString("geslo"));
 			}
+		}
 			finally{
 				conn.close();
 			}
-		return n;
+		return rz;
 			
-		}
+		
 	}
-
+	
+}
 
 			
