@@ -201,7 +201,7 @@
     	  rz.setSteviloKalorije(Double.parseDouble(request.getParameter("kalorije")));
     	  rz.setMascobe(Double.parseDouble(request.getParameter("mascobe")));
     	  rz.setOgljikoviHidrati(Double.parseDouble(request.getParameter("hidrati")));
-    	  rz.setOpisPriprave(request.getParameter("hidrati"));
+    	  rz.setOpisPriprave(request.getParameter("priprava"));
     	  rz.setCasObjave(new Date());
     	  rz.setAlergeniSkupaj(request.getParameter("alergeni"));
     	  rz.setKuhinja(request.getParameter("kuhinja"));

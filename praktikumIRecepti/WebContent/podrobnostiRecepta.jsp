@@ -11,6 +11,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+
+#like{
+  position:absolute;
+   
+    right:400px;
+}
+
+i { 
+    float:left;
+}
+
 #outer
 {
     width:100%;
@@ -53,7 +64,7 @@ margin-left: 40px;
     right:230px;
     width:35%;
     border-radius: 5px;
-    background-color: white;
+    background-color:  white;
 }
 
 #div3{
@@ -62,7 +73,7 @@ margin-left: 40px;
   
     width:80%;
   border-radius: 5px;
-    background-color: white;
+    background-color:white;
     margin:0px auto;
 }
 
@@ -164,15 +175,31 @@ if(request.getParameter("like")!=null){
 %>
 <div id="div3" >
 <div id="wrapper1">
-
+<br/>
 
 <h1><%=recept.getNaziv() %></h1>
+<br/>
 
-<h3><%=recept.getKratekOpis() %></h3>
+<h4><%=recept.getKratekOpis() %></h4>
 <br>
-<img src="<%=recept.getSlika() %>" height="420" width="800"/> 
-<br>
+<img src="<%=recept.getSlika() %>" height="420" width="850"/> 
+
+
 <i>Datum objave:<%=recept.getCasObjave() %></i>
+
+<div id="like">
+<form method="post">
+
+<button type="submit" name="like" value="like" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-thumbs-up"></span> Like
+</button>
+<button type="submit" name="dislike" value="dislike" class="btn btn-default btn-sm">
+  <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+</button>
+
+</form>
+</div>
+
 <br/>
 <br/>
 
@@ -186,40 +213,16 @@ if(request.getParameter("like")!=null){
 	<br/>
 <h4><b>Stevilo porcij:</b><%=recept.getSteviloOseb() %></h4>
 <h4><b>Cas priprave: </b><%=recept.getCasPriprave() %></h4>
-<h4><b>Kalorije: </b><%=recept.getSteviloKalorije() %></h4>
-<h4><b>Mascobe: </b><%=recept.getMascobe() %></h4>
-<h4><b>Oglijikovi hidrati: </b><%=recept.getOgljikoviHidrati() %></h4>
-<h4><b>Alergeni: </b><%=recept.getAlergeniSkupaj() %></h4>
-<h4><b>Nacin priprave: </b><%=recept.getOpisPriprave() %></h4>
-<iframe src="<%=recept.getVideo()%>" width="420" height="315"></iframe>
+<hr>
+<h4><b>Kalorije: </b></h4><h5><%=recept.getSteviloKalorije() %></h5>
+<h4><b>Mascobe: </b></h4><h5><%=recept.getMascobe() %></h5>
+<h4><b>Oglijikovi hidrati: </b></h4><h5><%=recept.getOgljikoviHidrati() %></h5>
+<h4><b>Alergeni: </b></h4><h5><%=recept.getAlergeniSkupaj() %></h5>
 
+<hr>
+   <br> 
+       <iframe src="<%=recept.getVideo()%>" width="420" height="315"></iframe>
 <br>
-<br>
-<br>
-
- </div>
- </div>
-<div id="div2">
-<div id="wrapper">
-<br><br>
-<h3>Sestavine:</h3>
-<table>
-<tr>
-   <th><h4>Naziv</h4></th>
-    <th><h4>Kolicina</h4></th> 
-    <th><h4>Enota</h4></th>
-  </tr>
-<%SestavineDAO sd = new SestavineDAO();
-List<Sestavine> sestavine = sd.vrniSestavine(recept.getId_recept());
-for(int i=0;i<sestavine.size();i++){%> 
-<tr>
-    <td><h5><%=sestavine.get(i).getNaziv()%></h5></td>
-    <td><h5><%=sestavine.get(i).getKolicina()%></h5></td>
-    <td><h5><%=sestavine.get(i).getEnota()%></h5></td>
-  </tr>
-
-<%} %>
-</table>
 
 
 <%}else{} %>
@@ -248,8 +251,47 @@ OcenaDAO od = new OcenaDAO();
   </table>		
  
   		
-  		
+<br>
+
+ </div>
+ </div>
+<div id="div2">
+<div id="wrapper">
+
+<h4><b>Sestavine:</b></h4>
+<table>
+<tr>
+   <th><h4>Naziv</h4></th>
+    <th><h4>Kolicina</h4></th> 
+    <th><h4>Enota</h4></th>
+  </tr>
+<%SestavineDAO sd = new SestavineDAO();
+List<Sestavine> sestavine = sd.vrniSestavine(recept.getId_recept());
+for(int i=0;i<sestavine.size();i++){%> 
+<tr>
+    <td><h5><%=sestavine.get(i).getNaziv()%></h5></td>
+    <td><h5><%=sestavine.get(i).getKolicina()%></h5></td>
+    <td><h5><%=sestavine.get(i).getEnota()%></h5></td>
+  </tr>
+
+<%} %>
+</table>
+ <br>
+       <br>
+<h4><b>Nacin priprave: </b> <br>
+<br>
+<%=recept.getOpisPriprave() %></h4>
+<br>
+
+ <br>
+       <br>
+    
+
+<br>
+<br>		
 <div style="width:600px;">
+
+
 
 <form action="komentar.jsp" method="post">
 
@@ -261,7 +303,7 @@ OcenaDAO od = new OcenaDAO();
         
        </form>
        </div>
-       
+     
       
        <br>
        <br>
@@ -281,25 +323,7 @@ OcenaDAO od = new OcenaDAO();
         
        
 <%}
-%>
 
-<form method="post">
-
-<button type="submit" name="like" value="like" class="btn btn-default btn-sm">
-  <span class="glyphicon glyphicon-thumbs-up"></span> Like
-</button>
-<button type="submit" name="dislike" value="dislike" class="btn btn-default btn-sm">
-  <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
-</button>
-
-</form>
-
-<br>
-<br>
-<br>
-<br>
-
-<%
 /*System.out.println(r);
 //session.setAttribute("id", r);
 //String nesh = (session.getAttribute("id")).toString();
