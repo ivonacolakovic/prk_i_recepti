@@ -19,7 +19,7 @@ public class PDF {
 //    		ReceptZaglavlje recept = rzd.najdi(id);
     		
     	
-    	String file_name="C:\\Users\\Ivana\\Desktop\\PRAKTIKUM 1\\generate_pdf\\test_pdf.pdf";
+    	String file_name="C:\\Users\\test_pdf.pdf";
     	Document document = new Document();
     	
     	PdfWriter.getInstance(document, new FileOutputStream(file_name));

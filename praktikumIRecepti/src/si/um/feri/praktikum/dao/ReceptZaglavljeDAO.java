@@ -243,6 +243,8 @@ public class ReceptZaglavljeDAO {
 	}
 	
 	public ArrayList<ReceptZaglavlje> isciPoSestavinah(String input){
+		System.out.println("usli u metodu");
+		System.out.println(input);
 		String[] parts = input.split(",");
 		ArrayList<String> sestavine = new ArrayList<String>();
 		ArrayList<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
@@ -254,11 +256,15 @@ public class ReceptZaglavljeDAO {
 		ArrayList<ReceptZaglavlje> recepti;
 		try {
 			recepti = (ArrayList<ReceptZaglavlje>) this.vrniVse();
+			//vsi recepti
 			for(int i = 0; i < recepti.size(); i++){
+				recepti.get(i).setSestavine(recepti.get(i).getId_recept());
 				ArrayList<Sestavine> s = recepti.get(i).getSestavine();
+				//sestavine iz enega recepta
 				for(int k = 0; k < s.size(); k++){
+					//sestavine iz vnosa
 					for(int m = 0; m < sestavine.size(); m++){
-						if(s.get(k).getNaziv().toLowerCase().equals(sestavine.get(m).toLowerCase())){
+						if((s.get(k).getNaziv().toLowerCase()).equals((sestavine.get(m).toLowerCase()))){
 							ret.add(recepti.get(i));
 						}
 					}

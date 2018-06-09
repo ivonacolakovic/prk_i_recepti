@@ -78,11 +78,17 @@ tr:nth-child(even) {
 </div>
 
 <%
-System.out.println(request.getParameter("komentar"));
-if(!request.getParameter("komentar").equals(null)){
-	int i = Integer.parseInt(request.getParameter("komentar"));
+try{
+System.out.println("kom "+request.getParameter("komentar"));
+}catch(NullPointerException e){
+	System.err.println(e.toString());
+	System.out.println("im caught");
+}
+if(!(request.getParameter("komentar").equals(null))){
+	System.out.println("kom ni null");
+	//int i = Integer.parseInt(request.getParameter("komentar"));
 }else{
-	System.out.println("kebgerberhbkj");
+	System.out.println("probao sam");
 }
 
 
@@ -112,7 +118,8 @@ else{
 
 	System.out.println("eve sum jas aren");
 	
-}%>
+}
+%>
        
 
 </body>
