@@ -96,7 +96,6 @@ div.desc {
     </ul>
   </div>
 </nav>
-
 <div class="container"> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
     <!-- Indicators -->
@@ -109,15 +108,15 @@ div.desc {
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/1520956952-chicken-tacos-horizontal.jpg" alt="Tacos" style="width:1120px;height:450px">
+        <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/18/11/1520956952-chicken-tacos-horizontal.jpg" alt="Tacos" style="width:1100px;height:460px">
       </div>
 
       <div class="item">
-        <img src="http://yesofcorsa.com/wp-content/uploads/2016/03/638734_pancakes.jpg" alt="Pancakes" style="width:1120px;height:450px">
+        <img src="http://yesofcorsa.com/wp-content/uploads/2016/03/638734_pancakes.jpg" alt="Pancakes" style="width:1100px;height:460px">
       </div>
     
       <div class="item">
-        <img src="http://sevilla.abc.es/gurme//wp-content/uploads/2013/05/ensalada-foie-frutos-rojos.jpg" alt="Salad" style="width:1120px;height:450px">
+        <img src="http://sevilla.abc.es/gurme//wp-content/uploads/2013/05/ensalada-foie-frutos-rojos.jpg" alt="Salad" style="width:1100px;height:460px">
       </div>
     </div>
 
@@ -277,7 +276,7 @@ document.addEventListener("click", closeAllSelect);</script>
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="220px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="180px">
   			<div class="desc">
   			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
