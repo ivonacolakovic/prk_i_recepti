@@ -160,6 +160,7 @@ public class UporabnikiDAO {
 		
 			PreparedStatement ps = conn.prepareStatement("SELECT ID_uporabniki from uporabniki WHERE uporabniskoIME=? and geslo=?");
 			ps.setString(1, uporabniskoIme);
+			ps.setString(2, geslo);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				id = rs.getInt("ID_uporabniki");

@@ -153,7 +153,9 @@ function myFunction() {
     
      
     		    	  if(ud.vrniIdUporabnika(ime,geslo)!= 0 ){
+    		    		  
     		    		  int uporabnik = ud.vrniIdUporabnika(ime, geslo);
+    		    		  System.out.println("NAJAVEN E uporabnik so id:" +uporabnik);
     		    		  response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
     		    		  session.setAttribute("uporabnik", uporabnik);
     		    	  }
