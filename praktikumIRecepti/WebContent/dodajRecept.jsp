@@ -82,7 +82,17 @@
 </br>
 <h2 style="color:#3c3c3c;" > DODAJ NOV RECEPT </h2>
 <br>
+<%
+if(session.getAttribute("uporabnik") == null){
 
+	response.sendRedirect("http://localhost:8080/praktikumIRecepti/uporabniki.jsp");
+	  
+}
+else{
+	System.out.println(session.getAttribute("uporabnik"));
+	String u = session.getAttribute("uporabnik").toString();
+	System.out.println(u);
+%>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
@@ -217,7 +227,7 @@
       }
       else{
     	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
-      }
+      }}
       %>
       </div>
 </body>
