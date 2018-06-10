@@ -154,8 +154,10 @@ function myFunction() {
     		    	  
     
      
-    		    	  if(ud.najdi(ime,geslo)!= null ){
+    		    	  if(ud.vrniIdUporabnika(ime,geslo)!= 0 ){
+    		    		  int uporabnik = ud.vrniIdUporabnika(ime, geslo);
     		    		  response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
+    		    		  session.setAttribute("uporabnik", uporabnik);
     		    	  }
     		    	  else{
     		    	  %><div class="alert alert-danger">

@@ -33,7 +33,7 @@ public class UporabnikiDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS uporabniki(id_uporbniki int not null auto_increment primary key, ime varchar(100) not null,priimek varchar(100) not null,email varchar(100) not null, uporabniskoIme varchar(100) not null, geslo varchar(100) not null)");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS uporabniki(id_uporabniki int not null auto_increment primary key, ime varchar(100) not null,priimek varchar(100) not null,email varchar(100) not null, uporabniskoIme varchar(100) not null, geslo varchar(100) not null)");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -151,14 +151,14 @@ public class UporabnikiDAO {
 			conn.close();
 		}	
 	}
-	public int vrniIdUporabnika(String uporabniskoIme) throws Exception{
+	public int vrniIdUporabnika(String uporabniskoIme,String geslo) throws Exception{
 		Connection conn=null;
 		int id = 0;
 		try{
 			conn=((java.sql.Statement) baza).getConnection();
 			
 		
-			PreparedStatement ps = conn.prepareStatement("SELECT ID_uporabniki from uporabniki WHERE uporabniki_IME=?");
+			PreparedStatement ps = conn.prepareStatement("SELECT ID_uporabniki from uporabniki WHERE uporabniskoIME=? and geslo=?");
 			ps.setString(1, uporabniskoIme);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
@@ -178,13 +178,13 @@ public class UporabnikiDAO {
 		Uporabniki rz = new Uporabniki();
 		try {
 			conn = baza.getConnection();
-			PreparedStatement ps = conn.prepareStatement("select * from uporabniki where ime=? and geslo=?");
+			PreparedStatement ps = conn.prepareStatement("select * from uporabniki where uporabniskoime=? and geslo=?");
 			ps.setString(1, ime);
 			ps.setString(2, geslo);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){			
 				
-				rz =new Uporabniki(rs.getInt("id_uporbniki"),rs.getString("ime"), rs.getString("priimek"),rs.getString("email"), rs.getString("uporabniskoIme"), rs.getString("geslo"));
+				rz =new Uporabniki(rs.getInt("id_uporabniki"),rs.getString("ime"), rs.getString("priimek"),rs.getString("email"), rs.getString("uporabniskoIme"), rs.getString("geslo"));
 			}
 		}
 			finally{
