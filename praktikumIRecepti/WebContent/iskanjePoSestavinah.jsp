@@ -112,7 +112,7 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 
 <div class="col-xs-4">
         <label for="sestavine">Vnesi sestavine: (loci samo z vejico):</label>
-        <input class="form-control" id="sestavine" type="text">
+        <input class="form-control" id="sestavine" type="text" name="sestavine">
       </div>
 
 
