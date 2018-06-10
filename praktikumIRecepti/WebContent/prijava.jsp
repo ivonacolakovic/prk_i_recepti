@@ -154,7 +154,7 @@ function myFunction() {
     		    	  
     
      
-    		    	  if(ud.najdi(ime,geslo)!= null ){
+    		    	  if(ud.vrniIdUporabnika(ime,geslo)!= 0 ){
     		    		  response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
     		    	  }
     		    	  else{
