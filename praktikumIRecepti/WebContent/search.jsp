@@ -14,11 +14,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-   div.gallery {
+  
+  
+  
+  #div{
+
+ border-radius: 5px;
+    background-color: red;
+     width: 75%;
+     margin: 0 auto;
+  }
+
+    div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
-    width: 180px;
+    width: 300 px;
 }
 
 div.gallery:hover {
@@ -31,17 +42,29 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
-  
+ 
+
   body {
     background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
 }
-  
 
-  #wrapper {
-  width: 70%;     /* specify a width! */
+#wrapper {
+  width: 62%;     /* specify a width! */
   margin: 0 auto; /* center */
-}
+  }
+  .button {
 
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 8px;
+    cursor: pointer;
+}
+.button4 {background-color: #e7e7e7; color: black;}
 
 
   </style>
@@ -63,13 +86,13 @@ div.desc {
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Poisci">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-default">Poisci</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
     
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -147,15 +170,17 @@ div.desc {
   <option value="30">manj kot 30min</option>
   <option value="60">manj kot 1h</option>
   <option value="120">manj kot 2h</option>
+
 </select>
 </div>
 
-<input type="submit" value="Submit" class="button">
+<input type="submit" value="Potrdi" class="button button4">
 
 </form>
 
 </div>
 <br class="clearFloat"/>
+
 
 
 <script>
@@ -235,8 +260,14 @@ document.addEventListener("click", closeAllSelect);</script>
 
 
 <div class="container text-center">  
-<h2 style="color:#e60000;">RECEPTI</h2><br>
+<h1 >RECEPTI</h1>
+
+<br/>
+<br/>
 </div>
+
+
+
 
 
 
@@ -260,17 +291,20 @@ document.addEventListener("click", closeAllSelect);</script>
   for(int i=0; i<recepti.size(); i++){
 	  System.out.println(recepti.get(i).getNaziv());
   %>
+  <div id="div">
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:180px" height="150px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="220px">
   			<div class="desc">
-  			 <button class="but" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+  			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			
   			 </div>
   			
   		 </form>
-  		 </div>  
+  		 </div>
+  		 </div>
+  		   
   		  
  <%}
   }else{%>
