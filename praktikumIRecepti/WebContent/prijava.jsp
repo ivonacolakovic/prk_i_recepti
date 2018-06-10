@@ -31,8 +31,6 @@ overflow: auto;
      width: 27%;
      margin: 80px 200px 200px 600px;
 
-
- 
 }
  #wrapper {
   width: 85%;     /* specify a width! */

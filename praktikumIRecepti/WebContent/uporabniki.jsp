@@ -9,7 +9,6 @@
 <head>
 <style>
  
-
  #naslov {
   width: 15%;     /* specify a width! */
   margin: 0 auto; /* center */
