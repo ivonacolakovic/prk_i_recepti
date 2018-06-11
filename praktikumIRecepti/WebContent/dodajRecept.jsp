@@ -112,6 +112,7 @@ if(session.getAttribute("uporabnik") == null){
 else{
 	System.out.println(session.getAttribute("uporabnik"));
 	String u = session.getAttribute("uporabnik").toString();
+	int upo = Integer.parseInt(u);
 	System.out.println(u);
 %>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
@@ -256,6 +257,7 @@ else{
     	  rz.setKuhinja(request.getParameter("kuhinja"));
     	  rz.setSezona(request.getParameter("sezona"));
     	  rz.setTipjedi(request.getParameter("tipjedi"));
+    	  rz.setTk_uporabnik(upo);
     	  
     	  rzd.shrani(rz);
     	  response.sendRedirect("http://localhost:8080/praktikumIRecepti/dodajSestavine.jsp");

@@ -25,6 +25,7 @@ public class ReceptZaglavlje {
 	//private ArrayList<String> alergeni = new ArrayList<>();
 	private ArrayList<Sestavine> sestavine = new ArrayList<>();
 	private String alergeniSkupaj;
+	private int tk_uporabnik;
 	
 	
 	public ReceptZaglavlje() {
@@ -167,7 +168,12 @@ public class ReceptZaglavlje {
 	public void setAlergeniSkupaj(String alergeniSkupaj) {
 		this.alergeniSkupaj = alergeniSkupaj;
 	}
-	
+	public int getTk_uporabnik() {
+		return tk_uporabnik;
+	}
+	public void setTk_uporabnik(int tk_uporabnik) {
+		this.tk_uporabnik = tk_uporabnik;
+	}
 	
 
 	

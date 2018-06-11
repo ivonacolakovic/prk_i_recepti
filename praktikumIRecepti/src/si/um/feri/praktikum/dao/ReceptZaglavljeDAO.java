@@ -32,7 +32,7 @@ public class ReceptZaglavljeDAO {
 		Connection conn=null;
 		try {
 			conn=baza.getConnection();
-			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(9999) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200), sezona varchar(100), tipjedi varchar(10) not null , kuhinja varchar(45))");
+			conn.createStatement().execute("CREATE TABLE IF NOT EXISTS RECEPTZAGLAVLJE(id_receptzaglavlje int not null auto_increment primary key, naziv varchar(100) not null, steviloOseb int not null ,casPriprave double not null, steviloKalorije double,casObjave Date,kratekOpis varchar(300) not null, slika varchar(9999) not null, video varchar(700) not null, mascobe double, ogljikoviHidrati double, opisPriprave varchar(9999) not null, alergeni varchar(200), sezona varchar(100), tipjedi varchar(10) not null , kuhinja varchar(45), tk_uporabnik int not null)");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -59,7 +59,7 @@ public class ReceptZaglavljeDAO {
 		try {
 			conn=baza.getConnection();
 
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave, alergeni,sezona,tipjedi,kuhinja) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO RECEPTZAGLAVLJE(naziv,steviloOseb,casPriprave,steviloKalorije,casObjave,kratekOpis,slika,video,mascobe,ogljikoviHidrati,opisPriprave, alergeni,sezona,tipjedi,kuhinja,tk_uporabnik) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 				ps.setString(1, r.getNaziv());
 				ps.setInt(2, r.getSteviloOseb());
 				ps.setDouble(3, r.getCasPriprave());
@@ -75,6 +75,7 @@ public class ReceptZaglavljeDAO {
 				ps.setString(13, r.getSezona());
 				ps.setString(14, r.getTipjedi());
 				ps.setString(15, r.getKuhinja());
+				ps.setInt(16, r.getTk_uporabnik());
 				
 				ps.executeUpdate();
 			
@@ -302,23 +303,20 @@ public class ReceptZaglavljeDAO {
 		
 	}
 	
-	/*public List<ReceptZaglavlje> najdiPoTip(String tip) throws Exception {
+	public List<ReceptZaglavlje> vrniMojiRecepti(int id_uporabnik) throws Exception {
 		
 		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
 			
 			Connection conn=null;
 			try {
 				conn=baza.getConnection();
-				PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where tipjedi=?");
-				ps.setString(1, tip);
+				PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where tk_uporabnik=?");
+				ps.setInt(1, id_uporabnik);
 				ResultSet rs = ps.executeQuery();
 				while (rs.next()) {
 					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
-	
-
 					ret.add(rz);
 				}
-				rs.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -326,82 +324,6 @@ public class ReceptZaglavljeDAO {
 			}
 			return ret;
 		}
-	
-public List<ReceptZaglavlje> najdiPoSezona(String sezona) throws Exception {
-		
-		List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
-			
-			Connection conn=null;
-			try {
-				conn=baza.getConnection();
-				PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where sezona=?");
-				ps.setString(1, sezona);
-				ResultSet rs = ps.executeQuery();
-				while (rs.next()) {
-					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
-	
-
-					ret.add(rz);
-				}
-				rs.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				conn.close();
-			}
-			return ret;
-		}
-public List<ReceptZaglavlje> najdiPoCas(String cas) throws Exception {
-	
-	List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
-		double cas1 = Double.parseDouble(cas);
-		Connection conn=null;
-		try {
-			conn=baza.getConnection();
-			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where casPriprave<?");
-			ps.setDouble(1, cas1);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
-
-
-				ret.add(rz);
-			}
-			rs.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			conn.close();
-		}
-		return ret;
-	}
-public List<ReceptZaglavlje> najdiPoKuhinja(String kuhinja) throws Exception {
-	
-	List<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
-		
-		Connection conn=null;
-		try {
-			conn=baza.getConnection();
-			PreparedStatement ps = conn.prepareStatement("select * from ReceptZaglavlje where kuhinja=?");
-			ps.setString(1, kuhinja);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
-
-
-				ret.add(rz);
-			}
-			rs.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			conn.close();
-		}
-		return ret;
-	}
-*/
-
-	
 	
 	
 	
