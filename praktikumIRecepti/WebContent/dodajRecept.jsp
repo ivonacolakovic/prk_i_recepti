@@ -9,6 +9,26 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
+#div1{
+
+
+  position:absolute;
+    top:180px;
+    left:190px;
+    width:35%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+#div2{
+  position:absolute;
+    top:180px;
+    right:230px;
+    width:35%;
+    border-radius: 5px;
+    background-color:  #f2f2f2;
+}
+
  #naslov {
   width: 15%;     /* specify a width! */
   margin: 0 auto; /* center */
@@ -29,10 +49,14 @@
     background-size:100% 100%;
 }
  #wrapper {
-  width: 85%;     /* specify a width! */
+  width: 70%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
 
+#wrapper1 {
+  width: 30%;     /* specify a width! */
+  margin: 0 auto; /* center */
+}
 
 
 </style>
@@ -77,11 +101,11 @@
   </div>
 </nav>
 
-<div id="div">
-<div id="wrapper">
 
 </br>
+<div id="wrapper1" >
 <h2 style="color:#3c3c3c;" > DODAJ NOV RECEPT </h2>
+</div>
 <br>
 <%
 if(session.getAttribute("uporabnik") == null){
@@ -95,6 +119,9 @@ else{
 	System.out.println(u);
 %>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
+<div id="div1" >
+<div id="wrapper">
+<br>
 
      <div class="form-group">
       <label for="usr">Naziv</label>
@@ -122,6 +149,12 @@ else{
       <label for="kal">Kalorije:</label>
       <input type="text" class="form-control" id="kal" type="text" min="1"  placeholder="Vnesite stevilo kalorij"   name="kalorije" >
     </div>
+     </div>
+    </div>
+    
+    <div id="div2">
+    <div id="wrapper">
+    <br>
     <div class="form-group">
       <label for="masc">Mascobe:</label>
       <input type="text" class="form-control" id="masc" type="text" min="1"  placeholder="Vnesete mascobe (g)"  name="mascobe" >
@@ -189,11 +222,12 @@ else{
   <div id="naslov">
         <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
         </div>
+         </div>
+       </div>
         </form>
        
   
-      </div>
-      </div>
+     
       <%
       ReceptZaglavljeDAO  rzd=new ReceptZaglavljeDAO ();
     //System.out.println("dugme "+request.getParameter("add"));
@@ -230,6 +264,7 @@ else{
     	  System.out.println("kogcfgvhbjnkuyvhjbmfd");
       }}
       %>
+      </div>
       </div>
 </body>
 </html>

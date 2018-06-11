@@ -15,9 +15,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   
+   body {
+    background-image: url("http://content.seamless.com/swdesign/img/background/landingpage-tacos-20140730.jpg");
+}
+  
    #wrapper1 {
   width: 90%;     /* specify a width! */
   margin: 0 auto; /* center */
+}
+#wrapper2 {
+width: 60%;
+margin: 0 auto;
+
 }
   
   #div{
@@ -131,9 +140,11 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 <br/>
 </div>
 
+<br>
 
 
 <table>
+<div id="wrapper2">
 <% 	ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
 	ArrayList<ReceptZaglavlje> recepti = null;
 	//String input = request.getParameter("sestavine");
@@ -171,6 +182,7 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 		</div><%
 	}
 %>
+</div>
 </table>
 
 </body>
