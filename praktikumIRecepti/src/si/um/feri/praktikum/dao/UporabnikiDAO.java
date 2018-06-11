@@ -152,10 +152,11 @@ public class UporabnikiDAO {
 		}	
 	}
 	public int vrniIdUporabnika(String uporabniskoIme,String geslo) throws Exception{
+		System.out.println("Tu sam u metodi");
 		Connection conn=null;
 		int id = 0;
 		try{
-			conn=((java.sql.Statement) baza).getConnection();
+			conn=baza.getConnection();
 			
 		
 			PreparedStatement ps = conn.prepareStatement("SELECT ID_uporabniki from uporabniki WHERE uporabniskoIME=? and geslo=?");
@@ -164,6 +165,7 @@ public class UporabnikiDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				id = rs.getInt("ID_uporabniki");
+				System.out.println("ID uporabnika je :"+id);
 			}
 
 			rs.close();

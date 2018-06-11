@@ -141,17 +141,16 @@ function myFunction() {
 
       <%
       UporabnikiDAO  ud=new UporabnikiDAO ();
-    
-    		  
+      
     		  if (request.getParameter("add")!= null) {
-    		    	 
-    		    	  Uporabniki u=new Uporabniki();
+    			Uporabniki u=new Uporabniki();
 
     		    	 String ime = request.getParameter("uporabniskoIme");
     		    String geslo = request.getParameter("geslo");
-    		    	  
-    
-     
+    		    	  System.out.println("Ime je:" +ime);
+    		    	  System.out.println("Geslo je: " +geslo);
+    		     System.out.println("ID je" + ud.vrniIdUporabnika(ime, geslo));
+                       System.out.println("ID je" + ud.vrniIdUporabnika(ime, geslo));
     		    	  if(ud.vrniIdUporabnika(ime,geslo)!= 0 ){
     		    		  
     		    		  int uporabnik = ud.vrniIdUporabnika(ime, geslo);
