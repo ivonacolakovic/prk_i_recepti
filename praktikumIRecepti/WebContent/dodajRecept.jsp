@@ -43,11 +43,7 @@
      margin: 0 auto;
 }
 
- #example {
-    background-image:url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-}
+
  #wrapper {
   width: 70%;     /* specify a width! */
   margin: 0 auto; /* center */
@@ -265,6 +261,6 @@ else{
       }}
       %>
       </div>
-      </div>
+     
 </body>
 </html>
