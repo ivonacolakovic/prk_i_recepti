@@ -18,8 +18,8 @@
   #div{
 
  border-radius: 5px;
-    background-color: red;
-     width: 75%;
+    
+     width: 80%;
      margin: 0 auto;
   }
 
