@@ -85,6 +85,60 @@ public class ReceptZaglavljeDAO {
 			conn.close();
 		}
 	}
+	public void spremeniRecept(ReceptZaglavlje r,int sifra) throws Exception {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		 String datum = sdf.format(r.getCasObjave());
+		
+		Connection conn=null;
+		try {
+			conn=baza.getConnection();
+				PreparedStatement ps = conn.prepareStatement("update receptzaglavlje set naziv=?,steviloOseb=?,casPriprave=?,steviloKalorije=?,casObjave=?,kratekOpis=?,slika=?,video=?,mascobe=?,ogljikoviHidrati=?,opisPriprave=?, alergeni=?,sezona=?,tipjedi=?,kuhinja=? where id_receptzaglavlje=?");
+				ps.setString(1, r.getNaziv());
+				ps.setInt(2, r.getSteviloOseb());
+				ps.setDouble(3, r.getCasPriprave());
+				ps.setDouble(4, r.getSteviloKalorije());
+				ps.setDate(5,java.sql.Date.valueOf(datum));
+				ps.setString(6, r.getKratekOpis());
+				ps.setString(7, r.getSlika());
+				ps.setString(8, r.getVideo());
+				ps.setDouble(9, r.getMascobe());
+				ps.setDouble(10, r.getOgljikoviHidrati());
+				ps.setString(11, r.getOpisPriprave());
+				ps.setString(12, r.getAlergeniSkupaj());
+				ps.setString(13, r.getSezona());
+				ps.setString(14, r.getTipjedi());
+				ps.setString(15, r.getKuhinja());
+				ps.setInt(16, sifra);
+				ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	}
+	
+	public void izbrisiRecept(int id, int sifra) throws SQLException {
+		
+	Connection conn=null;
+	 try 
+	 {  
+    conn=baza.getConnection();
+	PreparedStatement st = conn.prepareStatement("DELETE FROM receptzaglavlje WHERE tk_uporabnik=? and id_receptzaglavlje=?");
+	st.setInt(1,id);
+	st.setInt(2, sifra);;
+	st.executeUpdate(); 
+	PreparedStatement st1 = conn.prepareStatement("DELETE FROM sestavine WHERE tk_recept_id=?");
+	st1.setInt(1, sifra);
+	st1.executeUpdate(); 
+	 } catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			conn.close();
+		}
+	 
+	}
+
 	
 	public List<ReceptZaglavlje> vrniVse() throws Exception {
 			

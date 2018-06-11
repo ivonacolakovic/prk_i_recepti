@@ -125,15 +125,40 @@ if(!session.getAttribute("uporabnik").equals(null)){
   			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="180px">
   			<div class="desc">
   			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
-  			
+  			 
   			 </div>
+  			  
   			
+  		 </form>
+  		 <form action="">
+  		 <button class="button button4" type="submit" name="uredi" value="<%=recepti.get(i).getId_recept()%>">Uredi</button>
+  			  <button class="button button4" type="submit" name="izbrisi" value="<%=recepti.get(i).getId_recept()%>">Izbrisi</button>
+  			 
   		 </form>
   		 </div>
   		 </div>
   		 
   
- <%}} %>
+ <%}}
+String u = session.getAttribute("uporabnik").toString();
+int upo = Integer.parseInt(u);
+if(request.getParameter("izbrisi")!=null){
+	ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+	int sifra = Integer.parseInt(request.getParameter("izbrisi"));
+	rzd.izbrisiRecept(upo, sifra);
+	
+	
+}
+if(request.getParameter("uredi")!=null){
+	int uredi = Integer.parseInt(request.getParameter("uredi"));
+	session.setAttribute("urejanje", uredi);
+	response.sendRedirect("http://localhost:8080/praktikumIRecepti/urejanjeRecepta.jsp");
+	
+}
+
+
+
+%>
 
 
 
