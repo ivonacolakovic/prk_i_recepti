@@ -118,6 +118,7 @@ else{
 <div id="div1" >
 <div id="wrapper">
 <br>
+<br>
 
      <div class="form-group">
       <label for="usr">Naziv</label>
@@ -145,11 +146,14 @@ else{
       <label for="kal">Kalorije:</label>
       <input type="text" class="form-control" id="kal" type="text" min="1"  placeholder="Vnesite stevilo kalorij"   name="kalorije" >
     </div>
+    <br>
+    <br>
      </div>
     </div>
     
     <div id="div2">
     <div id="wrapper">
+    <br>
     <br>
     <div class="form-group">
       <label for="masc">Mascobe:</label>
@@ -206,6 +210,7 @@ else{
      <input type="radio" id="kuhinja4" name="kuhinja" value="kitajska" required>
     <label for="kuhinja4">Kitajska</label>
   </div>
+  <br>
      <div class="form-group">
       <label for="video">Video (link):</label>
       <input type="text" class="form-control" id="video"type="text" min="1"  placeholder="Vnesite video" name="video">
@@ -215,11 +220,14 @@ else{
       <input type="text" class="form-control" id="slika"type="text" min="1"  placeholder="Vnesite sliko"  name="slika">
     </div>
     <br>
+    <br>
   <div id="naslov">
         <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
+        <br>
         </div>
          </div>
        </div>
+       
         </form>
        
   
