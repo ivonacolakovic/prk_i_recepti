@@ -59,19 +59,15 @@ tr:nth-child(even) {
       <li class="active"><a href="index.jsp">Doma</a></li>
      <li><a href="top10.jsp">Top 10</a></li>
       <li><a href="mostRecent.jsp">Najnovejsi</a></li>
-      <li><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
+      <li ><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
+       
     </ul>
-       <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Poisci">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+       
     <ul class="nav navbar-nav navbar-right">
-    
+    <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
