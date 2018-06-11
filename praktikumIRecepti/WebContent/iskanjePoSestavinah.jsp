@@ -15,10 +15,33 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   
-   body {
-    background-image: url("http://content.seamless.com/swdesign/img/background/landingpage-tacos-20140730.jpg");
+    #d{
+
+ border-radius: 5px;
+    
+     width: 75%;
+     margin: 0 auto;
+  }
+
+    div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 300 px;
 }
-  
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+
+
+
+ 
+
+  body {
+    background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
+}
    #wrapper1 {
   width: 90%;     /* specify a width! */
   margin: 0 auto; /* center */
@@ -78,19 +101,15 @@ div.desc {
       <a class="navbar-brand" href="#">LoveAtFirstBite</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.jsp">Doma</a></li>
+      <li ><a href="index.jsp">Doma</a></li>
      <li><a href="top10.jsp">Top 10</a></li>
       <li><a href="mostRecent.jsp">Najnovejsi</a></li>
-      <li><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
+      <li class="active"><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
+       
     </ul>
-       <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Poisci">
-      </div>
-      <button type="submit" class="btn btn-default">Poisci</button>
-    </form>
+       
     <ul class="nav navbar-nav navbar-right">
-    
+    <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -141,10 +160,11 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 </div>
 
 <br>
+<br>
+<br>
 
 
-<table>
-<div id="wrapper2">
+
 <% 	ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
 	ArrayList<ReceptZaglavlje> recepti = null;
 	//String input = request.getParameter("sestavine");
@@ -157,13 +177,18 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 	
 		for(int i = 0; i < recepti.size(); i++){
 		%>
-			<tr>
-				<td><img src="<%=recepti.get(i).getSlika() %>" height="200" width="300"/></td>
-	  			<td><%=recepti.get(i).getNaziv()%></td>
-	  			<td><%=recepti.get(i).getKratekOpis()%></td>
-			</tr>
+			 <div id="d">
+  <div class="gallery">
+    <form action="podrobnostiRecepta.jsp" method="post">
+				<img src="<%=recepti.get(i).getSlika() %>" style="width:350px" height="230px"/>
+				<div class="desc">
+				 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+	  			
+			</div>
+			</form>
 					
-		
+		</div>
+		</div>
 		<%	
 		
 		}
@@ -177,13 +202,12 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 	}
 	else{
 		//TODO: ispisi da ni zadetkov
-		%><div class="alert alert-warning">
+		%><div id="wrapper2"><div class="alert alert-warning">
 		  <strong>Warning!</strong> Niste vnesli sestavine.
-		</div><%
+		</div></div><%
 	}
 %>
-</div>
-</table>
+
 
 </body>
 </html> 
