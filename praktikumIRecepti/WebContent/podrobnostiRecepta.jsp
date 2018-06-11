@@ -12,8 +12,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 
+#gumb{
 
+ float:right;
 
+}
 i { 
     float:left;
 }
@@ -74,13 +77,13 @@ margin-left: 40px;
 }
 
 #div4{
-  position:absolute;
-  top:900px;
-  width:73%;
-  rigth:230px;
-  border-radius: 5px;
-  background-color:#f2f2f2;
  
+  position:absolute;
+    top:900px;
+   
+    width:100%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
 }
 
  
@@ -119,18 +122,23 @@ tr:nth-child(even) {
       <li class="active"><a href="index.jsp">Doma</a></li>
      <li><a href="top10.jsp">Top 10</a></li>
       <li><a href="mostRecent.jsp">Najnovejsi</a></li>
-      <li ><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
-       
+      <li><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
     </ul>
-       
+       <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Poisci">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
     <ul class="nav navbar-nav navbar-right">
-    <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
+    
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
       <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
+</div>
 
 <%
 
@@ -151,13 +159,18 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <div id="div3" >
 <div id="wrapper1">
 <br/>
-
+<div id="gumb" >
+     <form action="index.jsp" method="post">
+         <div class="inner"><button  type="submit" name="pdf" value="" class="btn btn-danger"  > PDF </button></div>
+        
+       </form>
+</div>
 <h1><%=recept.getNaziv() %></h1>
+
 <br/>
 
 <h4><%=recept.getKratekOpis() %></h4>
 <br>
-
 
 <br>
 <img src="<%=recept.getSlika() %>" height="420" width="850"/> 
@@ -271,16 +284,16 @@ for(int i=0;i<sestavine.size();i++){%>
         <div class="inner"><button  type="submit" name="komentar" value="<%=id %>" class="btn btn-primary">Komentiraj</button></div>
         </form>
 
-        <form action="index.jsp" method="post">
-         <div class="inner"><button  type="submit" name="pdf" value="" class="btn btn-danger" > PDF </button></div>
-        
-       </form>
+   
        </div>
      
       
        <br>
        <br>
        <br>
+         </div>
+       
+             
         <%
         System.out.println("fjiespjfsejfosj" + recept.getId_recept());
        PDF dp=new PDF ();
@@ -296,11 +309,13 @@ for(int i=0;i<sestavine.size();i++){%>
         
        
 <%}  %>
-
+<div id="div1">
 <div id="div4">
 <div id="wrapper">
+
  
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
+<br>
  <div >
      <input type="radio" id="ocena1" name="ocena" value="1" >
       <label for="ocena1">1</label>
@@ -321,14 +336,15 @@ for(int i=0;i<sestavine.size();i++){%>
  <br>
   </div><br>
 <div class="form-group">
-         <label for="priprave">Nacin priprave:</label>
-      <textarea class="form-control" rows="6" id="priprave" type="text" placeholder="Vnesite nacin priprave"  name="priprava" required></textarea>
+         <label for="priprave">Vnesite komentar:</label>
+      <textarea class="form-control" rows="6" id="priprave" type="text" placeholder="Vnesite komentar"  name="priprava" required></textarea>
     </div>
 <br>
 
       <p><button   class="btn btn-success" type="submit" value="<%=2 %>" name="posljiKomentar">Poslji komentar</button></p>
     <br>
 </form>
+</div>
 </div>
 </div>
 
