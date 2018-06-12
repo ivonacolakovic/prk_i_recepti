@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.itextpdf.text.Document;
+
 import com.itextpdf.text.Element;
+
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
@@ -16,6 +18,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import si.um.feri.praktikum.dao.ReceptZaglavljeDAO;
 
 public class PDF {
+
 	
 	private Document document = new Document();
 	
@@ -23,15 +26,22 @@ public class PDF {
     private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12);
     
    public void izprintajPDF(ReceptZaglavlje recept){
+
     	
     	try {
     		
+
+//    		ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
+//    		ReceptZaglavlje recept = rzd.najdi(id);
+    	
+
     	
     	String file_name="C:\\Users\\test_pdf.pdf";
     	
     	
     	PdfWriter.getInstance(document, new FileOutputStream(file_name));
     	
+
 
  		document.open();
  		Paragraph para = new Paragraph(recept.getNaziv() , catFont );
@@ -44,7 +54,9 @@ public class PDF {
     	Paragraph a = new Paragraph("\n" + "Alergeni: " +recept.getAlergeniSkupaj(), smallBold);
     	Paragraph np = new Paragraph("\n" + "OPIS PRIPRAVE: " + "\n" + recept.getOpisPriprave(), smallBold);
     	Paragraph sest = new Paragraph("\n" + "SESTAVINE: " + "\n" + "\n" , smallBold);
+
     	
+   	
     	Paragraph sn = null ;
 		Paragraph sk  = null;
 		Paragraph se  = null;
@@ -106,4 +118,5 @@ public class PDF {
     	
 
     }
+  
 }

@@ -7,44 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style>
- 
- #naslov {
-  width: 15%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-#div{
-
- border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 32%;
-     margin: 70px 300px 200px 400px;
-
-
- 
-}
- #wrapper {
-  width: 85%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-h2 {
- font-family: 'Raleway', Helvetica, Arial, sans-serif;
- text-align:center;
-}
-
-img {
-    float: left;
-}
-.form-group {
-overflow: auto;
-}
-
-.img3 {
-    float: right;
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="style1.css">
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>uporabniki</title>
@@ -74,7 +37,7 @@ overflow: auto;
     <ul class="nav navbar-nav navbar-right">
     <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li class="active"><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li class="active"><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
@@ -86,8 +49,8 @@ overflow: auto;
 
  
 <img class= "img3" src="https://mitrasale.com/wp-content/uploads/2018/01/social-media-messaging.png" alt="Smiley face"  style="width:600px;height:400px; margin-left:20px; margin-right:50px;">
-  <div id="div">
-<div id="wrapper">
+  <div id="div6">
+<div id="wrapper9">
    <br/>
   <h2 style="color:#3c3c3c;" > REGISTRACIJA </h2>
    

@@ -7,17 +7,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="podrobnosti.css">
 
 <style>
   body {
     background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
 }
- #wrapper {
-  width: 30%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-
 </style>
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -49,12 +44,12 @@
     <ul class="nav navbar-nav navbar-right">
     <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li class="active"><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
-<div id="wrapper">
+<div id="wrap">
 <h1>Dodaj sestavine</h1>
 <br>
 <%

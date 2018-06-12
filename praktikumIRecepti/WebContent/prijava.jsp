@@ -12,37 +12,10 @@
  body {
     background-image: url("http://content.seamless.com/swdesign/img/background/landingpage-tacos-20140730.jpg");
 }
-.form-group {
-overflow: auto;
-}
-
-
-
-
- #naslov {
-  width: 15%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-#div{
-
- border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 27%;
-     margin: 80px 200px 200px 600px;
-
-}
- #wrapper {
-  width: 85%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-h2 {
- font-family: 'Raleway', Helvetica, Arial, sans-serif;
- text-align:center;
-}
 
 
 </style>
+<link rel="stylesheet" type="text/css" href="style1.css">
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
@@ -75,7 +48,7 @@ h2 {
     <ul class="nav navbar-nav navbar-right">
     <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li class="active"><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
@@ -85,8 +58,8 @@ h2 {
 
 
 
- <div id="div">
-<div id="wrapper">
+ <div id="div5">
+<div id="wrapper7">
  
     
 

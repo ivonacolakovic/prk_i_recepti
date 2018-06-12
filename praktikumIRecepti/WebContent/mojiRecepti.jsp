@@ -10,6 +10,8 @@
   <title>MojiRecepti</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -86,7 +88,7 @@ div.desc {
     <ul class="nav navbar-nav navbar-right">
     <li class="active"><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
@@ -128,9 +130,10 @@ if(!session.getAttribute("uporabnik").equals(null)){
   			
   		 </form>
   		 <form action="">
-  		 <button class="button button4" type="submit" name="uredi" value="<%=recepti.get(i).getId_recept()%>">Uredi</button>
-  			  <button class="button button4" type="submit" name="izbrisi" value="<%=recepti.get(i).getId_recept()%>">Izbrisi</button>
-  			 
+  		 <button class="btn btn-info" style="font-size:20px" type="submit" name="uredi" value="<%=recepti.get(i).getId_recept()%>"><i class="fa fa-edit"></i></button>
+  		 
+  		 <button  class="btn btn-danger" style="font-size:20px" type="submit" name="izbrisi" value="<%=recepti.get(i).getId_recept()%>"> <i class="fa fa-trash-o"></i></button>
+
   		 </form>
   		 </div>
   		 </div>

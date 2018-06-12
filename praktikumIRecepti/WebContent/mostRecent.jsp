@@ -7,59 +7,8 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css"></link>
-<style>
+<link rel="stylesheet" type="text/css" href="style1.css"></link>
 
-#div{
-
-
-
-     margin: 0 auto;
-     width: 75%;
-  }
-  
-    div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 300 px;
-     
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-    
-}
-
-
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}
- body {
-    background-image: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
-}
- #wrapper {
-  width: 30%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-  .button {
-
-    border: none;
-    color: white;
-    padding: 8px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 8px;
-    cursor: pointer;
-}
-.button4 {background-color: #e7e7e7; color: black;}
-
-
-</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,7 +35,7 @@ div.desc {
     <ul class="nav navbar-nav navbar-right">
     <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>

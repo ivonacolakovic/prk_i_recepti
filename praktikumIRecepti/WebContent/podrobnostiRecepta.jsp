@@ -10,103 +10,12 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
 
-#gumb{
-
- float:right;
-
-}
-i { 
-    float:left;
-}
-
-#outer
-{
-    width:100%;
-    text-align: center;
-    
-}
-.inner
-{
-    float:left;
-      margin-left: 2px;
-    
-}
-#n {
-margin-left: 40px;
-}
-
-#wrapper {
-  width: 85%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-#wrapper1 {
-  width: 85%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-#div1{
-
-
-  position:absolute;
-    top:800px;
-    left:190px;
-    width:35%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-}
-
-#div2{
-  position:absolute;
-    top:800px;
-    right:230px;
-    width:35%;
-    border-radius: 5px;
-    background-color:  #f2f2f2;
-}
-
-#div3{
-    position:absolute;
-    top:100px;
-    width:73%;
-    right:230px;
-    border-radius: 5px;
-    background-color:#f2f2f2;
- 
-}
-
-#div4{
- 
-  position:absolute;
-    top:900px;
-   
-    width:100%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-}
-
- 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>podrobnosti</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="podrobnosti.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -129,7 +38,7 @@ tr:nth-child(even) {
     <ul class="nav navbar-nav navbar-right">
     <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
