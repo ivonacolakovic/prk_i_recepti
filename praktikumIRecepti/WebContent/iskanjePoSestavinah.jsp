@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" type="text/css" href="style1.css">
 <link rel="stylesheet" type="text/css" href="style.css">
   <title>Index</title>
   <meta charset="utf-8">
@@ -13,85 +14,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  
-    #d{
 
- border-radius: 5px;
-    
-     width: 75%;
-     margin: 0 auto;
-  }
-
-    div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 300 px;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-
-
-
- 
-
-  body {
-    background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
-}
-   #wrapper1 {
-  width: 90%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-#wrapper2 {
-width: 60%;
-margin: 0 auto;
-
-}
-  
-  #div{
-
- border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 60%;
-     top:200px;
-     margin: 0 auto;
-  }
-
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}
- 
-
-  body {
-    background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
-}
-
-#wrapper {
-  width: 62%;     /* specify a width! */
-  margin: 0 auto; /* center */
-  }
- .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 8px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 20px 4px;
-    cursor: pointer;
-}
-.button4 {background-color: #e7e7e7; color: black;}
-
-
-  </style>
 </head>
 <body>
 
@@ -117,8 +40,8 @@ div.desc {
   </div>
 </nav>
 
-<div id="div">
-<div id="wrapper1">
+<div id="div1">
+<div id="wra1">
 <br/>
 
 <h1 >Kaj imas v hladilniku?</h1>
@@ -144,7 +67,7 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
       </div>
 
 
-<button type="submit" name="OK" class="button">Poisci</button>
+<button type="submit" name="OK" class="button1">Poisci</button>
 
 
 
@@ -194,7 +117,7 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 		}
 		}
 		else{
-			%><div id="wrapper2"><div class="alert alert-danger">
+			%><div id="wra2"><div class="alert alert-danger">
 		  <strong>Opozorilo!</strong> Ni recepta ki vsebuje vnesene sestavine.
 		</div></div><%
 		}
@@ -202,7 +125,7 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 	}
 	else{
 		//TODO: ispisi da ni zadetkov
-		%><div id="wrapper2"><div class="alert alert-warning">
+		%><div id="wra2"><div class="alert alert-warning">
 		  <strong>Opozorilo!</strong> Niste vnesli sestavine.
 		</div></div><%
 	}

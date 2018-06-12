@@ -8,54 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
-<style>
-#div1{
-
-
-  position:absolute;
-    top:180px;
-    left:190px;
-    width:35%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-}
-
-#div2{
-  position:absolute;
-    top:180px;
-    right:230px;
-    width:35%;
-    border-radius: 5px;
-    background-color:  #f2f2f2;
-}
-
- #naslov {
-  width: 15%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-
-#div{
-
- border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 40%;
-     margin: 0 auto;
-}
-
-
- #wrapper {
-  width: 70%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-#wrapper1 {
-  width: 30%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-
-
-</style>
+<link rel="stylesheet" type="text/css" href="podrobnosti.css">
 <script src="/js/validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>dodajRecept</title>
