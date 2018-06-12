@@ -74,7 +74,7 @@ overflow: auto;
     <ul class="nav navbar-nav navbar-right">
     <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
      <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li class="active"><a href="uporabniki.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li class="active"><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
