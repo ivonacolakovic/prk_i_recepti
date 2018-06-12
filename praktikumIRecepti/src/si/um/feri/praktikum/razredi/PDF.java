@@ -5,19 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import si.um.feri.praktikum.dao.ReceptZaglavljeDAO;
 
 public class PDF {
+    private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+    private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
     public void izprintajPDF(ReceptZaglavlje recept){
     	
     	try {
     		
 //    		ReceptZaglavljeDAO rzd = new ReceptZaglavljeDAO();
 //    		ReceptZaglavlje recept = rzd.najdi(id);
-    		
+    	
     	
     	String file_name="C:\\Users\\test_pdf.pdf";
     	Document document = new Document();
@@ -26,15 +29,15 @@ public class PDF {
     	
     	document.open();
     	
-    	Paragraph para = new Paragraph("IME: " + recept.getNaziv());
-      	Paragraph g = new Paragraph("KRATEK OPIS: " + recept.getKratekOpis());
-     	Paragraph s = new Paragraph("STEVILO OSEB: " + recept.getSteviloOseb());
-     	Paragraph c = new Paragraph("CAS PRIPRAVE: " + String.valueOf(recept.getCasPriprave()));
-     	Paragraph k = new Paragraph("STEVILO KALORIJE: " + String.valueOf(recept.getSteviloKalorije()));
-    	Paragraph m = new Paragraph("MASCOBE: " + String.valueOf(recept.getMascobe()));
-    	Paragraph o = new Paragraph("OGLJIKOVI HIDRATI: "+ String.valueOf(recept.getOgljikoviHidrati()));
-    	Paragraph a = new Paragraph("ALEGENI: " +recept.getAlergeniSkupaj());
-    	Paragraph np = new Paragraph("OPIS PRIPRAVE: " + recept.getOpisPriprave());
+    	Paragraph para = new Paragraph( recept.getNaziv(), catFont);
+      	Paragraph g = new Paragraph("KRATEK OPIS: " + recept.getKratekOpis(), smallBold);
+     	Paragraph s = new Paragraph("STEVILO OSEB: " + recept.getSteviloOseb(), smallBold);
+     	Paragraph c = new Paragraph("CAS PRIPRAVE: " + String.valueOf(recept.getCasPriprave()) + "minut" , smallBold);
+     	Paragraph k = new Paragraph("STEVILO KALORIJE: " + String.valueOf(recept.getSteviloKalorije()) + "kcal" , smallBold);
+    	Paragraph m = new Paragraph("MASCOBE: " + String.valueOf(recept.getMascobe()) + "g", smallBold);
+    	Paragraph o = new Paragraph("OGLJIKOVI HIDRATI: "+ String.valueOf(recept.getOgljikoviHidrati()) + "g" , smallBold);
+    	Paragraph a = new Paragraph("ALEGENI: " +recept.getAlergeniSkupaj(), smallBold);
+    	Paragraph np = new Paragraph("OPIS PRIPRAVE: " + recept.getOpisPriprave(), smallBold);
     	
     	
     	Paragraph sn = null ;
@@ -87,4 +90,13 @@ public class PDF {
     	
 
     }
+    private String vrniBrezSumnikov(String input) {
+    	    	input = input.replaceAll("Š", "S");
+    	    	input = input.replaceAll("È", "C");
+    	    	input = input.replaceAll("Ž", "Z");
+    	    	input = input.replaceAll("š", "s");
+    	    	input = input.replaceAll("è", "c");
+    	    	input = input.replaceAll("ž", "z");
+    	   	return input;
+    	    }
 }
