@@ -52,8 +52,8 @@
 
 
 </br>
-<div id="wrapper1" >
-<h2 style="color:#3c3c3c;" > DODAJ NOV RECEPT </h2>
+<div id="w1" >
+<h2 style="color:#3c3c3c;" > UREDI SVOJ RECEPT </h2>
 </div>
 <br>
 <%
@@ -69,8 +69,8 @@ if(session.getAttribute("urejanje") != null){
 
 %>
 <form name="myForm"  onsubmit="return validateForm()" method="post" >
-<div id="div1" >
-<div id="wrapper">
+<div id="d1" >
+<div id="w">
 <br>
 <br>
 
@@ -105,8 +105,8 @@ if(session.getAttribute("urejanje") != null){
      </div>
     </div>
     
-    <div id="div2">
-    <div id="wrapper">
+    <div id="d2">
+    <div id="w">
     <br>
     <br>
     <div class="form-group">
