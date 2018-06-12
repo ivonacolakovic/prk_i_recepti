@@ -108,12 +108,17 @@ h2 {
     </div>
      </br>
   <div id="naslov">
-        <p><button   class="btn btn-success" type="submit"  name="add">DODAJ</button></p>
+        <p><button   class="btn btn-success" type="submit"  name="add">Prijava</button></p>
         
         <br/>
       
         </div>
         </form>
+          <div id="naslov">
+        <form action="registracija.jsp">	
+        	<button class="btn btn-success" type="submit" name="">Registracija</button>
+        </form>
+        </div>
        
   
       </div>

@@ -102,7 +102,7 @@
 <%
 if(session.getAttribute("uporabnik") == null){
 
-	response.sendRedirect("http://localhost:8080/praktikumIRecepti/uporabniki.jsp");
+	response.sendRedirect("http://localhost:8080/praktikumIRecepti/prijava.jsp");
 	  
 }
 else{

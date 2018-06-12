@@ -277,7 +277,9 @@ for(int i=0;i<sestavine.size();i++){%>
 
 <form action="komentar.jsp" method="post">
 
-        <div class="inner"><button  type="submit" name="komentar" value="<%=id %>" class="btn btn-primary">Komentiraj</button></div>
+        <div class="inner">
+        <input  type="button" name="komentar" value="kom" onClick="nastaviVrednostOcene()"/>
+        </div>
         </form>
 
    
@@ -372,6 +374,10 @@ else{
 %>
 </div>
 
-
+<script>
+function nastaviVrednostOcene(){
+	document.form1.komentar.value = "button 1"
+}
+</script>
 </body>
 </html>

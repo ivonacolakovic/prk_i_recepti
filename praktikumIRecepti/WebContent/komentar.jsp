@@ -75,17 +75,19 @@ tr:nth-child(even) {
 </div>
 
 <%
-try{
+
 System.out.println("kom "+request.getParameter("komentar"));
-}catch(NullPointerException e){
-	System.err.println(e.toString());
-	System.out.println("im caught");
-}
+try{
+
 if(!(request.getParameter("komentar").equals(null))){
 	System.out.println("kom ni null");
 	//int i = Integer.parseInt(request.getParameter("komentar"));
 }else{
 	System.out.println("probao sam");
+}
+}catch(NullPointerException e){
+	System.err.println(e.toString());
+	System.out.println("im caught");
 }
 
 
