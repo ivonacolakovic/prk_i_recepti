@@ -194,16 +194,16 @@ Ce je tvoj odgovor DA, uporabi iskanje receptov ki vsebujejo samo sestavine kate
 		}
 		}
 		else{
-			%><div class="alert alert-danger">
-		  <strong>Danger!</strong> Ni recepta ki vsebuje vnesene sestavine.
-		</div><%
+			%><div id="wrapper2"><div class="alert alert-danger">
+		  <strong>Opozorilo!</strong> Ni recepta ki vsebuje vnesene sestavine.
+		</div></div><%
 		}
 		
 	}
 	else{
 		//TODO: ispisi da ni zadetkov
 		%><div id="wrapper2"><div class="alert alert-warning">
-		  <strong>Warning!</strong> Niste vnesli sestavine.
+		  <strong>Opozorilo!</strong> Niste vnesli sestavine.
 		</div></div><%
 	}
 %>
