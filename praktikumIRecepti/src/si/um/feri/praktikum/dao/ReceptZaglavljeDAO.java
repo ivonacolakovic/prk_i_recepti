@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -298,11 +299,13 @@ public class ReceptZaglavljeDAO {
 	}
 	
 	public ArrayList<ReceptZaglavlje> isciPoSestavinah(String input){
+		
 		System.out.println("usli u metodu");
 		System.out.println(input);
 		String[] parts = input.split(",");
 		ArrayList<String> sestavine = new ArrayList<String>();
 		ArrayList<ReceptZaglavlje> ret = new ArrayList<ReceptZaglavlje>();
+		
 		
 		for(int j = 0; j < parts.length; j++){
 			sestavine.add(parts[j]);
@@ -329,9 +332,28 @@ public class ReceptZaglavljeDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return ret;
+		ArrayList<ReceptZaglavlje> rtrn = removeDuplicates(ret);
+		return rtrn;
 	}
+	 private ArrayList<ReceptZaglavlje> removeDuplicates(ArrayList<ReceptZaglavlje> list) {
+
+	        // Store unique items in result.
+	        ArrayList<ReceptZaglavlje> result = new ArrayList<>();
+
+	        // Record encountered Strings in HashSet.
+	        HashSet<ReceptZaglavlje> set = new HashSet<>();
+
+	        // Loop over argument list.
+	        for (ReceptZaglavlje item : list) {
+
+	            // If String is not in set, add it to the list and the set.
+	            if (!set.contains(item)) {
+	                result.add(item);
+	                set.add(item);
+	            }
+	        }
+	        return result;
+	    }
 	
 	public int vrniZadnjiId() {
 		Connection conn=null;
