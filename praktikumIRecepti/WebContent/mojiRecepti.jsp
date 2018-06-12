@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css"></link>
 <link rel="stylesheet" type="text/css" href="style1.css"></link>
   <title>MojiRecepti</title>
   <meta charset="utf-8">
@@ -52,7 +52,7 @@ if(!session.getAttribute("uporabnik").equals(null)){
 %>
 <br class="clearFloat"/>
 
-<div class="container text-center">  
+<div id="wrapper"> 
 <h1 > MOJI RECEPTI</h1>
 
 <br/>
@@ -71,7 +71,7 @@ if(!session.getAttribute("uporabnik").equals(null)){
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="180px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:350px" height="230px">
   			<div class="desc">
   			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			 
