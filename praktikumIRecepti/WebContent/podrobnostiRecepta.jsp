@@ -1,7 +1,9 @@
+<%@page import="com.itextpdf.text.log.SysoLogger"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="si.um.feri.praktikum.razredi.*"%>
 <%@ page import="si.um.feri.praktikum.dao.*"%>
+<%@ page import="si.um.feri.praktikum.Email"%>
 <%@ page import="java.util.*" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -58,8 +60,8 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <div id="wrapper1">
 <br/>
 <div id="gumb" >
-     <form action="index.jsp" method="post">
-         <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" value="" class="btn btn-danger"  > <i class="fa fa-file-pdf-o"></i></button></div>      
+    <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+         <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger"  > <i class="fa fa-file-pdf-o"></i></button></div>      
        </form>
 </div>
 <h1><%=recept.getNaziv() %></h1>
@@ -94,26 +96,6 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <br>
 <%} %>
 <br><br><br>
-<% 
-OcenaDAO od = new OcenaDAO();
-  ArrayList<Ocena> oceni = (ArrayList<Ocena>) od.vrniVse(id);
-  if(oceni.isEmpty()){
-	  %>
-	  <div class="alert alert-danger">
-		  <strong>Danger!</strong> Ni komentara za recept.
-		</div><table>
- <% }else{
-  for(int i=0; i<oceni.size(); i++){
-  %>
-  <tr>
-  <td>
-<%=oceni.get(i).getOcena()%>
- </td>   <td>
-<%=oceni.get(i).getKomentar()%>
-   </td> </tr>
-  		<%}}
-  
-%>
   </table>		
  		
 <br>
@@ -148,14 +130,6 @@ for(int i=0;i<sestavine.size();i++){%>
        <br>
 <br>
 <br>		
-
-<form action="komentar.jsp" method="post">
-
-        <div class="inner">
-        <input  type="button" name="komentar" value="kom" onClick="nastaviVrednostOcene()"/>
-        </div>
-        </form>
-
        </div>
        <br>
        <br>
@@ -165,12 +139,29 @@ for(int i=0;i<sestavine.size();i++){%>
         <%
         System.out.println("fjiespjfsejfosj" + recept.getId_recept());
         PDF dp=new PDF ();
-        if(request.getParameter("pdf")==null){
-     	    System.out.println(recept.getId_recept());
+        if(request.getParameter("pdf")!=null){
+     	    System.out.println("pdf "+recept.getId_recept());
     	    dp.izprintajPDF(recept);
        }
-}
+
       %>
+      <div id="gumb" >
+     <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+         <div class="inner"><input  type="submit" name="posljiMail" value="Mail"/>
+         </div>      
+       </form>
+	</div>
+<%
+	if(request.getParameter("posljiMail")!=null){
+		System.out.println("kliknut sem");
+		Email.posljiEmail();
+	}
+	else{
+		System.out.println("nisam kliknut");
+	}
+}
+%>
+
 
 </body>
 </html>

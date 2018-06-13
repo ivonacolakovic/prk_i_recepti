@@ -57,11 +57,9 @@ public class UporabnikiDAO {
 	
 	public void shrani(Uporabniki r) throws SQLException {
 		Connection conn=null;
-		System.out.println("GLUP u metodata sum");
 		//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		// String datum = sdf.format(r.getCasObjave());
 		try {
-			System.out.println("u try sum");
 			conn=baza.getConnection();
 			PreparedStatement ps = conn.prepareStatement("INSERT into uporabniki(ime, priimek, email, uporabniskoIme, geslo) values(?, ?, ?, ?, ?)");
 		
@@ -69,16 +67,9 @@ public class UporabnikiDAO {
 			ps.setString(2, r.getPriimek());
 			ps.setString(3, r.getEmail());
 			ps.setString(4, r.getUporabniskoIme());
-
-			ps.setString(5, r.getGeslo());
-			System.out.println("nez kaj sum pijan sum");
-
 			ps.setString(5, hashPassword(r.getGeslo()));
 			
-
-			
 			ps.executeUpdate();
-			System.out.println("Ehhhh toa e ");
 			
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -162,7 +153,6 @@ public class UporabnikiDAO {
 		}	
 	}
 	public int vrniIdUporabnika(String uporabniskoIme,String geslo) throws Exception{
-		System.out.println("Tu sam u metodi");
 		Connection conn=null;
 		int id = 0;
 		try{
@@ -211,17 +201,16 @@ public class UporabnikiDAO {
 		
 	}
 	
-	public static String hashPassword(String data) throws NoSuchAlgorithmException {
+	private static String hashPassword(String data) throws NoSuchAlgorithmException {
 	     MessageDigest md = MessageDigest.getInstance("SHA-256");
 	     md.update(data.getBytes());
 	     return bytesToHex(md.digest());
 	 }
-	public static String bytesToHex(byte[] bytes) {
+	private static String bytesToHex(byte[] bytes) {
 	     StringBuffer result = new StringBuffer();
 	     for (byte byt : bytes) result.append(Integer.toString((byt & 0xff) + 0x100, 16).substring(1));
 	     return result.toString();
 	  }
-	
 }
 
 			

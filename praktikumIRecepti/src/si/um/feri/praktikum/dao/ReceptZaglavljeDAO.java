@@ -17,6 +17,15 @@ import javax.sql.DataSource;
 import si.um.feri.praktikum.razredi.ReceptZaglavlje;
 import si.um.feri.praktikum.razredi.Sestavine;
 
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class ReceptZaglavljeDAO {
 	DataSource baza;
 	
@@ -400,13 +409,6 @@ public class ReceptZaglavljeDAO {
 			}
 			return ret;
 		}
-	
-	
-	
-	
-	
-	
-
 }
 		
 	
