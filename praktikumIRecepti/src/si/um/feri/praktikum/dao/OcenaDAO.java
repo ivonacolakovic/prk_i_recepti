@@ -16,7 +16,17 @@ import si.um.feri.praktikum.razredi.ReceptZaglavlje;
 public class OcenaDAO {
 	DataSource baza;
 	
+	private int tkIdRec;
+	public int getTkIdRec() {
+		return tkIdRec;
+	}
+
+	public void setTkIdRec(int tkIdRec) {
+		this.tkIdRec = tkIdRec;
+	}
+
 	public OcenaDAO() {
+		System.out.println("ustvaro sn se ocena");
 	try {
 		baza=(DataSource)new InitialContext().lookup("java:/prk_i_recepti");	
 		kreirajTabele();
@@ -50,14 +60,14 @@ public void pobrisiTabele() throws Exception {
 }
 public void shrani(Ocena o) throws SQLException {
 	Connection conn=null;
+	System.out.println("Shranjujem "+o.getOcena()+" "+o.getKomentar()+" "+o.getTk_recept_id());
 	try {
 		conn=baza.getConnection();
 
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar,lajk,tk_recept_id) VALUES (?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar,tk_recept_id) VALUES (?,?,?)");
 			ps.setInt(1, o.getOcena());
 			ps.setString(2, o.getKomentar());
-			ps.setString(3, o.getLajk());
-			ps.setInt(4, o.getTk_recept_id());
+			ps.setInt(3, tkIdRec);
 
 			ps.executeUpdate();
 			

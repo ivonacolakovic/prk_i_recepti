@@ -7,39 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<style>
-#div{
 
- border-radius: 5px;
-    background-color: #f2f2f2;
-     width: 40%;
-     margin: 0 auto;
-}
-   #example {
-    background-image:url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-}
-  #wrapper {
-  width: 30%;     /* specify a width! */
-  margin: 0 auto; /* center */
-}
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <meta charset="utf-8">
@@ -49,39 +17,18 @@ tr:nth-child(even) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="example">
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">LoveAtFirstBite</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="index.jsp">Doma</a></li>
-     <li><a href="top10.jsp">Top 10</a></li>
-      <li><a href="mostRecent.jsp">Najnovejsi</a></li>
-      <li ><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
-       
-    </ul>
-       
-    <ul class="nav navbar-nav navbar-right">
-    <li ><a href="mojiRecepti.jsp"><span class="glyphicon glyphicon-create"></span> Moji recepti</a></li>
-     <li><a href="dodajRecept.jsp"><span class="glyphicon glyphicon-create"></span> Dodaj novi recept</a></li>
-      <li><a href="registracija.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="prijava.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
-</div>
 
 <%
 
 System.out.println("kom "+request.getParameter("komentar"));
+session.setAttribute("komentar", request.getParameter("komentar"));
+System.out.println("ss "+session.getAttribute("idRec"));
 try{
 
 if(!(request.getParameter("komentar").equals(null))){
 	System.out.println("kom ni null");
-	//int i = Integer.parseInt(request.getParameter("komentar"));
+	int i = Integer.parseInt(request.getParameter("komentar"));
 }else{
 	System.out.println("probao sam");
 }
@@ -93,7 +40,7 @@ if(!(request.getParameter("komentar").equals(null))){
 
 %>
 <form  method="post">
-        <b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5"placeholder="Vnesete ocena" id="ocena" name="ocena" />
+        <b>OCENA:</b><input class="w3-input w3-padding-16 w3-border" type="number" min="1" max="5" placeholder="Vnesete ocena" id="ocena" name="ocena" />
         <b>Komentar:</b><textarea rows="5"  class="w3-input w3-padding-16 w3-border" type="text" placeholder="Vnesete komentar"  id="comentar" name="comentar" ></textarea>
 
         <button class="but" type="submit" name="dodaj" value="1" >DODAJ</button>
@@ -101,13 +48,14 @@ if(!(request.getParameter("komentar").equals(null))){
         <% 
         OcenaDAO od1 = new OcenaDAO();
 System.out.println("dodaj je : " + request.getParameter("dodaj"));
-int id2 = Integer.parseInt(request.getParameter("komentar"));
+//int id2 = Integer.parseInt(request.getParameter("komentar"));
 if (request.getParameter("dodaj")!=null){
+	//int id2 = Integer.parseInt(request.getParameter("idRec"));
 	System.out.println("u if sum i dosadno mi e ");
 	  Ocena o = new Ocena();
   	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
   	  o.setKomentar(request.getParameter("comentar"));
-  	  o.setTk_recept_id(id2);
+  	  //o.setTk_recept_id(id2);
   	  o.setLajk(null);
   	  od1.shrani(o);
   	response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
