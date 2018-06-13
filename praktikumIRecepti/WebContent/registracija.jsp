@@ -55,7 +55,7 @@
   <h2 style="color:#3c3c3c;" > REGISTRACIJA </h2>
    
  <br/>
-<form name="myForm" action="prijava.jsp" onsubmit="return validateForm()" method="post" >
+<form name="myForm"  onsubmit="return validateForm()" method="post" >
 
      <div class="form-group">
     
@@ -137,6 +137,7 @@ confirm_password.onkeyup = validatePassword;
     
      
     		    	  ud.shrani(u);
+    		    	  response.sendRedirect("http://localhost:8080/praktikumIRecepti/prijava.jsp");
     		    	
     		    	 
     		      }
