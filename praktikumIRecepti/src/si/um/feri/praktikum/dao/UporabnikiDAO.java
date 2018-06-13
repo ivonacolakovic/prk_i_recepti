@@ -55,9 +55,11 @@ public class UporabnikiDAO {
 	
 	public void shrani(Uporabniki r) throws SQLException {
 		Connection conn=null;
+		System.out.println("GLUP u metodata sum");
 		//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		// String datum = sdf.format(r.getCasObjave());
 		try {
+			System.out.println("u try sum");
 			conn=baza.getConnection();
 			PreparedStatement ps = conn.prepareStatement("INSERT into uporabniki(ime, priimek, email, uporabniskoIme, geslo) values(?, ?, ?, ?, ?)");
 		
@@ -66,9 +68,10 @@ public class UporabnikiDAO {
 			ps.setString(3, r.getEmail());
 			ps.setString(4, r.getUporabniskoIme());
 			ps.setString(5, r.getGeslo());
-			
+			System.out.println("nez kaj sum pijan sum");
 			
 			ps.executeUpdate();
+			System.out.println("Ehhhh toa e ");
 			
 			} catch (Exception e) {
 				e.printStackTrace();
