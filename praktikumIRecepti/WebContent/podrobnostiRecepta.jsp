@@ -146,12 +146,15 @@ for(int i=0;i<sestavine.size();i++){%>
        }
 
       %>
+      <div id="div3" >
+<div id="wrapper1">
       <div id="gumb" >
      <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
          <div class="inner"><input  type="submit" name="posljiMail" value="Mail"/>
          </div>      
        </form>
-	</div>
+	</div></div></div>
+	
 <%
 	if(request.getParameter("posljiMail")!=null){
 		System.out.println("kliknut sem");
@@ -223,7 +226,17 @@ else{
 }
 %>
 
-Ocena: <%=od1.izracunajPovprecnoOceno(id) %>
+<div id="div1">
+<div id="div5">
+<br>
+<div id="wrapper">
+
+
+<h4><b>Ocena: </b> 
+<%=od1.izracunajPovprecnoOceno(id) %> </h4>
+
+<h4><b> Komentari: </b></h4>
+<br>
 <table>
 <% 	ArrayList<Ocena> ocene = od1.vrniVse(id);
 	for(int t = 0; t < ocene.size(); t++){
@@ -231,10 +244,20 @@ Ocena: <%=od1.izracunajPovprecnoOceno(id) %>
 	<tr>
 		<td><%=ocene.get(t).getKomentar() %></td>
 	</tr>
-	<%} %>
+	<% } %>
 </table>
+<br>
+</div>
+</div>
+<br>
+</div>
+<br>
+<br>
+<br>
+
 
 
 <%} %>
+<br>
 </body>
 </html>
