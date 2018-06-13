@@ -230,7 +230,7 @@ document.addEventListener("click", closeAllSelect);</script>
   		 </div>
   		 
   
- <%} %>
+ <% session.setAttribute("recept", recepti.get(i));} %>
 
 
 

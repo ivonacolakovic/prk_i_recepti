@@ -9,7 +9,7 @@ public class Ocena {
 	private int tk_recept_id;
 	
 	public Ocena () {
-		
+		System.out.println("ocena");
 	}
 	
 	
