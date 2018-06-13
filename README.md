@@ -1,4 +1,4 @@
-# prk_i_recepti
+# LoveAtFirstBite
 Projekt pri predmetu Praktikum I
 
 <b>Bistvo</b>
