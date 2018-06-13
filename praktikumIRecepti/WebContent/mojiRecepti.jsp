@@ -44,6 +44,7 @@
   </div>
 </nav>
 <%
+//
 if(!session.getAttribute("uporabnik").equals(null)){
 	System.out.println(session.getAttribute("uporabnik"));
 	String u = session.getAttribute("uporabnik").toString();
