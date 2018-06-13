@@ -8,7 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style1.css">
-<script src="/js/validation.js"></script>
+<script src="validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>uporabniki</title>
 
@@ -55,7 +55,7 @@
   <h2 style="color:#3c3c3c;" > REGISTRACIJA </h2>
    
  <br/>
-<form name="myForm"  onsubmit="return validateForm()" method="post" >
+<form name="myForm"  onsubmit="return validatePassword()" method="post" >
 
      <div class="form-group">
     
@@ -97,14 +97,7 @@
       </div>
       </div>
       <script>
-function myFunction() {
-    var x = document.getElementById("myInput");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
+
 var password = document.getElementById("password")
 , confirm_password = document.getElementById("confirm_password");
 

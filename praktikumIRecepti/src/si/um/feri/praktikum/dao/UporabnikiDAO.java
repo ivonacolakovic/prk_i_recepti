@@ -2,6 +2,8 @@ package si.um.feri.praktikum.dao;
 
 
 import java.beans.Statement;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -67,8 +69,13 @@ public class UporabnikiDAO {
 			ps.setString(2, r.getPriimek());
 			ps.setString(3, r.getEmail());
 			ps.setString(4, r.getUporabniskoIme());
+
 			ps.setString(5, r.getGeslo());
 			System.out.println("nez kaj sum pijan sum");
+
+			ps.setString(5, hashPassword(r.getGeslo()));
+			
+
 			
 			ps.executeUpdate();
 			System.out.println("Ehhhh toa e ");
@@ -164,7 +171,7 @@ public class UporabnikiDAO {
 		
 			PreparedStatement ps = conn.prepareStatement("SELECT ID_uporabniki from uporabniki WHERE uporabniskoIME=? and geslo=?");
 			ps.setString(1, uporabniskoIme);
-			ps.setString(2, geslo);
+			ps.setString(2, hashPassword(geslo));
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				id = rs.getInt("ID_uporabniki");
@@ -186,12 +193,15 @@ public class UporabnikiDAO {
 			conn = baza.getConnection();
 			PreparedStatement ps = conn.prepareStatement("select * from uporabniki where uporabniskoime=? and geslo=?");
 			ps.setString(1, ime);
-			ps.setString(2, geslo);
+			ps.setString(2, hashPassword(geslo));
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){			
 				
 				rz =new Uporabniki(rs.getInt("id_uporabniki"),rs.getString("ime"), rs.getString("priimek"),rs.getString("email"), rs.getString("uporabniskoIme"), rs.getString("geslo"));
 			}
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 			finally{
 				conn.close();
@@ -200,6 +210,17 @@ public class UporabnikiDAO {
 			
 		
 	}
+	
+	public static String hashPassword(String data) throws NoSuchAlgorithmException {
+	     MessageDigest md = MessageDigest.getInstance("SHA-256");
+	     md.update(data.getBytes());
+	     return bytesToHex(md.digest());
+	 }
+	public static String bytesToHex(byte[] bytes) {
+	     StringBuffer result = new StringBuffer();
+	     for (byte byt : bytes) result.append(Integer.toString((byt & 0xff) + 0x100, 16).substring(1));
+	     return result.toString();
+	  }
 	
 }
 

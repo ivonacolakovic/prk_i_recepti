@@ -17,7 +17,7 @@
 
 </style>
 
-<script src="/js/validation.js"></script>
+<script src="validation.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Prijava</title>
@@ -103,14 +103,7 @@
  
 
       <script>
-function myFunction() {
-    var x = document.getElementById("myInput");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
+
 </script>
 
       <%
