@@ -2,7 +2,6 @@
 Projekt pri predmetu Praktikum I
 <hr>
 <b>Bistvo</b>
-<hr>
 Kuharski recepti so učinkovita pomoč pri pripravi zdrave in okusne hrane. Še vedno so
 najpogosteje objavljeni v obliki tiskanih knjig ali nestrukturiranih objav na spleti.
 Pripravite platformo, ki bo omogočala gostovanje kuharskih receptov in njihovo iskanje po
