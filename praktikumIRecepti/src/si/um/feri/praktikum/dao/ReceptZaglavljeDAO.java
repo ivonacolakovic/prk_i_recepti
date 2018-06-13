@@ -234,9 +234,13 @@ public class ReceptZaglavljeDAO {
 			Connection conn=null;
 			try {
 				conn=baza.getConnection();
-			conn.createStatement().execute("CREATE OR REPLACE VIEW AS najboljsi (SELECT tk_id_receptZaglavlje, AVG(ocena) AS pov_oc FROM OCENA GROUP BY tk_id_receptZaglavlje ORDER BY pov_oc DESC");
+			conn.createStatement().execute("CREATE OR REPLACE VIEW najboljsi AS \r\n" + 
+					"(SELECT tk_recept_id, AVG(ocena) AS pov_oc \r\n" + 
+					"FROM OCENA GROUP BY tk_recept_id ORDER BY pov_oc DESC)");
 				
-				ResultSet rs=conn.createStatement().executeQuery(" SELECT * FROM RECEPTZAGLAVLJE WHERE id_receptzaglavlje = (SELECT TOP 10 tk_id_receptZaglavlje FROM najboljsi)");
+				ResultSet rs=conn.createStatement().executeQuery("SELECT * FROM RECEPTZAGLAVLJE \r\n" + 
+						"WHERE id_receptzaglavlje IN \r\n" + 
+						"(SELECT tk_recept_id FROM najboljsi ORDER BY pov_oc) LIMIT 10");
 				while (rs.next()) {
 					ReceptZaglavlje rz =new ReceptZaglavlje(rs.getInt("id_receptzaglavlje"),rs.getString("naziv"), rs.getString("slika"),rs.getString("kratekOpis"));
 	
@@ -345,17 +349,9 @@ public class ReceptZaglavljeDAO {
 		return rtrn;
 	}
 	 private ArrayList<ReceptZaglavlje> removeDuplicates(ArrayList<ReceptZaglavlje> list) {
-
-	        // Store unique items in result.
 	        ArrayList<ReceptZaglavlje> result = new ArrayList<>();
-
-	        // Record encountered Strings in HashSet.
 	        HashSet<ReceptZaglavlje> set = new HashSet<>();
-
-	        // Loop over argument list.
 	        for (ReceptZaglavlje item : list) {
-
-	            // If String is not in set, add it to the list and the set.
 	            if (!set.contains(item)) {
 	                result.add(item);
 	                set.add(item);
