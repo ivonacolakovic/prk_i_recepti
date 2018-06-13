@@ -1,7 +1,8 @@
 # prk_i_recepti
 Projekt pri predmetu Praktikum I
-<hr>
+
 <b>Bistvo</b>
+
 
 Kuharski recepti so učinkovita pomoč pri pripravi zdrave in okusne hrane. Še vedno so
 najpogosteje objavljeni v obliki tiskanih knjig ali nestrukturiranih objav na spleti.
