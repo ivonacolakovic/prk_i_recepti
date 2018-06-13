@@ -64,6 +64,7 @@ if(!request.getParameter("podrobnosti").equals(null)){
          <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger"  > <i class="fa fa-file-pdf-o"></i></button></div>      
        </form>
 </div>
+
 <h1><%=recept.getNaziv() %></h1>
 <br/>
 <h4><%=recept.getKratekOpis() %></h4>
@@ -96,7 +97,7 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <br>
 <%} %>
 <br><br><br>
-  </table>		
+	
  		
 <br>
  </div>
@@ -159,9 +160,81 @@ for(int i=0;i<sestavine.size();i++){%>
 	else{
 		System.out.println("nisam kliknut");
 	}
+%>
+<div id="div1">
+<div id="div4">
+<div id="wrapper">
+
+ 
+<form name="myForm" action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post" >
+<br>
+ <div >
+     <input type="radio" id="ocena1" name="ocena" value="1" >
+      <label for="ocena1">1</label>
+   
+     <input type="radio" id="ocena2" name="ocena" value="2" >
+    <label for="ocena2">2</label>
+    
+     <input type="radio"  id="ocena3" name="ocena" value="3" >
+   <label for="ocena3">3</label>
+   
+     <input type="radio" id="ocena4" name="ocena" value="4" >
+    <label for="ocena4">4</label>
+    
+     <input type="radio"  id="ocena5" name="ocena" value="5" >
+ 	<label for="ocena5">5</label>
+ 	
+ 	
+ <br>
+  </div><br>
+<div class="form-group">
+         <label for="priprave">Vnesite komentar:</label>
+      <textarea class="form-control" rows="6" id="priprave" type="text" placeholder="Vnesite komentar"  name="komentar"></textarea>
+    </div>
+<br>
+
+      <p><button   class="btn btn-success" type="submit" value="<%=id %>" name="posljiKomentar">Poslji komentar</button></p>
+    <br>
+</form>
+</div>
+</div>
+</div>
+
+<% 
+System.out.println(r);
+OcenaDAO od1 = new OcenaDAO();
+System.out.println("dodaj je : " + request.getParameter("dodaj"));
+System.out.println("ocena je :" +request.getParameter("ocena"));
+System.out.println("komentar je :" +request.getParameter("komentar"));
+if (request.getParameter("posljiKomentar")!=null ){
+	System.out.println("u if sum i dosadno mi e ");
+	  Ocena o = new Ocena();
+  	  o.setOcena(Integer.parseInt(request.getParameter("ocena")));
+ 	  o.setKomentar(request.getParameter("komentar"));
+  	  o.setTk_recept_id(id);
+  	  od1.shrani(o);
+  	response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
+
+ }
+else{
+
+	System.out.println("eve sum jas aren");
+	
 }
 %>
 
+Ocena: <%=od1.izracunajPovprecnoOceno(id) %>
+<table>
+<% 	ArrayList<Ocena> ocene = od1.vrniVse(id);
+	for(int t = 0; t < ocene.size(); t++){
+	%>
+	<tr>
+		<td><%=ocene.get(t).getKomentar() %></td>
+	</tr>
+	<%} %>
+</table>
 
+
+<%} %>
 </body>
 </html>

@@ -67,7 +67,7 @@ public void shrani(Ocena o) throws SQLException {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO OCENA(ocena,komentar,tk_recept_id) VALUES (?,?,?)");
 			ps.setInt(1, o.getOcena());
 			ps.setString(2, o.getKomentar());
-			ps.setInt(3, tkIdRec);
+			ps.setInt(3, o.getTk_recept_id());
 
 			ps.executeUpdate();
 			
@@ -101,6 +101,27 @@ public ArrayList<Ocena> vrniVse(int sifra) throws Exception {
 		conn.close();
 	}
 	return ret;
+}
+
+public double izracunajPovprecnoOceno(int id) {
+	double povprecje = 0;
+	int stevec = 0;
+	int sum = 0;
+	try {
+		ArrayList<Ocena> ocene = vrniVse(id);
+		for(int i=0; i<ocene.size(); i++) {
+			if(ocene.get(i).getOcena()!=0) {
+				stevec++;
+				sum += ocene.get(i).getOcena();
+			}
+		}
+		
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	povprecje = sum/stevec;
+	return povprecje;
 }
 
 }
