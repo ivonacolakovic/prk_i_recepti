@@ -6,66 +6,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+<link rel="stylesheet" type="text/css" href="style1.css"></link>
   <title>MojiRecepti</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    
-  #div{
-
- border-radius: 5px;
-    
-     width: 80%;
-     margin: 0 auto;
-  }
-
-    div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 300 px;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}
  
-
-  body {
-    background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
-}
-
-#wrapper {
-  width: 62%;     /* specify a width! */
-  margin: 0 auto; /* center */
-  }
-  .button {
-
-    border: none;
-    color: white;
-    padding: 8px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 8px;
-    cursor: pointer;
-}
-.button4 {background-color: #e7e7e7; color: black;}
-
-
-  </style>
+ 
 </head>
 <body>
 
@@ -100,7 +52,7 @@ if(!session.getAttribute("uporabnik").equals(null)){
 %>
 <br class="clearFloat"/>
 
-<div class="container text-center">  
+<div id="wrapper"> 
 <h1 > MOJI RECEPTI</h1>
 
 <br/>
@@ -119,7 +71,7 @@ if(!session.getAttribute("uporabnik").equals(null)){
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="180px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:350px" height="230px">
   			<div class="desc">
   			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			 
@@ -128,9 +80,10 @@ if(!session.getAttribute("uporabnik").equals(null)){
   			
   		 </form>
   		 <form action="">
-  		 <button class="button button4" type="submit" name="uredi" value="<%=recepti.get(i).getId_recept()%>">Uredi</button>
-  			  <button class="button button4" type="submit" name="izbrisi" value="<%=recepti.get(i).getId_recept()%>">Izbrisi</button>
-  			 
+  		 <button class="btn btn-info" style="font-size:20px" type="submit" name="uredi" value="<%=recepti.get(i).getId_recept()%>"><i class="fa fa-edit"></i></button>
+  		 
+  		 <button  class="btn btn-danger" style="font-size:20px" type="submit" name="izbrisi" value="<%=recepti.get(i).getId_recept()%>"> <i class="fa fa-trash-o"></i></button>
+
   		 </form>
   		 </div>
   		 </div>

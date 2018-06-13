@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style1.css">
   <title>Index</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,9 +15,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-  
-  
-  
+
   #div{
 
  border-radius: 5px;
@@ -24,47 +23,6 @@
      width: 75%;
      margin: 0 auto;
   }
-
-    div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 300 px;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-}
- 
-
-  body {
-    background-color: url("https://ak0.picdn.net/shutterstock/videos/6336830/thumb/1.jpg?i10c=img.resize(height:160)");
-}
-
-#wrapper {
-  width: 62%;     /* specify a width! */
-  margin: 0 auto; /* center */
-  }
-  .button {
-
-    border: none;
-    color: white;
-    padding: 8px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0px 8px;
-    cursor: pointer;
-}
-.button4 {background-color: #e7e7e7; color: black;}
 
 
   </style>
@@ -130,7 +88,7 @@ div.desc {
 </div>
   
    
-<div id="wrapper">
+<div id="wrapp">
 <form action="search.jsp">
 <div class="custom-select" style="width:200px;">
 <select name="tipjedi">
