@@ -16,7 +16,9 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="podrobnosti.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -66,8 +68,9 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <br/>
 <div id="gumb" >
      <form action="index.jsp" method="post">
-         <div class="inner"><button  type="submit" name="pdf" value="" class="btn btn-danger"  > PDF </button></div>
+         <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" value="" class="btn btn-danger"  > <i class="fa fa-file-pdf-o"></i></button></div>
         
+       
        </form>
 </div>
 <h1><%=recept.getNaziv() %></h1>
