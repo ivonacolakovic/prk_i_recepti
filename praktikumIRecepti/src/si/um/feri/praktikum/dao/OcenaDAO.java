@@ -115,12 +115,12 @@ public double izracunajPovprecnoOceno(int id) {
 				sum += ocene.get(i).getOcena();
 			}
 		}
-		
+		povprecje = sum/stevec;	
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	povprecje = sum/stevec;
+	
 	return povprecje;
 }
 
