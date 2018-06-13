@@ -1,5 +1,13 @@
 # prk_i_recepti
 Projekt pri predmetu Praktikum I
+<b>Bistvo</b>
+<hr>
+Kuharski recepti so učinkovita pomoč pri pripravi zdrave in okusne hrane. Še vedno so
+najpogosteje objavljeni v obliki tiskanih knjig ali nestrukturiranih objav na spleti.
+Pripravite platformo, ki bo omogočala gostovanje kuharskih receptov in njihovo iskanje po
+različnih kriterijih (vrsta obroka, čas priprave ipd.). Prav tako
+omogočite sodelovanje avtorjev in uporabnikov receptov v smislu ocenjevanja receptov
+(všečki, deljenje).
 
 <b>Navodila za vzpostavitev</b>:
 - Potrebno si je kreirati datasource v Wildfly aplikacijskem strežniku. Ugasnemo strežnik in prepišemo datoteke v njegovem imenu z temi, ki so v sledečem imeniku (prenos): https://mega.nz/#!KZMg1DCS!iNFLC8482Xl1U_pn8hj54rDGCMV9ZphFveeV5pOzOBs
