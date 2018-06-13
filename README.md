@@ -1,5 +1,6 @@
 # prk_i_recepti
 Projekt pri predmetu Praktikum I
+<hr>
 <b>Bistvo</b>
 <hr>
 Kuharski recepti so učinkovita pomoč pri pripravi zdrave in okusne hrane. Še vedno so
