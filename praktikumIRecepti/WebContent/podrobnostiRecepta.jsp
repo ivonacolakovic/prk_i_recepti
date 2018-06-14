@@ -146,24 +146,25 @@ for(int i=0;i<sestavine.size();i++){%>
 
 <h4><b>Podeli z prijateljem:</b></h4>
 
-		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+		
+		<br>
+					
+       </div>
+       
+       <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
 
 		
 	 <div class="form-group">
 	 		<br>
       <label for="usr">Vnesite e-mail</label>
     
-      <input type="text" class="form-control" id="usr" placeholder="Vnesite email" name="to"  >
     </div>
 	
 		
-		<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>
+		<br><button   class="btn btn-success" type="submit"  name="share">Share</button>
    
           
 		</form>
-		<br>
-					
-       </div>
        <br>
        <br>
        <br>
@@ -179,24 +180,32 @@ for(int i=0;i<sestavine.size();i++){%>
        }
 
       %>
-      
-
-   
-	
 
 		<% 
-		System.out.println("kliknut sem");
+		if (request.getParameter("share")!=null){
+		%>
+			<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+			 	<div class="form-group">
+			 		<br>
+		      		<label for="usr">Vnesite e-mail</label>
+		      		<input type="text" class="form-control" id="usr" placeholder="Vnesite email" name="to"  >
+		    	</div>
+				<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>   
+			</form>
+		<% 
+		}
 		if(request.getParameter("poslji")!=null){
-	    String email = request.getParameter("to");
-	    System.out.println("Email je:" +email);
-		request.setAttribute("posljiMail", "nesto");
-		ReceptZaglavlje rec = rzd.najdi(id);
-		Email.posljiEmail(email,rec);
-	}
-	else{
-		System.out.println("nisam kliknut");
-	}
-%>
+			System.out.println("kliknut sem");
+		    String email = request.getParameter("to");
+		    System.out.println("Email je:" +email);
+			request.setAttribute("share", "nesto");
+			ReceptZaglavlje rec = rzd.najdi(id);
+			Email.posljiEmail(email,rec);
+		}
+		else {
+			System.out.println("nisam kliknut");
+		}
+		%>
 <div id="div1">
 <div id="div4">
 <div id="wrapper">
