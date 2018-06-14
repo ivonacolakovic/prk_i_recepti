@@ -145,25 +145,14 @@ for(int i=0;i<sestavine.size();i++){%>
  <br>
 
 <h4><b>Podeli z prijateljem:</b></h4>
-
-		
 		<br>
-					
        </div>
-       
        <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-
-		
 	 <div class="form-group">
 	 		<br>
       <label for="usr">Vnesite e-mail</label>
-    
     </div>
-	
-		
 		<br><button   class="btn btn-success" type="submit"  name="share">Share</button>
-   
-          
 		</form>
        <br>
        <br>

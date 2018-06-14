@@ -49,7 +49,8 @@
 <br>
 
 	
-      	<%ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
+      	<%
+      	ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
       	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniNajnovejse();
       	for(int i= 0; i < recepti.size() ; i++){%>
     
