@@ -67,11 +67,6 @@ if(!request.getParameter("podrobnosti").equals(null)){
          <button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger"  > <i class="fa fa-print"></i></button>   
        </form>
 
-  <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post" id="pdfbutton">
-         <button style="font-size:20px" type="submit" name="posljiMail" class="btn btn-primary" > <i class="fa fa-envelope"></i></button>
-   
-             
-       </form >
        </div>
 	
 <h1><%=recept.getNaziv() %></h1>
@@ -246,7 +241,7 @@ if (request.getParameter("posljiKomentar")!=null ){
  	  o.setKomentar(request.getParameter("komentar"));
   	  o.setTk_recept_id(id);
   	  od1.shrani(o);
-  	response.sendRedirect("http://localhost:8080/praktikumIRecepti/index.jsp");
+  	
 
  }
 else{
