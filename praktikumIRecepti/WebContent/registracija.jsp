@@ -49,7 +49,7 @@
 
  
 <img class= "img3" src="https://mitrasale.com/wp-content/uploads/2018/01/social-media-messaging.png" alt="Smiley face"  style="width:600px;height:400px; margin-left:20px; margin-right:50px;">
-  <div id="div6">
+  <div id="divreg">
 <div id="wrapper9">
    <br/>
   <h2 style="color:#3c3c3c;" > REGISTRACIJA </h2>
