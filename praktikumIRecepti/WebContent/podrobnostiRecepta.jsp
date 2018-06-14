@@ -18,6 +18,7 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="podrobnosti.css">
+ 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -67,6 +68,8 @@ if(!request.getParameter("podrobnosti").equals(null)){
          <button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger"  > <i class="fa fa-print"></i></button>   
        </form>
 
+
+       </form >
        </div>
 	
 <h1><%=recept.getNaziv() %></h1>
@@ -107,27 +110,9 @@ if(!request.getParameter("podrobnosti").equals(null)){
  </div>
  </div>
 <div id="div2">
-
 <div id="wrapper">
 
-		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-
-		
-	 <div class="form-group">
-	 		<br>
-      <label for="usr">Vnesite e-mail</label>
-      <input type="text" class="form-control" id="usr" placeholder="Vnesite email" name="to"  >
-    </div>
-	
-		
-		<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>
-   
-          
-		</form>
-		<br>
-			<br>
-				<hr>
-				
+			
 	
 <h4><b>Sestavine:</b></h4>
 <table>
@@ -153,14 +138,37 @@ for(int i=0;i<sestavine.size();i++){%>
 <%=recept.getOpisPriprave() %></h4>
 <br>
  <br>
-       <br>
+      
 <br>
-<br>		
+<br>
+<hr>
+ <br>
+
+<h4><b>Podeli z prijateljem:</b></h4>
+
+		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+
+		
+	 <div class="form-group">
+	 		<br>
+      <label for="usr">Vnesite e-mail</label>
+    
+      <input type="text" class="form-control" id="usr" placeholder="Vnesite email" name="to"  >
+    </div>
+	
+		
+		<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>
+   
+          
+		</form>
+		<br>
+					
        </div>
        <br>
        <br>
        <br>
          </div>
+       
          
         <%
         System.out.println("fjiespjfsejfosj" + recept.getId_recept());
@@ -241,7 +249,6 @@ if (request.getParameter("posljiKomentar")!=null ){
  	  o.setKomentar(request.getParameter("komentar"));
   	  o.setTk_recept_id(id);
   	  od1.shrani(o);
-  	
 
  }
 else{
