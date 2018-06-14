@@ -156,17 +156,23 @@ for(int i=0;i<sestavine.size();i++){%>
 
       %>
       
-<<<<<<< HEAD
+
 <div id="wrapper1">
       <div id="gumb" >
      <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
          <div class="inner"><button style="font-size:20px" type="submit" name="posljiMail" value="Mail" class="btn btn-primary" id="mailbutton"> <i class="fa fa-envelope"></i></button>
-=======
 
+</div>
+</form>
      
 
    
 	
+
+<div id="div1">
+<div id="div5">
+<br>
+<div id="wrapper">
 
 		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
 	
@@ -175,6 +181,8 @@ for(int i=0;i<sestavine.size();i++){%>
    
           
 		</form>
+		</div>
+		</div></div>
 		<% 
 		System.out.println("kliknut sem");
 		if(request.getParameter("poslji")!=null){
