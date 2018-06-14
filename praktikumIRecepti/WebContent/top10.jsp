@@ -43,7 +43,8 @@
 </nav>
 		
 	<table>
-      	<%ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
+      	<%
+      	ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
       	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniTop10();
       	for(int i= 0; i < recepti.size() ; i++){%>
       		<tr>
