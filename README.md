@@ -21,4 +21,4 @@ in deljenja.
 
 - Desnim klikom na projekt v razvojnem okolju odpremo Properties->Java Build Path->Add external JARs, najdemo mapo 'knjiznice' in vkljucimo vse jar, ![iText-2.1.7.jar](/knjiznice/iText-2.1.7.jar) in ![itextpdf-5.4.0.jar](/knjiznice/itextpdf-5.4.0.jar) datoteke iz te mape. Nato kliknemo Apply and close.
 
-- V MySQL Workbench-u izberite prk_i_recepti in zaženite preneseno skripto ![baza.sql](/nacrt/baza.sql). Prethodno ustvarjene tabele, prvo drop-ajte.
+- V MySQL Workbench-u izberemo bazo `prk_i_recepti` in zaženemo preneseno skripto ![baza.sql](/nacrt/baza.sql). Prethodno ustvarjene tabele, prvo drop-amo.
