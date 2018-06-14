@@ -6,18 +6,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style>
- body {
-    background-image: url("https://www.redfynn.com/wp-content/uploads/2016/08/home-italian-food-background.jpg");
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+<link rel="stylesheet" type="text/css" href="style1.css"></link>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Najnovejsi recepti</title>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -27,8 +26,8 @@
     </div>
     <ul class="nav navbar-nav">
       <li ><a href="index.jsp">Doma</a></li>
-     <li class="active"><a href="top10.jsp">Top 10</a></li>
-      <li><a href="mostRecent.jsp">Najnovejsi</a></li>
+     <li><a href="top10.jsp">Top 10</a></li>
+      <li class="active"><a href="mostRecent.jsp">Najnovejsi</a></li>
       <li ><a href="iskanjePoSestavinah.jsp">Kaj imas v hladilniku?</a></li>
        
     </ul>
@@ -41,19 +40,32 @@
     </ul>
   </div>
 </nav>
-		
-	<table>
-      	<%
-      	ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
+
+<div id="wrapper">
+<h1>TOP 10 RECEPTI</h1>
+<br>
+<br>
+</div>
+<br>
+
+	
+      	<%ReceptZaglavljeDAO  rzd = new ReceptZaglavljeDAO ();
       	ArrayList <ReceptZaglavlje> recepti = (ArrayList<ReceptZaglavlje>) rzd.vrniTop10();
       	for(int i= 0; i < recepti.size() ; i++){%>
-      		<tr>
-      			<td><img src="<%=recepti.get(i).getSlika() %>" height="100" width="200"/></td>
-      			<td><%= recepti.get(i).getNaziv()%></td>
-      			<td><%=recepti.get(i).getKratekOpis()%></td>
-      		</tr>
-      <% } %>
-      </table>
-
+    
+      		  <div id="div">
+          		<div class="gallery">
+      		<form action="podrobnostiRecepta.jsp" method="post">
+      		<img src="<%=recepti.get(i).getSlika() %>"style="width:350px" height="230px">
+  			<div class="desc">
+  			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
+  			
+  			 </div>
+  			
+  		 </form>
+  		 </div>
+  		 	 </div>
+  
+ <%} %>
 </body>
 </html>
