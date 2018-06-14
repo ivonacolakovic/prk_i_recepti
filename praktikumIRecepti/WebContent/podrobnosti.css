@@ -16,10 +16,11 @@ i {
     text-align: center;
     
 }
-.inner
+#inner
 {
   
-      display: inline;
+     width: 85%;     /* specify a width! */
+  margin: 0 auto;
      
     
 }
@@ -45,6 +46,17 @@ margin-left: 40px;
     width:35%;
     border-radius: 5px;
     background-color: #f2f2f2;
+}
+#nekaj {
+display: inline-block;
+    margin: 5px;
+    float:right;
+}
+#pdfbutton {
+display:inline;
+}
+#mailbutton {
+display:inline;
 }
 
 #div2{
