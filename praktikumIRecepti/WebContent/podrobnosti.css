@@ -63,9 +63,18 @@ display:inline;
 
 #div2{
   position:absolute;
-    top:800px;
+    top:850px;
     right:230px;
     width:35%;
+    border-radius: 5px;
+    background-color:  #f2f2f2;
+}
+
+#divmejl{
+  position:absolute;
+    top:800px;
+    right:230px;
+    width:100%;
     border-radius: 5px;
     background-color:  #f2f2f2;
 }

@@ -112,7 +112,28 @@ if(!request.getParameter("podrobnosti").equals(null)){
  </div>
  </div>
 <div id="div2">
+
 <div id="wrapper">
+
+		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+
+		
+	 <div class="form-group">
+	 		<br>
+      <label for="usr">Vnesite e-mail</label>
+      <input type="text" class="form-control" id="usr" placeholder="Vnesite email" name="to"  >
+    </div>
+	
+		
+		<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>
+   
+          
+		</form>
+		<br>
+			<br>
+				<hr>
+				
+	
 <h4><b>Sestavine:</b></h4>
 <table>
 <tr>
@@ -157,32 +178,9 @@ for(int i=0;i<sestavine.size();i++){%>
       %>
       
 
-<div id="wrapper1">
-      <div id="gumb" >
-     <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-         <div class="inner"><button style="font-size:20px" type="submit" name="posljiMail" value="Mail" class="btn btn-primary" id="mailbutton"> <i class="fa fa-envelope"></i></button>
-
-</div>
-</form>
-     
-
    
 	
 
-<div id="div1">
-<div id="div5">
-<br>
-<div id="wrapper">
-
-		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-	
-		 <input type="text" name="to" placeholder="Vnesite komu zelite poslati (email)">
-		<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>
-   
-          
-		</form>
-		</div>
-		</div></div>
 		<% 
 		System.out.println("kliknut sem");
 		if(request.getParameter("poslji")!=null){
