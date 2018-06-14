@@ -47,7 +47,7 @@
 
 <div class="clearfix">
 
- 
+
 <img class= "img3" src="https://mitrasale.com/wp-content/uploads/2018/01/social-media-messaging.png" alt="Smiley face"  style="width:600px;height:400px; margin-left:20px; margin-right:50px;">
   <div id="divreg">
 <div id="wrapper9">

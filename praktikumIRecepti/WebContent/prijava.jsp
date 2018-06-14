@@ -102,7 +102,7 @@
       
         
         </form>
-          
+         
         	
         	  <div class="container signin">
     <p>Nisi se registriran? <a href="registracija.jsp">Registracija</a>.</p>
