@@ -219,7 +219,7 @@ document.addEventListener("click", closeAllSelect);</script>
   <div class="gallery">
   <form action="podrobnostiRecepta.jsp" method="post">
 
-  			<img src="<%=recepti.get(i).getSlika() %>" style="width:270px" height="180px">
+  			<img src="<%=recepti.get(i).getSlika() %>" style="width:350px" height="230px">
   			<div class="desc">
   			 <button class="button button4" type="submit" name="podrobnosti" value="<%=recepti.get(i).getId_recept()%>"><%= recepti.get(i).getNaziv()%></button>
   			

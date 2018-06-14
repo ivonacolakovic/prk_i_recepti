@@ -156,14 +156,33 @@ for(int i=0;i<sestavine.size();i++){%>
 
       %>
       
+<<<<<<< HEAD
+<div id="wrapper1">
+      <div id="gumb" >
+     <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+         <div class="inner"><button style="font-size:20px" type="submit" name="posljiMail" value="Mail" class="btn btn-primary" id="mailbutton"> <i class="fa fa-envelope"></i></button>
+=======
 
      
+
    
 	
-<%
-	if(request.getParameter("posljiMail")!=null){
+
+		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
+	
+		 <input type="text" name="to" placeholder="Vnesite komu zelite poslati (email)">
+		<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>
+   
+          
+		</form>
+		<% 
 		System.out.println("kliknut sem");
-		Email.posljiEmail();
+		if(request.getParameter("poslji")!=null){
+	    String email = request.getParameter("to");
+	    System.out.println("Email je:" +email);
+		request.setAttribute("posljiMail", "nesto");
+		ReceptZaglavlje rec = rzd.najdi(id);
+		Email.posljiEmail(email,rec);
 	}
 	else{
 		System.out.println("nisam kliknut");
