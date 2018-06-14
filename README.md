@@ -20,3 +20,5 @@ in deljenja.
 - Nato s pomočjo GUI na administrativni konzoli WF strežnika ustvarimo novi Non XA datasource s pomočjo zaznanega MySQL driverja in nastavimo name na "prk_i_recepti", JNDI na "java:/prk_i_recepti" in povezavo na "jdbc:mysql://localhost:3306/prk_i_recepti"
 
 - Desnim klikom na projekt v razvojnem okolju odpremo Properties->Java Build Path->Add external JARs, najdemo mapo 'knjiznice' in vkljucimo vse jar datoteke iz te mape. Nato kliknemo Apply and close.
+
+- V MySQL Workbench-u izberite prk_i_recepti in zaženite preneseno skripto ![baza.sql](/nacrt/baza.sql). Prethodno ustvarjene tabele, prvo drop-ajte.

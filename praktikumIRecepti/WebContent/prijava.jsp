@@ -14,7 +14,22 @@
     background-image: url("http://content.seamless.com/swdesign/img/background/landingpage-tacos-20140730.jpg");
 }
 
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
 
+.block:hover {
+    background-color: #ddd;
+    color: black;
+}
 </style>
 
 <script src="validation.js"></script>
@@ -80,19 +95,21 @@
     <input type="checkbox" onclick="myFunction()">Show Password
     </div>
      </br>
-  <div id="naslov">
-        <p><button   class="btn btn-success" type="submit"  name="add">Prijava</button></p>
+
+        <p><button  class="block" type="submit"  name="add">Prijava</button></p>
         
         <br/>
       
-        </div>
+        
         </form>
-          <div id="naslov">
-        <form action="registracija.jsp">	
-        	<button class="btn btn-success" type="submit" name="">Registracija</button>
-        </form>
+         
+        	
+        	  <div class="container signin">
+    <p>Nisi se registriran? <a href="registracija.jsp">Registracija</a>.</p>
+  </div>
+   
         <br>
-        </div>
+       
        
   
       </div>
