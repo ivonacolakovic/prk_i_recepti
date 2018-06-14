@@ -87,6 +87,15 @@ hr {
  
 }
 
+#divEMAIL{
+ position:absolute;
+    top:300px;
+    width:50%;
+   right:220px;
+    border-radius: 5px;
+    background-color:#f2f2f2;
+}
+
 #div4{
  
   position:absolute;

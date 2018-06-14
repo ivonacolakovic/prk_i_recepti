@@ -69,7 +69,7 @@ if(!request.getParameter("podrobnosti").equals(null)){
        </form>
 
 
-       </form >
+      
        </div>
 	
 <h1><%=recept.getNaziv() %></h1>
@@ -137,26 +137,20 @@ for(int i=0;i<sestavine.size();i++){%>
 <br>
 <%=recept.getOpisPriprave() %></h4>
 <br>
- <br>
-      
 <br>
-<br>
-<hr>
- <br>
+
 
 <h4><b>Podeli z prijateljem:</b></h4>
 		<br>
-       </div>
+    
        <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-	 <div class="form-group">
-	 		<br>
-      <label for="usr">Vnesite e-mail</label>
-    </div>
-		<br><button   class="btn btn-success" type="submit"  name="share">Share</button>
+	
+		<br><button class="btn btn-success" type="submit"  name="share">Share</button>
 		</form>
        <br>
        <br>
        <br>
+         </div>
          </div>
        
          
@@ -173,14 +167,25 @@ for(int i=0;i<sestavine.size();i++){%>
 		<% 
 		if (request.getParameter("share")!=null){
 		%>
+		
+		<div id="div3" >
+		<div id="divEMAIL" >
+	<div id="wrapper1">
 			<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
 			 	<div class="form-group">
-			 		<br>
+			 <br>
+				<br>
 		      		<label for="usr">Vnesite e-mail</label>
 		      		<input type="text" class="form-control" id="usr" placeholder="Vnesite email" name="to"  >
 		    	</div>
-				<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>   
+				<br><button   class="btn btn-success" type="submit"  name="poslji">Poslji</button>  
+				<br>
+				<br>
 			</form>
+			</div>
+			</div>
+			</div>
+			
 		<% 
 		}
 		if(request.getParameter("poslji")!=null){
