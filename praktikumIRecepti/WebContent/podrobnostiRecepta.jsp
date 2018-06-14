@@ -62,12 +62,18 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <div id="div3" >
 <div id="wrapper1">
 <br/>
-<div id="gumb" >
-    <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-         <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger" id="pdfbutton" > <i class="fa fa-print"></i></button></div>      
+<div id="nekaj">
+    <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post" id="pdfbutton">
+         <button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger"  > <i class="fa fa-print"></i></button>   
        </form>
-</div>
 
+  <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post" id="pdfbutton">
+         <button style="font-size:20px" type="submit" name="posljiMail" class="btn btn-primary" > <i class="fa fa-envelope"></i></button>
+   
+             
+       </form >
+       </div>
+	
 <h1><%=recept.getNaziv() %></h1>
 <br/>
 <h4><%=recept.getKratekOpis() %></h4>
@@ -149,16 +155,17 @@ for(int i=0;i<sestavine.size();i++){%>
        }
 
       %>
-      <div id="div3" >
       
+<<<<<<< HEAD
 <div id="wrapper1">
       <div id="gumb" >
      <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
          <div class="inner"><button style="font-size:20px" type="submit" name="posljiMail" value="Mail" class="btn btn-primary" id="mailbutton"> <i class="fa fa-envelope"></i></button>
+=======
+
+     
+
    
-         </div>      
-       </form>
-	</div></div></div>
 	
 
 		<form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
