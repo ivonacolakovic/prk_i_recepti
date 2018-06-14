@@ -150,6 +150,7 @@ for(int i=0;i<sestavine.size();i++){%>
 
       %>
       <div id="div3" >
+      
 <div id="wrapper1">
       <div id="gumb" >
      <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
