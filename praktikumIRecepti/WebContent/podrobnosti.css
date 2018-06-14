@@ -3,6 +3,7 @@
 #gumb{
 
  float:right;
+ display: inline;
 
 }
 i { 
@@ -17,8 +18,9 @@ i {
 }
 .inner
 {
-    float:left;
-      margin-left: 2px;
+  
+      display: inline;
+     
     
 }
 #n {
@@ -31,7 +33,7 @@ margin-left: 40px;
 }
 
 #wrapper1 {
-  width: 85%;     /* specify a width! */
+  width: 70%;     /* specify a width! */
   margin: 0 auto; /* center */
 }
 #div1{

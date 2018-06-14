@@ -19,9 +19,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="podrobnosti.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
 <div id="example">
@@ -61,7 +64,7 @@ if(!request.getParameter("podrobnosti").equals(null)){
 <br/>
 <div id="gumb" >
     <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-         <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger"  > <i class="fa fa-file-pdf-o"></i></button></div>      
+         <div class="inner"><button style="font-size:20px"  type="submit" name="pdf" class="btn btn-danger" id="pdfbutton" > <i class="fa fa-print"></i></button></div>      
        </form>
 </div>
 
@@ -150,7 +153,8 @@ for(int i=0;i<sestavine.size();i++){%>
 <div id="wrapper1">
       <div id="gumb" >
      <form action="podrobnostiRecepta.jsp?podrobnosti=<%=id %>" method="post">
-         <div class="inner"><input  type="submit" name="posljiMail" value="Mail"/>
+         <div class="inner"><button style="font-size:20px" type="submit" name="posljiMail" class="btn btn-primary" id="mailbutton"> <i class="fa fa-envelope"></i></button>
+   
          </div>      
        </form>
 	</div></div></div>
