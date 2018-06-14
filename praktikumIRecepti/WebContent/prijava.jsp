@@ -59,9 +59,8 @@
 
 
 
- <div id="div5">
-<div id="wrapper7">
- 
+ <div id="div6">
+<div id="wrapper9">
     
 
 
@@ -92,6 +91,7 @@
         <form action="registracija.jsp">	
         	<button class="btn btn-success" type="submit" name="">Registracija</button>
         </form>
+        <br>
         </div>
        
   
